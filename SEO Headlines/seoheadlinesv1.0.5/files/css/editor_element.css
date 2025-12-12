@@ -1,0 +1,29 @@
+.seoheadlines h1, .seoheadlines h2, .seoheadlines h3, .seoheadlines h4, .seoheadlines h5, .seoheadlines h6{
+	text-align: @headlineAlignment;
+	padding: 10px;
+	margin: 5px 0;
+	background-color: transparent;
+	color: @headlineColor;
+}
+
+.seoheadlines.use-bg-color-1 h1, .seoheadlines.use-bg-color-1 h2, .seoheadlines.use-bg-color-1 h3,
+.seoheadlines.use-bg-color-1 h4, .seoheadlines.use-bg-color-1 h5, .seoheadlines.use-bg-color-1 h6{
+	background-color: @headlineBgColor;
+}
+
+.seoheadlines.use-font-family-1 h1, .seoheadlines.use-font-family-1 h2, .seoheadlines.use-font-family-1 h3,
+.seoheadlines.use-font-family-1 h4, .seoheadlines.use-font-family-1 h5, .seoheadlines.use-font-family-1 h6{
+	font-family: @fontFamily !important;
+}
+
+.seoheadlines h1 .paragraph, .seoheadlines h2 .paragraph, .seoheadlines h3 .paragraph, .seoheadlines h4 .paragraph,
+.seoheadlines h5 .paragraph, .seoheadlines h6 .paragraph {
+    margin: 0;
+    padding: 0;
+}
+
+.seoheadlines a{
+	text-decoration: none;
+	color: @headlineColor;
+	font-family: @fontFamily !important;
+}

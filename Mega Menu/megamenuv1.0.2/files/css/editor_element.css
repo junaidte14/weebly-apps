@@ -1,0 +1,18 @@
+.codo-mega-menu {
+  width: 100%;
+}
+
+.codo-mega-menu-style {
+  border: 2px solid @menuBorder;
+  /*background-color: @menuBgColor;*/
+  padding: 2em;
+  position: relative;
+}
+
+.codo-slide {
+  display: block;
+}
+
+#wsite-menus {
+  display: none;
+}

@@ -1,0 +1,174 @@
+/*! leafbox 1.00 | Daniel Abel - http://zkreations.com | Free to use under terms of MIT license */
+
+/*Para empezar, lbox necesita una posicion fija y ocupar todo su contenedor*/
+.lbox {
+    position: fixed;
+    display: block;
+    overflow: hidden;
+    background: rgba(0,0,0,0.8);
+    z-index: 9999;
+    -webkit-font-smoothing: antialiased;
+    visibility: hidden;
+}
+/*todas las transiciones (si tuviera más)*/
+.lbox.fade:target > img {
+    -webkit-transition: opacity 1s;
+       -moz-transition: opacity 1s;
+         -o-transition: opacity 1s;
+            transition: opacity 1s;
+}
+
+/*Para no repetir codigo, lo agrupamos aquí*/
+.lbox, .lbox > img, .lbox > div {top: 0;left: 0;right: 0;bottom: 0;}
+
+/*Al dar clic, el contenedor lbox que se encuentre "target" se mostrará*/
+.lbox {top: -100%;}
+.lbox:target {top: 0;visibility: hidden;}
+
+/*y creamos un boton para cerrarlo*/
+.lbox > a {
+    display: block;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 75px;
+    height: 75px;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0.7;
+}
+
+/*tanto los videos como las imágenes necesitan una posicion absoluta*/
+.lbox > img, .lbox > div {
+    position: absolute;
+    margin: auto;
+    box-shadow: 0 3px 3px -1px rgba(0, 0, 0, 0.3), 0 1px 0px 0px rgba(0, 0, 0, 0.05);
+}
+
+/*Perto solo las imágenes tienen un maximo en alto y ancho*/
+.lbox > img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+/*mientras que los videos tienen su propio ancho y alto*/
+.lbox > .vid {
+    max-width: 800px;
+    height: 450px;
+    width:100%;
+}
+
+/*y los textos tambien*/
+.lbox > .text {
+    max-width: 800px;
+    max-height: 90%;
+    top: 20%;
+    bottom: auto;
+    padding: 2em;
+    background: #fff;
+    color: #757575;
+    width:100%;
+}
+
+.lbox > .vid iframe, .lbox > .vid object, .lbox > .vid embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+/*Algunos estilos para videos según la resolución*/
+@media only screen and (max-width: 840px) {
+.lbox > .vid {height: 400px;}
+}
+@media only screen and (max-width: 730px) {
+.lbox > .vid {height: 350px;}
+}
+@media only screen and (max-width: 620px) {
+.cream-slider li.tab > div {display: none;}
+.lbox > .vid {height: 300px;}
+}
+
+/*custom widget styles*/
+
+.video-lightbox{
+    margin-bottom: 5px;
+}
+
+.video-type-youtube .vimeo-lightbox{
+    display: none;
+}
+
+.video-type-vimeo .youtube-lightbox{
+    display: none;
+}
+
+.youtube-auto-link-1 .youtube-manual-thumb{
+    display: none;
+}
+
+.youtube-auto-link- .youtube-auto-thumb{
+    display: none;
+}
+
+.video-lightbox img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.video-lightbox.text-align-left {
+    text-align: left;
+}
+
+.video-lightbox.text-align-right {
+    text-align: right;
+}
+
+.video-lightbox.text-align-center {
+    text-align: center;
+}
+
+.lightboxclose{
+    top: 25px;
+    left: 35%;
+    position: absolute;
+}
+
+.lightboxclose span, .lightboxclose:before, .lightboxclose:after {
+    position: relative;
+    display: block;
+    width: 22px;
+    height: 7px;
+    background: #ffffff;
+    z-index: 3;
+    -webkit-transition: all 300ms cubic-bezier(0, 0.085, 0.68, 0.53);
+    -moz-transition: all 300ms cubic-bezier(0, 0.085, 0.68, 0.53);
+    -o-transition: all 300ms cubic-bezier(0, 0.085, 0.68, 0.53);
+    -ms-transition: all 300ms cubic-bezier(0, 0.085, 0.68, 0.53);
+    transition: all 300ms cubic-bezier(0, 0.085, 0.68, 0.53);
+}
+
+.lightboxclose:before {
+    top: 7px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.lightboxclose:after {
+    top: -7px;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.lightboxclose span {
+    opacity: 0;
+}
+
+.lightboxclose:before, .lightboxclose:after {
+    content: '';
+}

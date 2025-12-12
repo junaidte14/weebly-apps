@@ -1,0 +1,113 @@
+/*Credits: https://www.w3schools.com/howto/howto_css_image_overlay.asp*/
+
+.codo_imgoverlay_container{
+	width: 100%;
+    position: relative;
+}
+
+.codo_imgoverlay_image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.codo_imgoverlay_image img{
+    width: 100% !important;
+}
+
+.codo-imgoverlay-SlideInTop .codo_imgoverlay_overlay {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  background-color: @overlayBgColor;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: .5s ease;
+}
+
+.codo_imgoverlay_container.codo-imgoverlay-SlideInTop:hover .codo_imgoverlay_overlay {
+  bottom: 0;
+  height: 100%;
+  min-height: @overlayHeight;
+}
+
+.codo-imgoverlay-SlideInBottom .codo_imgoverlay_overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: @overlayBgColor;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: .5s ease;
+}
+
+.codo_imgoverlay_container.codo-imgoverlay-SlideInBottom:hover .codo_imgoverlay_overlay {
+  height: 100%;
+  min-height: @overlayHeight;
+}
+
+.codo-imgoverlay-SlideInLeft .codo_imgoverlay_overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: @overlayBgColor;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  transition: .5s ease;
+}
+
+.codo_imgoverlay_container.codo-imgoverlay-SlideInLeft:hover .codo_imgoverlay_overlay {
+  width: 100%;
+  min-height: @overlayHeight;
+}
+
+.codo-imgoverlay-SlideInRight .codo_imgoverlay_overlay {
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  right: 0;
+  background-color: @overlayBgColor;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  transition: .5s ease;
+}
+
+.codo_imgoverlay_container.codo-imgoverlay-SlideInRight:hover .codo_imgoverlay_overlay {
+  width: 100%;
+  left: 0;
+  min-height: @overlayHeight;
+}
+
+.codo-imgoverlay-FadeInText .codo_imgoverlay_overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: @overlayBgColor;
+}
+
+.codo_imgoverlay_container.codo-imgoverlay-FadeInText:hover .codo_imgoverlay_overlay {
+  opacity: 1;
+  min-height: @overlayHeight;
+}
+
+.codo_imgoverlay_text {
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}

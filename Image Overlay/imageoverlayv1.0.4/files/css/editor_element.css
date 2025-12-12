@@ -1,0 +1,53 @@
+/*Credits: https://www.w3schools.com/howto/howto_css_image_overlay.asp*/
+
+.codo_imgoverlay_container{
+    width: 100%;
+    position: relative;
+}
+
+.codo_imgoverlay_image {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  height: auto;
+}
+
+.codo-img-full-1 .codo_imgoverlay_image img{
+    width: 100% !important;
+}
+
+.codo_imgoverlay_overlay {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    /*min-height: 200px;*/
+}
+
+.codo_imgoverlay_container:hover .codo_imgoverlay_overlay {
+  
+}
+
+.codo_imgoverlay_text {
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+}
+
+.img-over-img-1 .codo_imgoverlay_text {
+  top: 0;
+  left: 0;
+  transform: none;
+  -ms-transform: none;
+}
+
+.codo_imgoverlay_overlay {
+  background-color: @overlayBgColor;
+}
+
+.img-over-img-1 .codo_imgoverlay_overlay {
+  background-color: transparent;
+}

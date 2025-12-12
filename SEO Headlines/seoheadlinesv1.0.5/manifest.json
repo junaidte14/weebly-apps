@@ -1,0 +1,181 @@
+{
+  "manifest": "1",
+  "version": "1.0.4",
+  "client_id": "853528299",
+  "callback_url": "https://codoplex.com/wpwa_phase_one/?pr_id=1542", 
+  "oauth_final_destination": "editor",
+  "scopes": ["read:site", "write:site"],
+  "locale": "",
+  "elements": [
+    {
+      "name": "SEO Headlines",
+      "path": "files",
+      "version": "1.0.4",
+      "settings": {
+        "config": {
+          "autopop": true
+        },
+        "properties": [
+          {
+            "name": "general-settings",
+            "label": "General Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "useBgColor",
+                "label": "Use Background Color?",
+                "type": "toggle",
+                "default": true,
+                "tooltip": "True means defined background color will be used, false means no background color"
+              },
+              {
+                "name": "useFontFamily",
+                "label": "Use Custom Font Family?",
+                "type": "toggle",
+                "default": false,
+                "tooltip": "Choose whether to use custom defined font family or default font family"
+              },
+              {
+                "name": "useFontSize",
+                "label": "Use Custom Font Size?",
+                "type": "toggle",
+                "default": false,
+                "tooltip": "Choose whether to use custom defined font size or default font size"
+              },
+              {
+                "name": "useLink",
+                "label": "Link Headline Text?",
+                "type": "toggle",
+                "default": false,
+                "tooltip": "Choose whether to link headline text to URL"
+              }
+            ]
+          },
+          {
+            "name": "advanced-settings",
+            "label": "Advanced Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "selectHeadline",
+                "label": "Select Headline",
+                "type": "select",
+                "values" : [
+                    "h1",
+                    "h2",
+                    "h3",
+                    "h4",
+                    "h5",
+                    "h6"
+                  ],
+                "default": "h2",
+                "tooltip": "Select the headline type from H1 to H6"
+              },
+              {
+                "name": "headingText",
+                "label": "Heading Text",
+                "type": "string",
+                "default": "Sample Heading Text",
+                "min": 1,
+                "tooltip": "Add Heading Text Here"
+              },
+              {
+                "name": "linkURL",
+                "label": "Define URL (with http:// or https://)",
+                "type": "string",
+                "default": "#",
+                "min": 1,
+                "tooltip": "Define URL, provided that Link Headline Text? is true in general settings"
+              },
+              {
+                "name": "headlineAlignment",
+                "label": "Text Alignment",
+                "type": "align",
+                "default": "left",
+                "tooltip": "Select text alignment" 
+              },
+              {
+                "name": "fontFamily",
+                "label": "Font Family",
+                "type": "string",
+                "default": "",
+                "tooltip": "Define font family, provided that Use Font Family is true in general settings"
+              },
+              {
+                "name": "customFontSize",
+                "label": "Font Size",
+                "type": "int",
+                "default": 14,
+                "step": 1,
+                "min": 1,
+                "tooltip": "Define font size, provided that Use Font Size is true in general settings"
+              },
+              
+              {
+                "name": "headlineColor",
+                "label": "Text Color",
+                "type": "color",
+                "default": "#000",
+                "tooltip": "Select the headline text color"
+              },
+              {
+                "name": "headlineBgColor",
+                "label": "BG Color",
+                "type": "color",
+                "default": "#fff",
+                "tooltip": "Select the headline background color, provided that Use Background Color is true in general settings"
+              },
+              {
+                "name": "borderThickness",
+                "label": "Border Thickness",
+                "type": "int",
+                "default": 0,
+                "step": 1,
+                "min": 0,
+                "tooltip": "Select the headline border thickness"
+              },
+              {
+                "name": "borderStyle",
+                "label": "Border Style",
+                "type": "select",
+                "values": [
+                  "solid",
+                  "dashed",
+                  "dotted",
+                  "double",
+                  "groove",
+                  "inset",
+                  "outset",
+                  "hidden",
+                  "none",
+                  "ridge"
+                ],
+                "default": "none",
+                "tooltip": "Select the headline border style"
+              },
+              {
+                "name": "borderColor",
+                "label": "Border Color",
+                "type": "color",
+                "default": "#fff",
+                "tooltip": "Select the headline border color"
+              },
+              {
+                "name": "borderRadius",
+                "label": "Border Radius",
+                "type": "int",
+                "default": 0,
+                "step": 1,
+                "min": 0,
+                "tooltip": "Select the border radius used for rounded corners"
+              }
+
+            ]
+          }
+          
+        ]
+
+      }
+    }
+  ]
+}

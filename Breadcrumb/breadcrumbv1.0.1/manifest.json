@@ -1,0 +1,65 @@
+{
+  "manifest": "1",
+  "version": "1.0.0", 
+  "client_id": "1626544874",
+  "callback_url": "https://codoplex.com/wpwa_phase_one/?pr_id=4660",
+  "oauth_final_destination": "editor",
+  "scopes": ["read:site", "write:site"],
+  "locale": "",
+  "elements": [
+    {
+      "name": "Breadcrumb",
+      "path": "files",
+      "version": "1.0.0",
+      "settings": {
+        "config": {
+          "autopop": true
+        },
+        "properties": [
+          {
+            "name": "tm-general-settings",
+            "label": "General Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "blogURL",
+                "label": "Blog Page URL",
+                "type": "string",
+                "default": "#",
+                "max": 200,
+                "min": 1,
+                "tooltip": "Add your blog page url here"
+              },
+              {
+                "name": "bcSeparator",
+                "label": "Separator",
+                "type": "string",
+                "default": "/",
+                "max": 200,
+                "min": 1,
+                "tooltip": "Define a symbol which will separate breadcrumb parts e.g '/', '-' etc"
+              },
+              {
+                "name": "fontColor",
+                "label": "Color",
+                "type": "color",
+                "default": "#000000",
+                "tooltip": "Define font color of Breadcrumbs"
+              },
+              {
+                "name": "bcAlignment",
+                "label": "Text Alignment",
+                "type": "align",
+                "default": "left",
+                "tooltip": "Select text alignment" 
+              }
+
+            ]
+          }
+          
+        ]
+
+      }
+    }
+  ]
+}

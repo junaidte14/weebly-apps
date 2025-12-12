@@ -1,0 +1,8 @@
+.coloredlines .color_divider_line span {
+	display: inline-block;
+	position: relative;
+}
+
+.coloredlines .color_divider_line {
+	position: relative;
+}

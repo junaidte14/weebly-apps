@@ -1,0 +1,185 @@
+.pinterest-style-items .ps-item {
+	display: inline-block;
+	margin: 0 2px 0;
+	-webkit-column-break-inside: avoid;
+	-moz-column-break-inside: avoid;
+	column-break-inside: avoid;
+	opacity: 1;
+	-webkit-transition: all .2s ease;
+	-moz-transition: all .2s ease;
+	-o-transition: all .2s ease;
+	transition: all .2s ease;
+	background-color: @columnBgColor;
+    box-shadow: 0 1px 2px @columnShadowColor;
+    border: 2px solid @columnBorderColor;
+    margin-bottom: 15px;
+    width: 97.5%;
+}
+
+.pinterest-style-items .ps-item .item-content{
+	padding: 10px;
+}
+
+.ps-columns-1 .pinterest-style-items{
+	-webkit-column-count: 1;
+	-webkit-column-gap: 15px;
+	-webkit-column-fill: balance;
+	-moz-column-count: 1;
+	-moz-column-gap: 15px;
+	-moz-column-fill: balance;
+	column-count: 1;
+	column-gap: 15px;
+	column-fill: balance;
+}
+
+.ps-columns-2 .pinterest-style-items{
+	-webkit-column-count: 2;
+	-webkit-column-gap: 15px;
+	-webkit-column-fill: balance;
+	-moz-column-count: 2;
+	-moz-column-gap: 15px;
+	-moz-column-fill: balance;
+	column-count: 2;
+	column-gap: 15px;
+	column-fill: balance;
+}
+
+.ps-columns-3 .pinterest-style-items{
+	-webkit-column-count: 3;
+	-webkit-column-gap: 15px;
+	-webkit-column-fill: balance;
+	-moz-column-count: 3;
+	-moz-column-gap: 15px;
+	-moz-column-fill: balance;
+	column-count: 3;
+	column-gap: 15px;
+	column-fill: balance;
+}
+
+.ps-items-1 .pinterest-style-items .ps-item, .ps-items-2 .pinterest-style-items .ps-item, .ps-items-3 .pinterest-style-items .ps-item {
+	display: block;
+	float: left;
+	margin: 0 2px 15px;
+	-webkit-column-break-inside: avoid;
+	-moz-column-break-inside: avoid;
+	column-break-inside: avoid;
+    margin-bottom: 15px;
+    margin-right: 1.62%;
+    margin-left: 1.62%;
+}
+
+.ps-columns-3.ps-items-1 .pinterest-style-items, .ps-columns-3.ps-items-2 .pinterest-style-items, .ps-columns-3.ps-items-3 .pinterest-style-items{
+	-webkit-column-count: auto;
+	-moz-column-count: auto;
+	column-count: auto;
+}
+
+.ps-columns-2.ps-items-2 .pinterest-style-items, .ps-columns-2.ps-items-3 .pinterest-style-items, .ps-columns-2.ps-items-1 .pinterest-style-items{
+	-webkit-column-count: auto;
+	-moz-column-count: auto;
+	column-count: auto;
+}
+
+.ps-columns-1.ps-items-3 .pinterest-style-items, .ps-columns-1.ps-items-2 .pinterest-style-items, .ps-columns-1.ps-items-1 .pinterest-style-items{
+	-webkit-column-count: auto;
+	-moz-column-count: auto;
+	column-count: auto;
+}
+
+.ps-columns-3.ps-items-1 .pinterest-style-items .ps-item, .ps-columns-3.ps-items-2 .pinterest-style-items .ps-item, .ps-columns-3.ps-items-3 .pinterest-style-items .ps-item {
+	width: 29.6%;
+}
+
+.ps-columns-2.ps-items-1 .pinterest-style-items .ps-item, .ps-columns-2.ps-items-2 .pinterest-style-items .ps-item, .ps-columns-2.ps-items-3 .pinterest-style-items .ps-item {
+	width: 46.3%;
+}
+
+.ps-columns-1.ps-items-1 .pinterest-style-items .ps-item, .ps-columns-1.ps-items-2 .pinterest-style-items .ps-item, .ps-columns-1.ps-items-3 .pinterest-style-items .ps-item {
+	width: 96.2%;
+}
+
+.ps-item h2 .paragraph{
+	margin: 0;
+}
+
+.ps-item .wsite-text {
+    word-break: break-word;
+}
+
+@media(max-width: 992px){
+	.ps-items-1 .pinterest-style-items .ps-item, .ps-items-2 .pinterest-style-items .ps-item, .ps-items-3 .pinterest-style-items .ps-item {
+		display: block;
+		float: left;
+		margin: 0 2px 15px;
+		-webkit-column-break-inside: avoid;
+		-moz-column-break-inside: avoid;
+		column-break-inside: avoid;
+	    margin-bottom: 15px;
+	    margin-right: 1.55%;
+	    margin-left: 1.55%;
+	}
+
+	.ps-columns-3.ps-items-1 .pinterest-style-items, .ps-columns-3.ps-items-2 .pinterest-style-items, .ps-columns-3.ps-items-3 .pinterest-style-items{
+		-webkit-column-count: auto;
+		-moz-column-count: auto;
+		column-count: auto;
+	}
+
+	.ps-columns-2.ps-items-2 .pinterest-style-items, .ps-columns-2.ps-items-3 .pinterest-style-items, .ps-columns-2.ps-items-1 .pinterest-style-items{
+		-webkit-column-count: auto;
+		-moz-column-count: auto;
+		column-count: auto;
+	}
+
+	.ps-columns-1.ps-items-3 .pinterest-style-items, .ps-columns-1.ps-items-2 .pinterest-style-items, .ps-columns-1.ps-items-1 .pinterest-style-items{
+		-webkit-column-count: auto;
+		-moz-column-count: auto;
+		column-count: auto;
+	}
+
+	.ps-columns-3.ps-items-1 .pinterest-style-items .ps-item, .ps-columns-3.ps-items-2 .pinterest-style-items .ps-item, .ps-columns-3.ps-items-3 .pinterest-style-items .ps-item {
+		width: 29.6%;
+	}
+
+	.ps-columns-2.ps-items-1 .pinterest-style-items .ps-item, .ps-columns-2.ps-items-2 .pinterest-style-items .ps-item, .ps-columns-2.ps-items-3 .pinterest-style-items .ps-item {
+		width: 46.3%;
+	}
+
+	.ps-columns-1.ps-items-1 .pinterest-style-items .ps-item, .ps-columns-1.ps-items-2 .pinterest-style-items .ps-item, .ps-columns-1.ps-items-3 .pinterest-style-items .ps-item {
+		width: 96.2%;
+	}
+}
+
+@media(max-width: 767px){
+	.ps-columns-2 .pinterest-style-items{
+		-webkit-column-count: 1;
+		-webkit-column-gap: 15px;
+		-webkit-column-fill: balance;
+		-moz-column-count: 1;
+		-moz-column-gap: 15px;
+		-moz-column-fill: balance;
+		column-count: 1;
+		column-gap: 15px;
+		column-fill: balance;
+	}
+
+	.ps-columns-3 .pinterest-style-items{
+		-webkit-column-count: 1;
+		-webkit-column-gap: 15px;
+		-webkit-column-fill: balance;
+		-moz-column-count: 1;
+		-moz-column-gap: 15px;
+		-moz-column-fill: balance;
+		column-count: 1;
+		column-gap: 15px;
+		column-fill: balance;
+	}
+
+	.ps-columns-3.ps-items-1 .pinterest-style-items .ps-item, .ps-columns-3.ps-items-2 .pinterest-style-items .ps-item, .ps-columns-3.ps-items-3 .pinterest-style-items .ps-item {
+		width: 95.9%;
+	}
+
+	.ps-columns-2.ps-items-1 .pinterest-style-items .ps-item, .ps-columns-2.ps-items-2 .pinterest-style-items .ps-item, .ps-columns-2.ps-items-3 .pinterest-style-items .ps-item {
+		width: 95.9%;
+	}	
+}

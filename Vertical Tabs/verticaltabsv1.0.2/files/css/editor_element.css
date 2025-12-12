@@ -1,0 +1,77 @@
+.codo_vtabs_container{
+	min-height: 200px;
+	width: 100%;
+}
+
+/*Credits: https://www.w3schools.com/howto/howto_js_vertical_tabs.asp*/
+
+/* Style the tab */
+.codo_vtabs {
+    float: left;
+    border: 1px solid @tabBorderColor;
+    background-color: @tabBgColor;
+    width: 30%;
+    min-height: 300px;
+    padding: 6px 0;
+    border-right: none;
+}
+
+/* Style the buttons inside the tab */
+.codo_vtabs button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    display: block;
+    width: 100%;
+}
+
+/* Change background color of buttons on hover */
+.codo_vtabs button:hover {
+    background-color: @tabHoverBgColor;
+}
+
+/* Create an active/current tablink class */
+.codo_vtabs button.active {
+    background-color: @tabActiveBgColor;
+}
+
+.codo_vtabs br {
+    display: none;
+}
+
+/* Style the tab content */
+.codo_vtabcontent {
+    padding: 6px 1.5%;
+    border: 1px solid @tabContentBorderColor;
+    float: right;
+    width: 65.86%;
+    min-height: 300px;
+}
+
+.codo_vtabcontent .paragraph{
+    color: @tabContentTextColor !important;
+}
+
+.codo_vtabs .vtablinks .paragraph{
+    color: @tabTextColor !important;
+    margin-bottom: 0;
+}
+
+.codo_vtabs_container.text-align-center .codo_vtabcontent .paragraph,
+.codo_vtabs_container.text-align-center .codo_vtabs .vtablinks .paragraph{
+	text-align: center;
+}
+
+.codo_vtabs_container.text-align-left .codo_vtabcontent .paragraph,
+.codo_vtabs_container.text-align-left .codo_vtabs .vtablinks .paragraph{
+	text-align: left;
+}
+
+.codo_vtabs_container.text-align-right .codo_vtabcontent .paragraph,
+.codo_vtabs_container.text-align-right .codo_vtabs .vtablinks .paragraph{
+	text-align: right;
+}

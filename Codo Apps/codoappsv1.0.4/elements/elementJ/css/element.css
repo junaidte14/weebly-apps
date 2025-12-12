@@ -1,0 +1,24 @@
+/*Credits: https://www.w3schools.com/howto/howto_css_image_transparent.asp*/
+
+.codo_imgtt_container{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.codo_imgtt_container.codo_imgtt_pos_bottom .codo_imgtt_overlay, 
+.codo_imgtt_container.codo_imgtt_pos_top .codo_imgtt_overlay {
+    position: absolute; /* Position the background text */
+    background: @overlayBgColor; /* Black background with 0.5 opacity */
+    width: 96%; /* Full width */
+    opacity: @overlayOpacity;
+    padding: 2%; /* Some padding */
+}
+
+.codo_imgtt_container.codo_imgtt_pos_bottom .codo_imgtt_overlay {
+    bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+}
+
+.codo_imgtt_container.codo_imgtt_pos_top .codo_imgtt_overlay {
+    top: 0; /* At the bottom. Use top:0 to append it to the top */
+}

@@ -1,0 +1,69 @@
+.codo_tabs_container{
+	width: 100%;
+}
+
+/*Credits: https://www.w3schools.com/howto/howto_js_tabs.asp*/
+
+/* Style the tab */
+.codo_tabs {
+    overflow: hidden;
+    border: 1px solid @tabBorderColor;
+    background-color: @tabBgColor;
+}
+
+/* Style the buttons inside the tab */
+.codo_tabs button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.codo_tabs button:hover {
+    background-color: @tabHoverBgColor;
+}
+
+/* Create an active/current tablink class */
+.codo_tabs button.active {
+    background-color: @tabActiveBgColor;
+}
+
+.codo_tabs br {
+    display: none;
+}
+
+/* Style the tab content */
+.codo_tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid @tabContentBorderColor;
+    border-top: none;
+}
+
+.codo_tabcontent .paragraph{
+    color: @tabContentTextColor !important;
+}
+
+.codo_tabs .tablinks .paragraph{
+    color: @tabTextColor !important;
+    margin-bottom: 0;
+}
+
+.codo_tabs_container.text-align-center .codo_tabcontent .paragraph,
+.codo_tabs_container.text-align-center .codo_tabs .tablinks .paragraph{
+	text-align: center;
+}
+
+.codo_tabs_container.text-align-left .codo_tabcontent .paragraph,
+.codo_tabs_container.text-align-left .codo_tabs .tablinks .paragraph{
+	text-align: left;
+}
+
+.codo_tabs_container.text-align-right .codo_tabcontent .paragraph,
+.codo_tabs_container.text-align-right .codo_tabs .tablinks .paragraph{
+	text-align: right;
+}

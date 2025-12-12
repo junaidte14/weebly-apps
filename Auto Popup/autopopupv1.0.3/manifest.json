@@ -1,0 +1,175 @@
+{
+  "manifest": "1",
+  "version": "1.0.2",
+  "client_id": "1123832901",
+  "callback_url": "https://codoplex.com/wpwa_phase_one/?pr_id=4887",
+  "oauth_final_destination": "editor",
+  "scopes": ["read:site", "write:site"],
+  "locale": "",
+  "elements": [
+    {
+      "name": "Auto Popup",
+      "path": "files",
+      "version": "1.0.2",
+      "settings": {
+        "config": {
+          "autopop": true
+        },
+        "properties": [
+          {
+            "name": "general-settings",
+            "label": "General Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "waitDuration",
+                "label": "Wait Duration (seconds)",
+                "type": "int",
+                "default": 0,
+                "step": 1,
+                "min": 0,
+                "tooltip": "Define the wait duration (in seconds) after which the popup will be displayed automatically."
+              },
+              {
+                "name": "popUpTrigger",
+                "label": "Display popup at every page visit?",
+                "type": "toggle",
+                "default": true,
+                "tooltip": "If enabled, popup will be displayed automatically at every page visit."
+              },
+              {
+                "name": "durationInMinutes",
+                "label": "Repeat Duration (minutes)",
+                "type": "int",
+                "default": 1,
+                "step": 1,
+                "min": 1,
+                "tooltip": "Display popup only once in defined duration (minutes)."
+              },
+              {
+                "name": "popUpAutoClose",
+                "label": "Auto close popup?",
+                "type": "toggle",
+                "default": false,
+                "tooltip": "If enabled, popup will be closed automatically after the defined duration (in seconds)."
+              },
+              {
+                "name": "closeDuration",
+                "label": "Auto Close Duration (seconds)",
+                "type": "int",
+                "default": 15,
+                "step": 1,
+                "min": 0,
+                "tooltip": "Define the duration (in seconds) after which the popup will be closed automatically."
+              }
+
+            ]
+          },
+          {
+            "name": "design-settings",
+            "label": "Popup Design Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "popupBgOpacity",
+                "label": "Popup Background Opacity",
+                "type": "select",
+                "values": [
+                    "0.1",
+                    "0.2",
+                    "0.3",
+                    "0.4",
+                    "0.5",
+                    "0.6",
+                    "0.7",
+                    "0.8",
+                    "0.9",
+                    "1.0"
+                ],
+                "default": "0.4",
+                "tooltip": "Define the popup background opacity."
+              },
+              {
+                "name": "popupContentBgColor",
+                "label": "Content Background Color",
+                "type": "color",
+                "default": "#fefefe",
+                "tooltip": "Define the popup content background color."
+              },
+              {
+                "name": "popupContentBorderColor",
+                "label": "Content Border Color",
+                "type": "color",
+                "default": "#888",
+                "tooltip": "Define the popup content border color."
+              },
+              {
+                "name": "popupContentWidth",
+                "label": "Content Width (%)",
+                "type": "int",
+                "default": 80,
+                "step": 1,
+                "min": 0,
+                "max": 100,
+                "tooltip": "Define the width of popup content area in percentage."
+              },
+              {
+                "name": "popupContentMargin",
+                "label": "Content Top Margin (%)",
+                "type": "int",
+                "default": 15,
+                "step": 1,
+                "min": 0,
+                "tooltip": "Define the top margin of popup content area in percentage."
+              }
+
+            ]
+          },
+          {
+            "name": "btn-settings",
+            "label": "Cloase Button Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "btnBgColor",
+                "label": "Button Background Color",
+                "type": "color",
+                "default": "#333",
+                "tooltip": "Define the background color of close button."
+              },
+              {
+                "name": "btnPadding",
+                "label": "Button Padding (px)",
+                "type": "int",
+                "default": 5,
+                "step": 1,
+                "min": 0,
+                "tooltip": "Define the padding of close button."
+              },
+              {
+                "name": "btnBorderRadius",
+                "label": "Button Border Radius (px)",
+                "type": "int",
+                "default": 5,
+                "step": 1,
+                "min": 0,
+                "tooltip": "Define the border radius of close button."
+              }
+
+            ]
+          }
+          
+        ]
+
+      },
+
+      "tutorial":
+        {
+            "introduction": "Auto Popup Weebly App Tutorial",
+            "type": "video",
+            "content": "jJIdi7TGFNE",
+            "autopop": true
+        }
+    }
+  ]
+}

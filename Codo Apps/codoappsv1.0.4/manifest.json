@@ -1,0 +1,906 @@
+{
+  "manifest": "1",
+  "version": "1.0.3",
+  "client_id": "364327965",
+  "callback_url": "https://codoplex.com/wpwa_phase_one/?pr_id=1561",
+  "locale": "en-us",
+  "elements": [
+    {
+      "name": "Colored Lines",
+      "path": "elements/elementA",
+      "version": "1.0.3",
+      "settings": {
+        "config": {
+          "autopop": true
+        },
+        "properties": [
+          {
+            "name": "general-settings",
+            "label": "General Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "lineWidth",
+                "label": "Line Width (%)",
+                "type": "int",
+                "default": 100,
+                "step": 1,
+                "min": 1,
+                "tooltip": "Define line divider width in percentage e.g 50%"
+              },
+              {
+                "name": "lineHeight",
+                "label": "Line Height (px)",
+                "type": "int",
+                "default": 1,
+                "step": 1,
+                "min": 1,
+                "tooltip": "Define line divider height (px)"
+              },
+              {
+                "name": "lineColor",
+                "label": "Line Color",
+                "type": "color",
+                "default": "#000",
+                "tooltip": "Select the line divider color"
+              }
+            ]
+          },
+          {
+            "name": "advanced-settings",
+            "label": "Advanced Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "lineAlignment",
+                "label": "Line Alignment",
+                "type": "align",
+                "default": "left",
+                "tooltip": "Select line divider alignment" 
+              },
+              {
+                "name": "topMargin",
+                "label": "Top Margin",
+                "type": "int",
+                "default": 5,
+                "step": 1,
+                "min": 0,
+                "tooltip": "Define top margin (px)"
+              },
+              {
+                "name": "bottomMargin",
+                "label": "Bottom Margin",
+                "type": "int",
+                "default": 5,
+                "step": 1,
+                "min": 0,
+                "tooltip": "Define bottom margin (px)"
+              }
+
+            ]
+          }
+          
+        ]
+
+      }
+    },
+    {
+      "name": "Multi Column Blog",
+      "path": "elements/elementB",
+      "version": "1.0.3",
+      "settings": {
+        "config": {
+          "autopop": true
+        },
+        "properties": [
+          {
+            "name": "settings",
+            "label": "Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "blogcolumns",
+                "label": "Blog Post Columns",
+                "type": "select",
+                "values" : [
+                    "1",
+                    "2",
+                    "3"
+                  ],
+                "default": "1",
+                "tooltip": "Select the number of blog post columns"
+              },
+              {
+                "name" : "expand-posts-area",
+                "label": "Expand Posts Area",
+                "type" : "toggle",
+                "default" : false,
+                "tooltip": "Recommended for 3 columns layout"
+              },
+              {
+                "name": "postStyle",
+                "label": "Blog Post Style",
+                "type": "select",
+                "values" : [
+                    "simple",
+                    "card"
+                  ],
+                "default": "simple",
+                "tooltip": "Select the blog post style"
+              },
+              {
+                "name": "cardGap",
+                "label": "Card Gap",
+                "type": "int",
+                "default": 10,
+                "step": 1,
+                "min": 0,
+                "tooltip": "Define gap/space between cards"
+              },
+              {
+                "name" : "custom-card-colors",
+                "label": "Use Custom Card Colors",
+                "type" : "toggle",
+                "default" : false,
+                "tooltip": "Select whether to use custom card colors defined below or to use default colors"
+              },
+              {
+                "name": "cardBgColor",
+                "label": "Post Card BG Color",
+                "type": "color",
+                "default": "#FEFEFE",
+                "tooltip": "Select the card bg color,if Custom Card Colors is true"
+              },
+              {
+                "name": "cardShadowColor",
+                "label": "Post Card Shadow Color",
+                "type": "color",
+                "default": "#221919",
+                "tooltip": "Select the card shadow color,if Custom Card Colors is true"
+              },
+              {
+                "name": "cardBorderColor",
+                "label": "Post Card Border Color",
+                "type": "color",
+                "default": "#FAFAFA",
+                "tooltip": "Select the card border color,if Custom Card Colors is true"
+              }
+              
+            ]
+          }
+          
+        ]
+
+      },
+      "tutorial": {
+        "introduction": "With Multi Column Blog app, you can convert your blog posts to multi column layout",
+        "type": "steps",
+        "content": [
+          "Select the number of columns for blog posts: For example if you select 3 then your blog posts will be shown in 3 columns.",
+          "Select whether to expand the posts area or not: True means that blog sidebar will appear under the blog posts.",
+          "Select the style of blog posts: If you select 'simple' then blog posts will look as your theme design but if you select 'card' then your blog posts will look like cards with background color and shadow.",
+          "Use Custom Card Colors: If true/enabled, it means that your defined card background color and card shadow color will be used. If false/disabled then default colors will be used."
+        ],
+        "autopop": true
+      }
+    },
+    {
+      "name": "Masonry Layout",
+      "path": "elements/elementC",
+      "version": "1.0.3",
+      "settings": {
+        "config": {
+          "autopop": true
+        },
+        "properties": [
+          {
+            "name": "gsettings",
+            "label": "General Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "numberOfItems",
+                "label": "Number Of Cards",
+                "type": "int",
+                "default": 6,
+                "step": 1,
+                "min": 1,
+                "tooltip": "Select the number of cards"
+              },
+              {
+                "name": "numberOfColumns",
+                "label": "Number Of Columns",
+                "type": "select",
+                "values" : [
+                    "1",
+                    "2",
+                    "3"
+                  ],
+                "default": "3",
+                "tooltip": "Select the number of columns"
+              }
+              
+            ]
+          },
+          {
+            "name": "csettings",
+            "label": "Card Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "columnBgColor",
+                "label": "Card BG Color",
+                "type": "color",
+                "default": "#FEFEFE",
+                "tooltip": "Select the card bg color"
+              },
+              {
+                "name": "columnShadowColor",
+                "label": "Card Shadow Color",
+                "type": "color",
+                "default": "#221919",
+                "tooltip": "Select card shadow color"
+              },
+              {
+                "name": "columnBorderColor",
+                "label": "Card Border Color",
+                "type": "color",
+                "default": "#FAFAFA",
+                "tooltip": "Select the card border color"
+              },
+              {
+                "name": "cardBorderRadius",
+                "label": "Border Radius",
+                "type": "int",
+                "default": 5,
+                "step": 1,
+                "min": 0,
+                "tooltip": "Define border radius for each card"
+              }
+              
+            ]
+          }
+          
+        ]
+
+      }
+    },
+    {
+      "name": "SEO Headlines",
+      "path": "elements/elementD",
+      "version": "1.0.3",
+      "settings": {
+        "config": {
+          "autopop": true
+        },
+        "properties": [
+          {
+            "name": "general-settings",
+            "label": "General Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "useBgColor",
+                "label": "Use Background Color?",
+                "type": "toggle",
+                "default": true,
+                "tooltip": "True means defined background color will be used, false means no background color"
+              },
+              {
+                "name": "useFontFamily",
+                "label": "Use Custom Font Family?",
+                "type": "toggle",
+                "default": false,
+                "tooltip": "Choose whether to use custom defined font family or default font family"
+              },
+              {
+                "name": "useFontSize",
+                "label": "Use Custom Font Size?",
+                "type": "toggle",
+                "default": false,
+                "tooltip": "Choose whether to use custom defined font size or default font size"
+              }
+            ]
+          },
+          {
+            "name": "advanced-settings",
+            "label": "Advanced Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "selectHeadline",
+                "label": "Select Headline",
+                "type": "select",
+                "values" : [
+                    "h1",
+                    "h2",
+                    "h3",
+                    "h4",
+                    "h5",
+                    "h6"
+                  ],
+                "default": "h2",
+                "tooltip": "Select the headline type from H1 to H6"
+              },
+              {
+                "name": "headingText",
+                "label": "Heading Text",
+                "type": "string",
+                "default": "Sample Heading Text",
+                "min": 1,
+                "tooltip": "Add Heading Text Here"
+              },
+              {
+                "name": "headlineAlignment",
+                "label": "Text Alignment",
+                "type": "align",
+                "default": "left",
+                "tooltip": "Select text alignment" 
+              },
+              {
+                "name": "fontFamily",
+                "label": "Font Family",
+                "type": "string",
+                "default": "",
+                "tooltip": "Define font family, provided that Use Font Family is true in general settings"
+              },
+              {
+                "name": "customFontSize",
+                "label": "Font Size",
+                "type": "int",
+                "default": 14,
+                "step": 1,
+                "min": 1,
+                "tooltip": "Define font size, provided that Use Font Size is true in general settings"
+              },
+              {
+                "name": "headlineColor",
+                "label": "Text Color",
+                "type": "color",
+                "default": "#000",
+                "tooltip": "Select the headline text color"
+              },
+              {
+                "name": "headlineBgColor",
+                "label": "BG Color",
+                "type": "color",
+                "default": "#fff",
+                "tooltip": "Select the headline background color, provided that Use Background Color is true in general settings"
+              },
+              {
+                "name": "borderThickness",
+                "label": "Border Thickness",
+                "type": "int",
+                "default": 0,
+                "step": 1,
+                "min": 0,
+                "tooltip": "Select the headline border thickness"
+              },
+              {
+                "name": "borderStyle",
+                "label": "Border Style",
+                "type": "select",
+                "values": [
+                  "solid",
+                  "dashed",
+                  "dotted",
+                  "double",
+                  "groove",
+                  "inset",
+                  "outset",
+                  "hidden",
+                  "none",
+                  "ridge"
+                ],
+                "default": "none",
+                "tooltip": "Select the headline border style"
+              },
+              {
+                "name": "borderColor",
+                "label": "Border Color",
+                "type": "color",
+                "default": "#fff",
+                "tooltip": "Select the headline border color"
+              },
+              {
+                "name": "borderRadius",
+                "label": "Border Radius",
+                "type": "int",
+                "default": 0,
+                "step": 1,
+                "min": 0,
+                "tooltip": "Select the border radius used for rounded corners"
+              }
+
+            ]
+          }
+          
+        ]
+
+      }
+    },
+    {
+      "name": "Video Lightbox",
+      "path": "elements/elementE",
+      "version": "1.0.3",
+      "settings": {
+        "config": {
+          "autopop": true
+        },
+        "properties": [
+          {
+            "name": "settings",
+            "label": "Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "videoType",
+                "label": "Video Type",
+                "type": "select",
+                "values": [
+                  "youtube",
+                  "vimeo"
+                ],
+                "default": "youtube",
+                "tooltip": "Select the video type i.e youtube or vimeo"
+              },
+              {
+                "name": "uniqueId",
+                "label": "Unique ID",
+                "type": "int",
+                "default": 1,
+                "step": 1,
+                "min": 1,
+                "tooltip": "Increment the unique id if you add video lightbox element multiple times."
+              },
+              {
+                "name": "videoId",
+                "label": "Video ID",
+                "type": "string",
+                "default": "bACaoohOp6M",
+                "tooltip": "e.g https://www.youtube.com/watch?v=VIDEOID, https://vimeo.com/VIDEOID" 
+              },
+              {
+                "name": "youtubeThumbnail",
+                "label": "Youtube Thumbnail Link",
+                "type": "string",
+                "default": "http://placehold.it/350",
+                "tooltip": "Enter the link to image which you want to use as thumbnail for youtube video" 
+              },
+              {
+                "name": "autoThumb",
+                "label": "Youtube Auto Thumbnail",
+                "type": "toggle",
+                "default": true,
+                "tooltip": "If enabled thumbnail image will be automatically grabbed from youtbe video"
+              },
+              {
+                "name": "vimeoThumbnail",
+                "label": "Vimeo Thumbnail Link",
+                "type": "string",
+                "default": "http://placehold.it/350",
+                "tooltip": "Enter the link to image which you want to use as thumbnail for vimeo video" 
+              },
+              {
+                "name": "textAlignment",
+                "label": "Thumbnail Alignment",
+                "type": "align",
+                "default": "center",
+                "tooltip": "Select thumbnail image alignment" 
+              }
+              
+
+            ]
+          }
+          
+        ]
+
+      }
+    },
+
+    {
+      "name": "Codo Tabs",
+      "path": "elements/elementF",
+      "version": "1.0.3",
+      "settings": {
+        "config": {
+          "autopop": true
+        },
+        "properties": [
+          {
+            "name": "general-settings",
+            "label": "General Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "uniqueId",
+                "label": "Unique ID",
+                "type": "int",
+                "default": 1,
+                "step": 1,
+                "min": 1,
+                "tooltip": "Increment the unique id if you want to add Codo Tabs element multiple times at same page."
+              },
+              {
+                "name": "numberOfTabs",
+                "label": "No of Tabs",
+                "type": "int",
+                "default": 1,
+                "step": 1,
+                "min": 1,
+                "tooltip": "Define number of tabs"
+              },
+              {
+                "name": "textAlignment",
+                "label": "Text Alignment",
+                "type": "align",
+                "default": "center",
+                "tooltip": "Define text alignment" 
+              }
+            ]
+          },
+          {
+            "name": "tab-settings",
+            "label": "Tab Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "tabTextColor",
+                "label": "Text Color",
+                "type": "color",
+                "default": "#000",
+                "tooltip": "Define text color of tabs"
+              },
+              {
+                "name": "tabBgColor",
+                "label": "Tab BG Color",
+                "type": "color",
+                "default": "#f1f1f1",
+                "tooltip": "Define background color of tabs"
+              },
+              {
+                "name": "tabActiveBgColor",
+                "label": "Active Tab BG Color",
+                "type": "color",
+                "default": "#ccc",
+                "tooltip": "Define background color of active tab"
+              },
+              {
+                "name": "tabHoverBgColor",
+                "label": "Hovered Tab BG Color",
+                "type": "color",
+                "default": "#ddd",
+                "tooltip": "Define background color of hovered tab"
+              },
+              {
+                "name": "tabBorderColor",
+                "label": "Tab Border Color",
+                "type": "color",
+                "default": "#ccc",
+                "tooltip": "Define border color of tabs"
+              }
+
+            ]
+          },
+
+          {
+            "name": "tab-content-settings",
+            "label": "Tab Content Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "tabContentBorderColor",
+                "label": "Content Border Color",
+                "type": "color",
+                "default": "#ccc",
+                "tooltip": "Define border color of tab content section"
+              },
+              {
+                "name": "tabContentTextColor",
+                "label": "Content Text Color",
+                "type": "color",
+                "default": "#000",
+                "tooltip": "Define border color of tab content section"
+              }
+
+            ]
+          }
+          
+        ]
+
+      }
+    },
+
+    {
+      "name": "Vertical Tabs",
+      "path": "elements/elementG",
+      "version": "1.0.3",
+      "settings": {
+        "config": {
+          "autopop": true
+        },
+        "properties": [
+          {
+            "name": "general-settings",
+            "label": "General Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "uniqueId",
+                "label": "Unique ID",
+                "type": "int",
+                "default": 1,
+                "step": 1,
+                "min": 1,
+                "tooltip": "Increment the unique id if you want to add Vertical Tabs element multiple times at same page."
+              },
+              {
+                "name": "numberOfTabs",
+                "label": "No of Tabs",
+                "type": "int",
+                "default": 1,
+                "step": 1,
+                "min": 1,
+                "tooltip": "Define number of tabs"
+              },
+              {
+                "name": "textAlignment",
+                "label": "Text Alignment",
+                "type": "align",
+                "default": "center",
+                "tooltip": "Define text alignment" 
+              }
+            ]
+          },
+          {
+            "name": "tab-settings",
+            "label": "Tab Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "tabTextColor",
+                "label": "Text Color",
+                "type": "color",
+                "default": "#000",
+                "tooltip": "Define text color of tabs"
+              },
+              {
+                "name": "tabBgColor",
+                "label": "Tab BG Color",
+                "type": "color",
+                "default": "#f1f1f1",
+                "tooltip": "Define background color of tabs"
+              },
+              {
+                "name": "tabActiveBgColor",
+                "label": "Active Tab BG Color",
+                "type": "color",
+                "default": "#ccc",
+                "tooltip": "Define background color of active tab"
+              },
+              {
+                "name": "tabHoverBgColor",
+                "label": "Hovered Tab BG Color",
+                "type": "color",
+                "default": "#ddd",
+                "tooltip": "Define background color of hovered tab"
+              },
+              {
+                "name": "tabBorderColor",
+                "label": "Tab Border Color",
+                "type": "color",
+                "default": "#ccc",
+                "tooltip": "Define border color of tabs"
+              }
+
+            ]
+          },
+
+          {
+            "name": "tab-content-settings",
+            "label": "Tab Content Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "tabContentBorderColor",
+                "label": "Content Border Color",
+                "type": "color",
+                "default": "#ccc",
+                "tooltip": "Define border color of tab content section"
+              },
+              {
+                "name": "tabContentTextColor",
+                "label": "Content Text Color",
+                "type": "color",
+                "default": "#000",
+                "tooltip": "Define border color of tab content section"
+              }
+
+            ]
+          }
+          
+        ]
+
+      }
+    },
+
+    {
+      "name": "Image Overlay",
+      "path": "elements/elementH",
+      "version": "1.0.3",
+      "settings": {
+        "config": {
+          "autopop": true
+        },
+        "properties": [
+          {
+            "name": "general-settings",
+            "label": "General Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "overlayEffect",
+                "label": "Overlay Effect",
+                "type": "select",
+                "values": [
+                  "FadeInText",
+                  "SlideInTop",
+                  "SlideInBottom",
+                  "SlideInLeft",
+                  "SlideInRight"
+                ],
+                "default": "SlideInBottom"
+              },
+              {
+                "name": "overlayBgColor",
+                "label": "Overlay BG Color",
+                "type": "color",
+                "default": "#008CBA",
+                "tooltip": "Define overlay background color"
+              },
+              {
+                "name": "overlayHeight",
+                "label": "Overlay Height",
+                "type": "int",
+                "default": 200,
+                "step": 1,
+                "min": 50,
+                "tooltip": "Select the height of overlay area"
+              }
+
+            ]
+          }
+          
+        ]
+
+      }
+    },
+    {
+      "name": "Timeline",
+      "path": "elements/elementI",
+      "version": "1.0.3",
+      "settings": {
+        "config": {
+          "autopop": true
+        },
+        "properties": [
+          {
+            "name": "tm-general-settings",
+            "label": "General Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "numberOfElements",
+                "label": "No of Elements",
+                "type": "int",
+                "default": 1,
+                "step": 1,
+                "min": 1,
+                "tooltip": "Define number of elements"
+              }
+            ]
+          },
+          {
+            "name": "tm-settings",
+            "label": "Timeline Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "tmBgColor",
+                "label": "Timeline BG Color",
+                "type": "color",
+                "default": "#8d2424",
+                "tooltip": "Define background color of Timeline"
+              },
+              {
+                "name": "tmCenterlineBgColor",
+                "label": "Center Line Color",
+                "type": "color",
+                "default": "#ffffff",
+                "tooltip": "Define centeral line color"
+              },
+              {
+                "name": "tmCircleBgColor",
+                "label": "Border Color of Circles",
+                "type": "color",
+                "default": "#FF9F55",
+                "tooltip": "Define border color of circular dots"
+              },
+              {
+                "name": "tmContentBGColor",
+                "label": "Content BG Color",
+                "type": "color",
+                "default": "#ffffff",
+                "tooltip": "Define background color of content sections"
+              }
+
+            ]
+          }
+          
+        ]
+
+      }
+    },
+
+    {
+      "name": "Image Text",
+      "path": "elements/elementJ",
+      "version": "1.0.3",
+      "settings": {
+        "config": {
+          "autopop": true
+        },
+        "properties": [
+          {
+            "name": "general-settings",
+            "label": "General Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "overlayPosition",
+                "label": "Overlay Position",
+                "type": "select",
+                "values" : [
+                    "top",
+                    "bottom"
+                  ],
+                "default": "bottom",
+                "tooltip": "Select the position of overlay"
+              },
+              {
+                "name": "overlayBgColor",
+                "label": "Overlay BG Color",
+                "type": "color",
+                "default": "#000000",
+                "tooltip": "Define overlay background color"
+              },
+              {
+                "name": "overlayOpacity",
+                "label": "Opacity",
+                "type": "select",
+                "values": [
+                    "0.1",
+                    "0.2",
+                    "0.3",
+                    "0.4",
+                    "0.5",
+                    "0.6",
+                    "0.7",
+                    "0.8",
+                    "0.9",
+                    "1.0"
+                ],
+                "default": "0.5",
+                "tooltip": "Define the opacity to control the transparency"
+            }
+
+            ]
+          }
+          
+        ]
+
+      }
+    }
+
+  ]
+}
