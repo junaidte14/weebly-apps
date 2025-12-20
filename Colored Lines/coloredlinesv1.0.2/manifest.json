@@ -2,7 +2,7 @@
   "manifest": "1",
   "version": "1.0.2",
   "client_id": "2042866542",
-  "callback_url": "https://codoplex.com/wpwa_phase_one/?pr_id=1557", 
+  "callback_url": "https://codoplex.com/wpwa_phase_one/?pr_id=6098", 
   "oauth_final_destination": "editor",
   "scopes": ["read:site", "write:site"],
   "locale": "",
@@ -28,6 +28,7 @@
                 "default": 100,
                 "step": 1,
                 "min": 1,
+                "max": 100,
                 "tooltip": "Define line divider width in percentage e.g 50%"
               },
               {
@@ -37,6 +38,7 @@
                 "default": 1,
                 "step": 1,
                 "min": 1,
+                "max": 50,
                 "tooltip": "Define line divider height (px)"
               },
               {
@@ -45,6 +47,127 @@
                 "type": "color",
                 "default": "#000",
                 "tooltip": "Select the line divider color"
+              },
+              {
+                "name": "borderRadius",
+                "label": "Border Radius (px)",
+                "type": "int",
+                "default": 0,
+                "step": 1,
+                "min": 0,
+                "max": 50,
+                "tooltip": "Round the line ends (0 = sharp corners)"
+              },
+              {
+                "name": "lineAlignment",
+                "label": "Line Alignment",
+                "type": "align",
+                "default": "left",
+                "tooltip": "Select line divider alignment" 
+              }
+            ]
+          },
+          {
+            "name": "gradient-settings",
+            "label": "Gradient Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "enableGradient",
+                "label": "Enable Gradient",
+                "type": "toggle",
+                "default": false,
+                "tooltip": "Create a gradient effect using two colors"
+              },
+              {
+                "name": "gradientColor",
+                "label": "Gradient End Color",
+                "type": "color",
+                "default": "#666",
+                "tooltip": "End color for gradient (requires Enable Gradient)"
+              },
+              {
+                "name": "gradientDirection",
+                "label": "Gradient Direction",
+                "type": "select",
+                "default": "to right",
+                "values": [
+                  {"name": "Left to Right", "value": "to right"},
+                  {"name": "Right to Left", "value": "to left"},
+                  {"name": "Top to Bottom", "value": "to bottom"}
+                ],
+                "tooltip": "Direction of gradient flow"
+              }
+            ]
+          },
+          {
+            "name": "glow-settings",
+            "label": "Glow Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "enableGlow",
+                "label": "Enable Glow Effect",
+                "type": "toggle",
+                "default": false,
+                "tooltip": "Add glowing aura around the line"
+              },
+              {
+                "name": "glowColor",
+                "label": "Glow Color",
+                "type": "color",
+                "default": "#fff",
+                "tooltip": "Color of the glow effect"
+              },
+              {
+                "name": "glowIntensity",
+                "label": "Glow Intensity (px)",
+                "type": "int",
+                "default": 10,
+                "step": 1,
+                "min": 0,
+                "max": 50,
+                "tooltip": "Intensity of glow effect"
+              }
+            ]
+          },
+          {
+            "name": "decoration-settings",
+            "label": "Decoration Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "decorativeStyle",
+                "label": "Decoration Style",
+                "type": "select",
+                "default": "none",
+                "values": [
+                  {"name": "None", "value": "none"},
+                  {"name": "Dots at Ends", "value": "dots"},
+                  {"name": "Arrows at Ends", "value": "arrows"},
+                  {"name": "Diamond at Center", "value": "diamond"},
+                  {"name": "Circle at Center", "value": "circle"},
+                  {"name": "Star at Center", "value": "star"},
+                  {"name": "Heart at Center", "value": "heart"}
+                ],
+                "tooltip": "Add decorative elements to the line"
+              },
+              {
+                "name": "decorationSize",
+                "label": "Decoration Size (px)",
+                "type": "int",
+                "default": 10,
+                "step": 1,
+                "min": 5,
+                "max": 30,
+                "tooltip": "Size of decorative elements"
+              },
+              {
+                "name": "decorationColor",
+                "label": "Decoration Color",
+                "type": "color",
+                "default": "#000",
+                "tooltip": "Color of decorative elements"
               }
             ]
           },
@@ -54,36 +177,48 @@
             "type": "group",
             "properties": [
               {
-                "name": "lineAlignment",
-                "label": "Line Alignment",
-                "type": "align",
-                "default": "left",
-                "tooltip": "Select line divider alignment" 
-              },
-              {
                 "name": "topMargin",
-                "label": "Top Margin",
+                "label": "Top Margin (px)",
                 "type": "int",
                 "default": 5,
                 "step": 1,
                 "min": 0,
+                "max": 200,
                 "tooltip": "Define top margin (px)"
               },
               {
                 "name": "bottomMargin",
-                "label": "Bottom Margin",
+                "label": "Bottom Margin (px)",
                 "type": "int",
                 "default": 5,
                 "step": 1,
                 "min": 0,
+                "max": 200,
                 "tooltip": "Define bottom margin (px)"
+              },
+              {
+                "name": "leftPadding",
+                "label": "Left Padding (px)",
+                "type": "int",
+                "default": 0,
+                "step": 1,
+                "min": 0,
+                "max": 100,
+                "tooltip": "Add padding on the left side"
+              },
+              {
+                "name": "rightPadding",
+                "label": "Right Padding (px)",
+                "type": "int",
+                "default": 0,
+                "step": 1,
+                "min": 0,
+                "max": 100,
+                "tooltip": "Add padding on the right side"
               }
-
             ]
           }
-          
         ]
-
       }
     }
   ]
