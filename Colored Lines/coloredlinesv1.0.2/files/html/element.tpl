@@ -4,7 +4,7 @@
 		
 		{{! Center decorations: diamond, circle, star, heart }}
 		<div class="decoration-center" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 2;">
-			<span class="decoration-element {{decorativeStyle}}" style="display: inline-block; width: {{decorationSize}}px; height: {{decorationSize}}px; background-color: {{decorationColor}};"></span>
+			<span class="decoration-element {{decorativeStyle}}" style="display: inline-block; width: {{decorationSize}}px; height: {{decorationSize}}px; background-color: {{decorationColor}}; vertical-align: middle;"></span>
 		</div>
 		
 		{{! Main line element }}

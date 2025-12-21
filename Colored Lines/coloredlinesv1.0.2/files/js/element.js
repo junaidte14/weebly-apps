@@ -113,6 +113,22 @@
                     decorationsFound++;
                 });
                 
+                var decorationStyle = this.settings.get("decorativeStyle");
+                var decorationSize = this.settings.get("decorationSize");
+                console.log(decorationSize);
+                console.log(decorationStyle);
+                // Handle arrow decorations - apply color to borders
+                this.$('.coloredlines.decoration-arrows').each(function() {
+                    if(decorationStyle == 'arrows'){
+                        $(this).find('.decoration-left').css('border-top-width', decorationSize/2);
+                        $(this).find('.decoration-left').css('border-bottom-width', decorationSize/2);
+                        $(this).find('.decoration-right').css('border-top-width', decorationSize/2);
+                        $(this).find('.decoration-right').css('border-bottom-width', decorationSize/2);
+
+                        $(this).find('.decoration-left').css('border-right-width', decorationSize);
+                        $(this).find('.decoration-right').css('border-left-width', decorationSize);
+                    }
+                });
             } catch (error) {
                 console.error('[Colored Lines] Error initializing decorations:', error);
             }

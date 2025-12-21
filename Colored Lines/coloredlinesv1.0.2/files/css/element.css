@@ -133,11 +133,11 @@
 }
 
 /* Decoration Center Container */
-.coloredlines .decoration-center {
+/*.coloredlines .decoration-center {
 	background-color: #fff;
 	padding: 5px;
 	border-radius: 50%;
-}
+}*/
 
 /* Hover Effects */
 .coloredlines .line-element:hover {
