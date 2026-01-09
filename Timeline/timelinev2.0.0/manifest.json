@@ -57,23 +57,6 @@
                 "tooltip": "Animation when scrolling into view"
               },
               {
-                "name": "enableShadow",
-                "label": "Enable Box Shadow",
-                "type": "toggle",
-                "default": true,
-                "tooltip": "Add shadow effect to content boxes"
-              },
-              {
-                "name": "shadowIntensity",
-                "label": "Shadow Intensity",
-                "type": "int",
-                "default": 10,
-                "step": 1,
-                "min": 0,
-                "max": 30,
-                "tooltip": "Intensity of the shadow effect"
-              },
-              {
                 "name": "hoverEffect",
                 "label": "Hover Effect",
                 "type": "toggle",
@@ -178,26 +161,6 @@
                 "min": 10,
                 "max": 50,
                 "tooltip": "Internal padding of content boxes"
-              },
-              {
-                "name": "topMargin",
-                "label": "Top Margin (px)",
-                "type": "int",
-                "default": 20,
-                "step": 1,
-                "min": 0,
-                "max": 100,
-                "tooltip": "Top margin of timeline"
-              },
-              {
-                "name": "bottomMargin",
-                "label": "Bottom Margin (px)",
-                "type": "int",
-                "default": 20,
-                "step": 1,
-                "min": 0,
-                "max": 100,
-                "tooltip": "Bottom margin of timeline"
               }
             ]
           },

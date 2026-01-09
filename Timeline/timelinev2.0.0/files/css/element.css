@@ -14,8 +14,8 @@
     padding: 20px 0;
 }
 
-/* Central vertical line */
-.codo_timeline::after {
+/* Central vertical line - Only for alternating layout */
+.layout-alternating .codo_timeline::after {
     content: '';
     position: absolute;
     width: @centerLineWidth;
@@ -32,9 +32,10 @@
     padding: 10px 40px;
     position: relative;
     background-color: inherit;
-    width: 41.2%;
+    width: 50%;
     opacity: 0;
     transform: translateY(30px);
+    box-sizing: border-box;
 }
 
 /* Timeline items visible state */
@@ -43,13 +44,13 @@
     transform: translateY(0);
 }
 
-/* The circles on the timeline */
-.codo_tm_container::after {
+/* The circles on the timeline - Only for alternating layout */
+.layout-alternating .codo_tm_container::after {
     content: '';
     position: absolute;
     width: @circleSize;
     height: @circleSize;
-    right: calc(-1 * @circleSize / 2 - 4px);
+    right: calc(-1 * @circleSize / 2);
     background-color: @tmCircleFillColor;
     border: 4px solid @tmCircleBgColor;
     top: 15px;
@@ -59,12 +60,12 @@
 }
 
 /* Icon style variations */
-.codo_timeline[data-icon-style="ring"] .codo_tm_container::after {
+.layout-alternating .codo_timeline[data-icon-style="ring"] .codo_tm_container::after {
     background-color: transparent;
     border-width: 6px;
 }
 
-.codo_timeline[data-icon-style="dot"] .codo_tm_container::after {
+.layout-alternating .codo_timeline[data-icon-style="dot"] .codo_tm_container::after {
     width: calc(@circleSize * 0.5);
     height: calc(@circleSize * 0.5);
     background-color: @tmCircleBgColor;
@@ -75,38 +76,31 @@
 /* Alternating layout - Place containers to the left/right */
 .layout-alternating .codo_timeline .codo_tm_container:nth-child(odd) {
     left: 0;
+    padding-right: calc(40px + @circleSize / 2 + 10px);
 }
 
 .layout-alternating .codo_timeline .codo_tm_container:nth-child(even) {
     left: 50%;
+    padding-left: calc(40px + @circleSize / 2 + 10px);
 }
 
 /* All left layout */
-.layout-left .codo_timeline .codo_tm_container {
+.layout-left .codo_tm_container {
     left: 0;
-}
-
-.layout-left .codo_timeline::after {
-    left: 0;
-    margin-left: 0;
-}
-
-.layout-left .codo_tm_container::after {
-    right: auto;
-    left: calc(-1 * @circleSize / 2 - 4px);
+    width: 100%;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 /* All right layout */
-.layout-right .codo_timeline .codo_tm_container {
-    left: 50%;
-}
-
-.layout-right .codo_timeline::after {
+.layout-right .codo_tm_container {
     left: 0;
-    margin-left: 0;
+    width: 100%;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
-/* Arrow connectors for alternating layout */
+/* Arrow connectors for alternating layout - odd items (pointing right) */
 .layout-alternating .codo_timeline .codo_tm_container:nth-child(odd)::before {
     content: " ";
     height: 0;
@@ -114,12 +108,13 @@
     top: 22px;
     width: 0;
     z-index: 1;
-    right: 30px;
+    right: calc(40px + @circleSize / 2);
     border: medium solid @connectorColor;
     border-width: 10px 0 10px 10px;
     border-color: transparent transparent transparent @connectorColor;
 }
 
+/* Arrow connectors for alternating layout - even items (pointing left) */
 .layout-alternating .codo_timeline .codo_tm_container:nth-child(even)::before {
     content: " ";
     height: 0;
@@ -127,35 +122,7 @@
     top: 22px;
     width: 0;
     z-index: 1;
-    left: 30px;
-    border: medium solid @connectorColor;
-    border-width: 10px 10px 10px 0;
-    border-color: transparent @connectorColor transparent transparent;
-}
-
-/* Arrow connectors for left layout */
-.layout-left .codo_tm_container::before {
-    content: " ";
-    height: 0;
-    position: absolute;
-    top: 22px;
-    width: 0;
-    z-index: 1;
-    left: 30px;
-    border: medium solid @connectorColor;
-    border-width: 10px 10px 10px 0;
-    border-color: transparent @connectorColor transparent transparent;
-}
-
-/* Arrow connectors for right layout */
-.layout-right .codo_tm_container::before {
-    content: " ";
-    height: 0;
-    position: absolute;
-    top: 22px;
-    width: 0;
-    z-index: 1;
-    left: 30px;
+    left: calc(40px + @circleSize / 2);
     border: medium solid @connectorColor;
     border-width: 10px 10px 10px 0;
     border-color: transparent @connectorColor transparent transparent;
@@ -163,7 +130,13 @@
 
 /* Fix circle position for even items in alternating layout */
 .layout-alternating .codo_timeline .codo_tm_container:nth-child(even)::after {
-    left: calc(-1 * @circleSize / 2 - 4px);
+    left: calc(-1 * @circleSize / 2);
+    right: auto;
+}
+
+/* Icon adjustments for even items */
+.layout-alternating .codo_timeline[data-icon-style="dot"] .codo_tm_container:nth-child(even)::after {
+    left: calc(-1 * @circleSize / 4);
     right: auto;
 }
 
@@ -178,18 +151,12 @@
     transition: all 0.3s ease;
 }
 
-/* Shadow effect */
-.codo_timeline[data-shadow="true"] .codo_tm_content {
-    box-shadow: 0 @shadowIntensity 30px rgba(0, 0, 0, 0.15);
-}
-
 /* Hover effect */
 .codo_timeline[data-hover="true"] .codo_tm_content:hover {
     transform: scale(1.03);
-    box-shadow: 0 calc(@shadowIntensity + 5) 40px rgba(0, 0, 0, 0.2);
 }
 
-.codo_timeline[data-hover="true"] .codo_tm_container:hover::after {
+.layout-alternating .codo_timeline[data-hover="true"] .codo_tm_container:hover::after {
     transform: scale(1.2);
 }
 
@@ -221,55 +188,54 @@
 
 /* Tablet adjustments */
 @media all and (max-width: 767px) {
-    .codo_tm_container {
-        width: 36.5%;
+    .layout-alternating .codo_tm_container {
+        width: 50%;
+    }
+    
+    .layout-alternating .codo_tm_container:nth-child(odd) {
+        padding-right: calc(30px + @circleSize / 2 + 10px);
+    }
+    
+    .layout-alternating .codo_tm_container:nth-child(even) {
+        padding-left: calc(30px + @circleSize / 2 + 10px);
     }
 }
 
 /* Mobile responsive - Dynamic breakpoint */
 @media all and (max-width: @mobileBreakpoint) {
-    .codo_timeline::after {
+    /* Center line moves to left for all layouts */
+    .layout-alternating .codo_timeline::after {
         left: 31px;
         margin-left: 0;
     }
 
-    .codo_tm_container {
+    /* All containers stack on left */
+    .codo_tm_container,
+    .layout-left .codo_tm_container,
+    .layout-right .codo_tm_container {
         width: @mobileContentWidth;
         padding-left: 70px;
         padding-right: 25px;
+        left: 0 !important;
     }
 
-    .codo_tm_container::before {
-        left: 60px;
+    /* Arrows point from left line to content */
+    .layout-alternating .codo_tm_container::before {
+        left: 60px !important;
+        right: auto !important;
         border: medium solid @connectorColor;
         border-width: 10px 10px 10px 0;
         border-color: transparent @connectorColor transparent transparent;
     }
 
-    .codo_timeline .codo_tm_container:nth-child(odd)::after, 
-    .codo_timeline .codo_tm_container:nth-child(even)::after {
-        left: calc(15px - @circleSize / 2);
-        right: auto;
+    /* Circles align with left line */
+    .layout-alternating .codo_timeline .codo_tm_container::after {
+        left: calc(15px - @circleSize / 2) !important;
+        right: auto !important;
     }
 
-    .codo_timeline .codo_tm_container:nth-child(even) {
-        left: 0%;
-    }
-
-    .codo_timeline .codo_tm_container:nth-child(even)::before {
-        left: 60px;
-    }
-
-    .codo_timeline .codo_tm_container:nth-child(odd)::before {
-        border-width: 10px 10px 10px 0px;
-        border-color: transparent @connectorColor transparent transparent;
-        left: 60px;
-    }
-
-    /* Mobile layout adjustments for left/right layouts */
-    .layout-left .codo_tm_container::after,
-    .layout-right .codo_tm_container::after {
-        left: calc(15px - @circleSize / 2);
-        right: auto;
+    /* Dot style adjustment */
+    .layout-alternating .codo_timeline[data-icon-style="dot"] .codo_tm_container::after {
+        left: calc(15px - @circleSize / 4) !important;
     }
 }

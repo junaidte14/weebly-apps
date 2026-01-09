@@ -1,12 +1,11 @@
 {{! Enhanced Timeline v2.0.0 - Editor Template }}
 <div class="codotimeline_container layout-{{timelineLayout}} animation-{{animationStyle}}" 
      data-animation="{{animationStyle}}"
-     style="background-color: {{tmBgColor}}; margin-top: {{topMargin}}px; margin-bottom: {{bottomMargin}}px;">
+     style="background-color: {{tmBgColor}};">
 
     <div class="codo_timeline" 
          data-layout="{{timelineLayout}}"
-         data-hover="{{hoverEffect}}"
-         data-shadow="{{enableShadow}}">
+         data-hover="{{hoverEffect}}">
         {{#numberOfElements_each}}
             <div class="codo_tm_container timeline-item" 
                  data-index="{{numberOfElements_index}}"
@@ -15,10 +14,9 @@
                      style="background-color: {{tmContentBGColor}}; 
                             border-radius: {{contentBorderRadius}}px;
                             padding: {{contentPadding}}px;">
-                    {codo_elementct_{{numberOfElements_index}}:content default="<h3>Timeline Item {{numberOfElements_index}}</h3><p>Add your content here. Click to edit this timeline entry and customize it with your own text, images, and formatting.</p>"}
+                    {codo_elementct_{{numberOfElements_index}}:content default="Timeline Item {{numberOfElements_index}}. Add your content here. Click to edit this timeline entry and customize it with your own text, images, and formatting."}
                 </div>
             </div>
         {{/numberOfElements_each}}
     </div>
-    
 </div>

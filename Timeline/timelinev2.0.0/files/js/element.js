@@ -1,202 +1,118 @@
 /**
  * Enhanced Timeline v2.0.0 - Frontend Element
- * Includes scroll animations, layout variations, and enhanced interactivity
+ * Handles scroll animations and dynamic styling
  * @type {PlatformElement}
  */
 
 (function() {
     var Timeline = PlatformElement.extend({
         initialize: function() {
-            console.log('[Timeline v2.0.0] Initializing frontend element');
+            var self = this;
             
-            // Normalize styles on initial load
+            // Initialize on DOM ready
             $(document).ready(function() {
-                try {
-                    this.fixStyles();
-                    this.applyDynamicStyles();
-                    this.initializeAnimations();
-                    this.setupEventHandlers();
-                    
-                    // Hide platform overlay
-                    this.$el.children('.platform-element-overlay').hide();
-                } catch (error) {
-                    console.error('[Timeline v2.0.0] Error during initialization:', error);
-                }
-            }.bind(this));
-
-            // Also run immediately
-            try {
-                this.fixStyles();
-                this.applyDynamicStyles();
-                this.initializeAnimations();
-                this.setupEventHandlers();
-            } catch (error) {
-                console.error('[Timeline v2.0.0] Error during immediate initialization:', error);
-            }
+                self.init();
+            });
             
-            // Re-initialize on window resize
-            $(window).on('resize', this.handleResize.bind(this));
+            // Also run immediately in case DOM is already ready
+            self.init();
+            
+            // Handle window resize
+            $(window).on('resize', function() {
+                self.applyDynamicStyles();
+            });
         },
 
         /**
-         * Normalize default editor styles to prevent conflicts
+         * Main initialization
          */
-        fixStyles: function() {
+        init: function() {
             try {
-                this.$('.editable-text').each(function(index, value) {
-                    $(value).attr('style', '');
-                });
-
-                this.$('.element').each(function(index, value) {
-                    $(value).attr('style', '');
-                });
+                this.normalizeStyles();
+                this.applyDynamicStyles();
+                this.initializeAnimations();
+                this.$el.children('.platform-element-overlay').hide();
             } catch (error) {
-                console.error('[Timeline v2.0.0] Error fixing styles:', error);
+                console.error('[Timeline v2.0.0] Initialization error:', error);
             }
+        },
+
+        /**
+         * Normalize editor styles
+         */
+        normalizeStyles: function() {
+            this.$('.editable-text, .element').attr('style', '');
         },
 
         /**
          * Apply dynamic styles based on settings
          */
         applyDynamicStyles: function() {
-            try {
-                var self = this;
-                var $timeline = this.$('.codo_timeline');
-                
-                // Apply icon style
-                var iconStyle = this.settings.get('iconStyle') || 'solid';
-                $timeline.attr('data-icon-style', iconStyle);
-                
-                // Apply connector visibility
-                var showConnector = this.settings.get('showConnector');
-                $timeline.attr('data-show-connector', showConnector !== false);
-                
-                // Apply shadow setting
-                var enableShadow = this.settings.get('enableShadow');
-                $timeline.attr('data-shadow', enableShadow !== false);
-                
-                // Apply hover effect
-                var hoverEffect = this.settings.get('hoverEffect');
-                $timeline.attr('data-hover', hoverEffect !== false);
-                
-            } catch (error) {
-                console.error('[Timeline v2.0.0] Error applying dynamic styles:', error);
-            }
+            var $timeline = this.$('.codo_timeline');
+            
+            $timeline.attr('data-icon-style', this.settings.get('iconStyle') || 'solid');
+            $timeline.attr('data-show-connector', this.settings.get('showConnector') !== false);
+            $timeline.attr('data-hover', this.settings.get('hoverEffect') !== false);
         },
 
         /**
          * Initialize scroll-based animations
          */
         initializeAnimations: function() {
-            try {
-                var self = this;
-                var animationStyle = this.settings.get('animationStyle') || 'fade';
-                
-                // Skip if animations are disabled
-                if (animationStyle === 'none') {
-                    this.$('.codo_tm_container').addClass('aos-animate');
-                    return;
-                }
-                
-                // Create intersection observer for scroll animations
-                if ('IntersectionObserver' in window) {
-                    var options = {
-                        root: null,
-                        rootMargin: '0px',
-                        threshold: 0.1
-                    };
-                    
-                    var observer = new IntersectionObserver(function(entries) {
-                        entries.forEach(function(entry) {
-                            if (entry.isIntersecting) {
-                                $(entry.target).addClass('aos-animate');
-                            }
-                        });
-                    }, options);
-                    
-                    // Observe all timeline items
-                    this.$('.codo_tm_container').each(function(index, element) {
-                        observer.observe(element);
-                        
-                        // Add staggered delay
-                        $(element).css('transition-delay', (index * 0.1) + 's');
-                    });
-                    
-                    // Store observer for cleanup
-                    this.animationObserver = observer;
-                } else {
-                    // Fallback for browsers without IntersectionObserver
-                    this.$('.codo_tm_container').addClass('aos-animate');
-                }
-                
-            } catch (error) {
-                console.error('[Timeline v2.0.0] Error initializing animations:', error);
+            var animationStyle = this.settings.get('animationStyle') || 'fade';
+            
+            // Skip animations if disabled
+            if (animationStyle === 'none') {
+                this.$('.codo_tm_container').addClass('aos-animate');
+                return;
             }
-        },
-
-        /**
-         * Setup event handlers for interactive features
-         */
-        setupEventHandlers: function() {
-            try {
-                var self = this;
+            
+            // Use Intersection Observer for scroll animations
+            if ('IntersectionObserver' in window) {
+                var options = {
+                    root: null,
+                    rootMargin: '0px',
+                    threshold: 0.1
+                };
                 
-                // Add click tracking for analytics (if needed)
-                this.$('.codo_tm_content').on('click', function(e) {
-                    var index = $(this).closest('.codo_tm_container').attr('data-index');
-                    // Could trigger custom events here for analytics
+                var observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            $(entry.target).addClass('aos-animate');
+                        }
+                    });
+                }, options);
+                
+                // Observe each timeline item with staggered delay
+                this.$('.codo_tm_container').each(function(index, element) {
+                    observer.observe(element);
+                    $(element).css('transition-delay', (index * 0.1) + 's');
                 });
                 
-            } catch (error) {
-                console.error('[Timeline v2.0.0] Error setting up event handlers:', error);
+                this.observer = observer;
+            } else {
+                // Fallback for older browsers
+                this.$('.codo_tm_container').addClass('aos-animate');
             }
         },
 
         /**
-         * Handle window resize events
-         */
-        handleResize: function() {
-            try {
-                // Recalculate positions if needed
-                this.applyDynamicStyles();
-            } catch (error) {
-                console.error('[Timeline v2.0.0] Error handling resize:', error);
-            }
-        },
-
-        /**
-         * Update element when settings change (if in editor)
+         * Called when settings are updated
          */
         onSettingsUpdate: function() {
-            try {
-                this.fixStyles();
-                this.applyDynamicStyles();
-                
-                // Reinitialize animations with new settings
-                if (this.animationObserver) {
-                    this.animationObserver.disconnect();
-                }
-                this.initializeAnimations();
-            } catch (error) {
-                console.error('[Timeline v2.0.0] Error updating settings:', error);
+            if (this.observer) {
+                this.observer.disconnect();
             }
+            this.init();
         },
 
         /**
-         * Clean up when element is removed
+         * Clean up on element removal
          */
         onRemove: function() {
-            try {
-                $(window).off('resize', this.handleResize);
-                
-                if (this.animationObserver) {
-                    this.animationObserver.disconnect();
-                }
-                
-                // Remove event handlers
-                this.$('.codo_tm_content').off('click');
-            } catch (error) {
-                console.error('[Timeline v2.0.0] Error during cleanup:', error);
+            $(window).off('resize');
+            if (this.observer) {
+                this.observer.disconnect();
             }
         }
     });
