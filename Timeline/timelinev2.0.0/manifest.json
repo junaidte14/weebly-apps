@@ -23,29 +23,17 @@
             "properties": [
               {
                 "name": "numberOfElements",
-                "label": "No of Elements",
+                "label": "Number of Timeline Items",
                 "type": "int",
                 "default": 3,
                 "step": 1,
                 "min": 1,
                 "max": 20,
-                "tooltip": "Define number of timeline elements (1-20)"
-              },
-              {
-                "name": "timelineLayout",
-                "label": "Timeline Layout",
-                "type": "select",
-                "default": "alternating",
-                "values": [
-                  {"name": "Alternating (Left-Right)", "value": "alternating"},
-                  {"name": "All Left", "value": "left"},
-                  {"name": "All Right", "value": "right"}
-                ],
-                "tooltip": "Choose how timeline items are positioned"
+                "tooltip": "Define number of timeline items to display (1-20)"
               },
               {
                 "name": "animationStyle",
-                "label": "Animation Style",
+                "label": "Scroll Animation",
                 "type": "select",
                 "default": "fade",
                 "values": [
@@ -54,114 +42,114 @@
                   {"name": "Slide In", "value": "slide"},
                   {"name": "Scale Up", "value": "scale"}
                 ],
-                "tooltip": "Animation when scrolling into view"
+                "tooltip": "Animation effect when items scroll into view"
               },
               {
                 "name": "hoverEffect",
-                "label": "Hover Effect",
+                "label": "Enable Hover Effect",
                 "type": "toggle",
                 "default": true,
-                "tooltip": "Scale content slightly on hover"
+                "tooltip": "Add subtle lift effect when hovering over timeline items"
               }
             ]
           },
           {
             "name": "tm-style-settings",
-            "label": "Style Settings",
+            "label": "Colors & Style",
             "type": "group",
             "properties": [
               {
                 "name": "tmBgColor",
-                "label": "Timeline BG Color",
+                "label": "Background Color",
                 "type": "color",
                 "default": "#8d2424",
-                "tooltip": "Background color of timeline section"
+                "tooltip": "Background color of the entire timeline section"
               },
               {
                 "name": "tmCenterlineBgColor",
-                "label": "Center Line Color",
+                "label": "Timeline Line Color",
                 "type": "color",
                 "default": "#ffffff",
-                "tooltip": "Color of the central vertical line"
+                "tooltip": "Color of the vertical timeline line"
               },
               {
                 "name": "tmCircleBgColor",
                 "label": "Circle Border Color",
                 "type": "color",
                 "default": "#FF9F55",
-                "tooltip": "Border color of timeline markers"
+                "tooltip": "Border color of timeline marker circles"
               },
               {
                 "name": "tmCircleFillColor",
                 "label": "Circle Fill Color",
                 "type": "color",
                 "default": "#ffffff",
-                "tooltip": "Fill color inside the circles"
+                "tooltip": "Fill color inside the marker circles"
               },
               {
                 "name": "tmContentBGColor",
-                "label": "Content BG Color",
+                "label": "Content Box Background",
                 "type": "color",
                 "default": "#ffffff",
-                "tooltip": "Background color of content boxes"
+                "tooltip": "Background color of timeline content boxes"
               },
               {
                 "name": "contentBorderRadius",
-                "label": "Content Border Radius (px)",
+                "label": "Content Corner Radius (px)",
                 "type": "int",
                 "default": 6,
                 "step": 1,
                 "min": 0,
                 "max": 30,
-                "tooltip": "Roundness of content box corners"
+                "tooltip": "Roundness of content box corners (0 = square, 30 = very round)"
               }
             ]
           },
           {
             "name": "tm-spacing-settings",
-            "label": "Spacing Settings",
+            "label": "Spacing & Layout",
             "type": "group",
             "properties": [
               {
                 "name": "itemSpacing",
-                "label": "Item Spacing (px)",
+                "label": "Space Between Items (px)",
                 "type": "int",
                 "default": 10,
                 "step": 1,
                 "min": 0,
                 "max": 100,
-                "tooltip": "Vertical space between timeline items"
+                "tooltip": "Vertical spacing between timeline items"
               },
               {
                 "name": "contentPadding",
-                "label": "Content Padding (px)",
+                "label": "Content Inner Padding (px)",
                 "type": "int",
                 "default": 20,
                 "step": 1,
                 "min": 10,
                 "max": 50,
-                "tooltip": "Internal padding of content boxes"
+                "tooltip": "Internal padding inside content boxes"
               }
             ]
           },
           {
-            "name": "tm-icon-settings",
-            "label": "Icon & Connector Settings",
+            "name": "tm-connector-settings",
+            "label": "Connector Settings",
             "type": "group",
             "properties": [
               {
                 "name": "showConnector",
-                "label": "Show Arrow Connector",
+                "label": "Show Arrow Connectors",
                 "type": "toggle",
                 "default": true,
-                "tooltip": "Display arrow pointing from circle to content"
+                "tooltip": "Display arrow pointing from circle to content box"
               },
               {
                 "name": "connectorColor",
-                "label": "Connector Color",
+                "label": "Connector Arrow Color",
                 "type": "color",
                 "default": "#ffffff",
-                "tooltip": "Color of the arrow connector"
+                "tooltip": "Color of the arrow connector (usually matches content background)"
               }
             ]
           }

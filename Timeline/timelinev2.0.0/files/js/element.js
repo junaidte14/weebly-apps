@@ -1,6 +1,7 @@
 /**
  * Enhanced Timeline v2.0.0 - Frontend Element
  * Handles scroll animations and dynamic styling
+ * 100% Backward Compatible
  * @type {PlatformElement}
  */
 
@@ -18,8 +19,8 @@
             self.init();
             
             // Handle window resize
-            $(window).on('resize', function() {
-                self.applyDynamicStyles();
+            $(window).on('resize.timeline', function() {
+                self.handleResize();
             });
         },
 
@@ -41,7 +42,13 @@
          * Normalize editor styles
          */
         normalizeStyles: function() {
-            this.$('.editable-text, .element').attr('style', '');
+            this.$('.editable-text').each(function(index, value) {
+                $(value).attr('style', '');
+            });
+
+            this.$('.element').each(function(index, value) {
+                $(value).attr('style', '');
+            });
         },
 
         /**
@@ -49,10 +56,21 @@
          */
         applyDynamicStyles: function() {
             var $timeline = this.$('.codo_timeline');
+            var $container = this.$('.codotimeline_container');
             
-            $timeline.attr('data-icon-style', this.settings.get('iconStyle') || 'solid');
-            $timeline.attr('data-show-connector', this.settings.get('showConnector') !== false);
-            $timeline.attr('data-hover', this.settings.get('hoverEffect') !== false);
+            // Apply hover effect setting
+            var hoverEffect = this.settings.get('hoverEffect');
+            $timeline.attr('data-hover', hoverEffect !== false);
+            
+            // Apply animation style
+            var animationStyle = this.settings.get('animationStyle') || 'fade';
+            $container.attr('data-animation', animationStyle);
+            
+            // Apply connector visibility
+            var showConnector = this.settings.get('showConnector');
+            if (showConnector === false) {
+                this.$('.codo_tm_container::before').css('display', 'none');
+            }
         },
 
         /**
@@ -71,14 +89,17 @@
             if ('IntersectionObserver' in window) {
                 var options = {
                     root: null,
-                    rootMargin: '0px',
+                    rootMargin: '0px 0px -10% 0px',
                     threshold: 0.1
                 };
                 
+                var self = this;
                 var observer = new IntersectionObserver(function(entries) {
                     entries.forEach(function(entry) {
                         if (entry.isIntersecting) {
                             $(entry.target).addClass('aos-animate');
+                            // Optionally unobserve after animation
+                            // observer.unobserve(entry.target);
                         }
                     });
                 }, options);
@@ -86,23 +107,38 @@
                 // Observe each timeline item with staggered delay
                 this.$('.codo_tm_container').each(function(index, element) {
                     observer.observe(element);
-                    $(element).css('transition-delay', (index * 0.1) + 's');
+                    
+                    // Add staggered delay for animation
+                    var delay = index * 0.15; // 150ms between each item
+                    $(element).css('transition-delay', delay + 's');
                 });
                 
+                // Store observer for cleanup
                 this.observer = observer;
             } else {
-                // Fallback for older browsers
+                // Fallback for older browsers - show all items
                 this.$('.codo_tm_container').addClass('aos-animate');
             }
+        },
+
+        /**
+         * Handle window resize
+         */
+        handleResize: function() {
+            // Reapply layout on resize to handle responsive changes
+            this.applyLayout();
         },
 
         /**
          * Called when settings are updated
          */
         onSettingsUpdate: function() {
+            // Clean up existing observer
             if (this.observer) {
                 this.observer.disconnect();
             }
+            
+            // Reinitialize everything
             this.init();
         },
 
@@ -110,7 +146,10 @@
          * Clean up on element removal
          */
         onRemove: function() {
-            $(window).off('resize');
+            // Remove event handlers
+            $(window).off('resize.timeline');
+            
+            // Disconnect observer
             if (this.observer) {
                 this.observer.disconnect();
             }

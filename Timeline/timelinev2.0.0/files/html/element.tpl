@@ -1,13 +1,8 @@
 {{! Enhanced Timeline v2.0.0 - Frontend Template }}
-<div class="codotimeline_container layout-{{timelineLayout}} animation-{{animationStyle}}" 
-     data-animation="{{animationStyle}}"
-     style="background-color: {{tmBgColor}}; margin-top: {{topMargin}}px; margin-bottom: {{bottomMargin}}px;">
-
-    <div class="codo_timeline" 
-         data-layout="{{timelineLayout}}"
-         data-hover="{{hoverEffect}}">
+<div class="codotimeline_container" style="background-color: {{tmBgColor}};">
+    <div class="codo_timeline">
         {{#numberOfElements_each}}
-            <div class="codo_tm_container timeline-item" 
+            <div class="codo_tm_container" 
                  data-index="{{numberOfElements_index}}"
                  style="padding-top: {{itemSpacing}}px; padding-bottom: {{itemSpacing}}px;">
                 <div class="codo_tm_content" 
