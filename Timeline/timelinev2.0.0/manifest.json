@@ -39,7 +39,6 @@
                 "values": [
                   {"name": "None", "value": "none"},
                   {"name": "Fade In", "value": "fade"},
-                  {"name": "Slide In", "value": "slide"},
                   {"name": "Scale Up", "value": "scale"}
                 ],
                 "tooltip": "Animation effect when items scroll into view"
@@ -87,6 +86,13 @@
                 "tooltip": "Fill color inside the marker circles"
               },
               {
+                "name": "connectorColor",
+                "label": "Connector Arrow Color",
+                "type": "color",
+                "default": "#ffffff",
+                "tooltip": "Color of the arrow connector (usually matches content background)"
+              },
+              {
                 "name": "tmContentBGColor",
                 "label": "Content Box Background",
                 "type": "color",
@@ -111,6 +117,16 @@
             "type": "group",
             "properties": [
               {
+                "name": "containerPadding",
+                "label": "Container Inner Padding (px)",
+                "type": "int",
+                "default": 10,
+                "step": 1,
+                "min": 10,
+                "max": 50,
+                "tooltip": "Internal top and bottom padding inside container"
+              },
+              {
                 "name": "itemSpacing",
                 "label": "Space Between Items (px)",
                 "type": "int",
@@ -129,27 +145,6 @@
                 "min": 10,
                 "max": 50,
                 "tooltip": "Internal padding inside content boxes"
-              }
-            ]
-          },
-          {
-            "name": "tm-connector-settings",
-            "label": "Connector Settings",
-            "type": "group",
-            "properties": [
-              {
-                "name": "showConnector",
-                "label": "Show Arrow Connectors",
-                "type": "toggle",
-                "default": true,
-                "tooltip": "Display arrow pointing from circle to content box"
-              },
-              {
-                "name": "connectorColor",
-                "label": "Connector Arrow Color",
-                "type": "color",
-                "default": "#ffffff",
-                "tooltip": "Color of the arrow connector (usually matches content background)"
               }
             ]
           }

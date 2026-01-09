@@ -1,5 +1,5 @@
 {{! Enhanced Timeline v2.0.0 - Frontend Template }}
-<div class="codotimeline_container" style="background-color: {{tmBgColor}};">
+<div class="codotimeline_container" style="background-color: {{tmBgColor}};padding-top: {{containerPadding}}px; padding-bottom: {{containerPadding}}px;" data-show-connector={{showConnector}}>
     <div class="codo_timeline">
         {{#numberOfElements_each}}
             <div class="codo_tm_container" 
