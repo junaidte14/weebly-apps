@@ -85,16 +85,6 @@
                 "tooltip": "Color of the central vertical line"
               },
               {
-                "name": "centerLineWidth",
-                "label": "Center Line Width (px)",
-                "type": "int",
-                "default": 6,
-                "step": 1,
-                "min": 2,
-                "max": 20,
-                "tooltip": "Width of the central line in pixels"
-              },
-              {
                 "name": "tmCircleBgColor",
                 "label": "Circle Border Color",
                 "type": "color",
@@ -107,16 +97,6 @@
                 "type": "color",
                 "default": "#ffffff",
                 "tooltip": "Fill color inside the circles"
-              },
-              {
-                "name": "circleSize",
-                "label": "Circle Size (px)",
-                "type": "int",
-                "default": 25,
-                "step": 1,
-                "min": 15,
-                "max": 50,
-                "tooltip": "Size of timeline marker circles"
               },
               {
                 "name": "tmContentBGColor",
@@ -182,45 +162,6 @@
                 "type": "color",
                 "default": "#ffffff",
                 "tooltip": "Color of the arrow connector"
-              },
-              {
-                "name": "iconStyle",
-                "label": "Circle Icon Style",
-                "type": "select",
-                "default": "solid",
-                "values": [
-                  {"name": "Solid Circle", "value": "solid"},
-                  {"name": "Ring Only", "value": "ring"},
-                  {"name": "Dot", "value": "dot"}
-                ],
-                "tooltip": "Visual style of timeline markers"
-              }
-            ]
-          },
-          {
-            "name": "tm-responsive-settings",
-            "label": "Responsive Settings",
-            "type": "group",
-            "properties": [
-              {
-                "name": "mobileBreakpoint",
-                "label": "Mobile Layout At (px)",
-                "type": "int",
-                "default": 600,
-                "step": 50,
-                "min": 400,
-                "max": 900,
-                "tooltip": "Screen width to switch to mobile layout"
-              },
-              {
-                "name": "mobileContentWidth",
-                "label": "Mobile Content Width (%)",
-                "type": "int",
-                "default": 85,
-                "step": 5,
-                "min": 60,
-                "max": 95,
-                "tooltip": "Content width on mobile devices"
               }
             ]
           }
