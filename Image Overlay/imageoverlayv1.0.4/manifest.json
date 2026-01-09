@@ -80,9 +80,9 @@
                 "Drag and drop Image Overlay app wherever you want to display it.",
                 "Click on the default image icon to upload a new underlying image.",
                 "Inside the overlay area any Weebly element can be dragged and dropped e.g Title or text element.",
-                "Configure other settings and publish the website to see the results."
+                "Configure other settings and publish the website to see the results.",
                 "If you only want to display image as an overlay image then drag and drop only image element in overlay area and in settings panel enable the option of Image Over Image.",
-                "Please note that Image over image option only works for 3 transitions i.e SlideInBottom, SlideInRight and SlideInLeft.",
+                "Please note that Image over image option only works for 3 transitions i.e SlideInBottom, SlideInRight and SlideInLeft."
             ],
             "autopop": true
         }

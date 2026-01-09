@@ -1,0 +1,268 @@
+{
+  "manifest": "1",
+  "version": "2.0.0", 
+  "client_id": "1718550826",
+  "callback_url": "https://codoplex.com/wpwa_phase_one/?pr_id=6109",
+  "oauth_final_destination": "editor",
+  "scopes": ["read:site", "write:site"],
+  "locale": "",
+  "elements": [
+    {
+      "name": "Timeline",
+      "path": "files",
+      "version": "2.0.0",
+      "settings": {
+        "config": {
+          "autopop": true
+        },
+        "properties": [
+          {
+            "name": "tm-general-settings",
+            "label": "General Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "numberOfElements",
+                "label": "No of Elements",
+                "type": "int",
+                "default": 3,
+                "step": 1,
+                "min": 1,
+                "max": 20,
+                "tooltip": "Define number of timeline elements (1-20)"
+              },
+              {
+                "name": "timelineLayout",
+                "label": "Timeline Layout",
+                "type": "select",
+                "default": "alternating",
+                "values": [
+                  {"name": "Alternating (Left-Right)", "value": "alternating"},
+                  {"name": "All Left", "value": "left"},
+                  {"name": "All Right", "value": "right"}
+                ],
+                "tooltip": "Choose how timeline items are positioned"
+              },
+              {
+                "name": "animationStyle",
+                "label": "Animation Style",
+                "type": "select",
+                "default": "fade",
+                "values": [
+                  {"name": "None", "value": "none"},
+                  {"name": "Fade In", "value": "fade"},
+                  {"name": "Slide In", "value": "slide"},
+                  {"name": "Scale Up", "value": "scale"}
+                ],
+                "tooltip": "Animation when scrolling into view"
+              },
+              {
+                "name": "enableShadow",
+                "label": "Enable Box Shadow",
+                "type": "toggle",
+                "default": true,
+                "tooltip": "Add shadow effect to content boxes"
+              },
+              {
+                "name": "shadowIntensity",
+                "label": "Shadow Intensity",
+                "type": "int",
+                "default": 10,
+                "step": 1,
+                "min": 0,
+                "max": 30,
+                "tooltip": "Intensity of the shadow effect"
+              },
+              {
+                "name": "hoverEffect",
+                "label": "Hover Effect",
+                "type": "toggle",
+                "default": true,
+                "tooltip": "Scale content slightly on hover"
+              }
+            ]
+          },
+          {
+            "name": "tm-style-settings",
+            "label": "Style Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "tmBgColor",
+                "label": "Timeline BG Color",
+                "type": "color",
+                "default": "#8d2424",
+                "tooltip": "Background color of timeline section"
+              },
+              {
+                "name": "tmCenterlineBgColor",
+                "label": "Center Line Color",
+                "type": "color",
+                "default": "#ffffff",
+                "tooltip": "Color of the central vertical line"
+              },
+              {
+                "name": "centerLineWidth",
+                "label": "Center Line Width (px)",
+                "type": "int",
+                "default": 6,
+                "step": 1,
+                "min": 2,
+                "max": 20,
+                "tooltip": "Width of the central line in pixels"
+              },
+              {
+                "name": "tmCircleBgColor",
+                "label": "Circle Border Color",
+                "type": "color",
+                "default": "#FF9F55",
+                "tooltip": "Border color of timeline markers"
+              },
+              {
+                "name": "tmCircleFillColor",
+                "label": "Circle Fill Color",
+                "type": "color",
+                "default": "#ffffff",
+                "tooltip": "Fill color inside the circles"
+              },
+              {
+                "name": "circleSize",
+                "label": "Circle Size (px)",
+                "type": "int",
+                "default": 25,
+                "step": 1,
+                "min": 15,
+                "max": 50,
+                "tooltip": "Size of timeline marker circles"
+              },
+              {
+                "name": "tmContentBGColor",
+                "label": "Content BG Color",
+                "type": "color",
+                "default": "#ffffff",
+                "tooltip": "Background color of content boxes"
+              },
+              {
+                "name": "contentBorderRadius",
+                "label": "Content Border Radius (px)",
+                "type": "int",
+                "default": 6,
+                "step": 1,
+                "min": 0,
+                "max": 30,
+                "tooltip": "Roundness of content box corners"
+              }
+            ]
+          },
+          {
+            "name": "tm-spacing-settings",
+            "label": "Spacing Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "itemSpacing",
+                "label": "Item Spacing (px)",
+                "type": "int",
+                "default": 10,
+                "step": 1,
+                "min": 0,
+                "max": 100,
+                "tooltip": "Vertical space between timeline items"
+              },
+              {
+                "name": "contentPadding",
+                "label": "Content Padding (px)",
+                "type": "int",
+                "default": 20,
+                "step": 1,
+                "min": 10,
+                "max": 50,
+                "tooltip": "Internal padding of content boxes"
+              },
+              {
+                "name": "topMargin",
+                "label": "Top Margin (px)",
+                "type": "int",
+                "default": 20,
+                "step": 1,
+                "min": 0,
+                "max": 100,
+                "tooltip": "Top margin of timeline"
+              },
+              {
+                "name": "bottomMargin",
+                "label": "Bottom Margin (px)",
+                "type": "int",
+                "default": 20,
+                "step": 1,
+                "min": 0,
+                "max": 100,
+                "tooltip": "Bottom margin of timeline"
+              }
+            ]
+          },
+          {
+            "name": "tm-icon-settings",
+            "label": "Icon & Connector Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "showConnector",
+                "label": "Show Arrow Connector",
+                "type": "toggle",
+                "default": true,
+                "tooltip": "Display arrow pointing from circle to content"
+              },
+              {
+                "name": "connectorColor",
+                "label": "Connector Color",
+                "type": "color",
+                "default": "#ffffff",
+                "tooltip": "Color of the arrow connector"
+              },
+              {
+                "name": "iconStyle",
+                "label": "Circle Icon Style",
+                "type": "select",
+                "default": "solid",
+                "values": [
+                  {"name": "Solid Circle", "value": "solid"},
+                  {"name": "Ring Only", "value": "ring"},
+                  {"name": "Dot", "value": "dot"}
+                ],
+                "tooltip": "Visual style of timeline markers"
+              }
+            ]
+          },
+          {
+            "name": "tm-responsive-settings",
+            "label": "Responsive Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "mobileBreakpoint",
+                "label": "Mobile Layout At (px)",
+                "type": "int",
+                "default": 600,
+                "step": 50,
+                "min": 400,
+                "max": 900,
+                "tooltip": "Screen width to switch to mobile layout"
+              },
+              {
+                "name": "mobileContentWidth",
+                "label": "Mobile Content Width (%)",
+                "type": "int",
+                "default": 85,
+                "step": 5,
+                "min": 60,
+                "max": 95,
+                "tooltip": "Content width on mobile devices"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,275 @@
+/* Enhanced Timeline v2.0.0 - Frontend Styles */
+
+.codotimeline_container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Timeline container */
+.codo_timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Central vertical line */
+.codo_timeline::after {
+    content: '';
+    position: absolute;
+    width: @centerLineWidth;
+    background-color: @tmCenterlineBgColor;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: calc(-1 * @centerLineWidth / 2);
+    z-index: 0;
+}
+
+/* Container around content */
+.codo_tm_container {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 41.2%;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* Timeline items visible state */
+.codo_tm_container.aos-animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* The circles on the timeline */
+.codo_tm_container::after {
+    content: '';
+    position: absolute;
+    width: @circleSize;
+    height: @circleSize;
+    right: calc(-1 * @circleSize / 2 - 4px);
+    background-color: @tmCircleFillColor;
+    border: 4px solid @tmCircleBgColor;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+/* Icon style variations */
+.codo_timeline[data-icon-style="ring"] .codo_tm_container::after {
+    background-color: transparent;
+    border-width: 6px;
+}
+
+.codo_timeline[data-icon-style="dot"] .codo_tm_container::after {
+    width: calc(@circleSize * 0.5);
+    height: calc(@circleSize * 0.5);
+    background-color: @tmCircleBgColor;
+    border: none;
+    right: calc(-1 * @circleSize / 4);
+}
+
+/* Alternating layout - Place containers to the left/right */
+.layout-alternating .codo_timeline .codo_tm_container:nth-child(odd) {
+    left: 0;
+}
+
+.layout-alternating .codo_timeline .codo_tm_container:nth-child(even) {
+    left: 50%;
+}
+
+/* All left layout */
+.layout-left .codo_timeline .codo_tm_container {
+    left: 0;
+}
+
+.layout-left .codo_timeline::after {
+    left: 0;
+    margin-left: 0;
+}
+
+.layout-left .codo_tm_container::after {
+    right: auto;
+    left: calc(-1 * @circleSize / 2 - 4px);
+}
+
+/* All right layout */
+.layout-right .codo_timeline .codo_tm_container {
+    left: 50%;
+}
+
+.layout-right .codo_timeline::after {
+    left: 0;
+    margin-left: 0;
+}
+
+/* Arrow connectors for alternating layout */
+.layout-alternating .codo_timeline .codo_tm_container:nth-child(odd)::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    right: 30px;
+    border: medium solid @connectorColor;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent @connectorColor;
+}
+
+.layout-alternating .codo_timeline .codo_tm_container:nth-child(even)::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid @connectorColor;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent @connectorColor transparent transparent;
+}
+
+/* Arrow connectors for left layout */
+.layout-left .codo_tm_container::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid @connectorColor;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent @connectorColor transparent transparent;
+}
+
+/* Arrow connectors for right layout */
+.layout-right .codo_tm_container::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid @connectorColor;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent @connectorColor transparent transparent;
+}
+
+/* Fix circle position for even items in alternating layout */
+.layout-alternating .codo_timeline .codo_tm_container:nth-child(even)::after {
+    left: calc(-1 * @circleSize / 2 - 4px);
+    right: auto;
+}
+
+/* Hide connectors if disabled */
+.codo_timeline[data-show-connector="false"] .codo_tm_container::before {
+    display: none;
+}
+
+/* Content box */
+.codo_tm_content {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Shadow effect */
+.codo_timeline[data-shadow="true"] .codo_tm_content {
+    box-shadow: 0 @shadowIntensity 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Hover effect */
+.codo_timeline[data-hover="true"] .codo_tm_content:hover {
+    transform: scale(1.03);
+    box-shadow: 0 calc(@shadowIntensity + 5) 40px rgba(0, 0, 0, 0.2);
+}
+
+.codo_timeline[data-hover="true"] .codo_tm_container:hover::after {
+    transform: scale(1.2);
+}
+
+/* Animation styles */
+.animation-fade .codo_tm_container {
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animation-slide .codo_tm_container {
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animation-slide .codo_tm_container:nth-child(odd) {
+    transform: translateX(-50px);
+}
+
+.animation-slide .codo_tm_container:nth-child(even) {
+    transform: translateX(50px);
+}
+
+.animation-scale .codo_tm_container {
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: scale(0.8);
+}
+
+.animation-scale .codo_tm_container.aos-animate {
+    transform: scale(1);
+}
+
+/* Tablet adjustments */
+@media all and (max-width: 767px) {
+    .codo_tm_container {
+        width: 36.5%;
+    }
+}
+
+/* Mobile responsive - Dynamic breakpoint */
+@media all and (max-width: @mobileBreakpoint) {
+    .codo_timeline::after {
+        left: 31px;
+        margin-left: 0;
+    }
+
+    .codo_tm_container {
+        width: @mobileContentWidth;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+
+    .codo_tm_container::before {
+        left: 60px;
+        border: medium solid @connectorColor;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent @connectorColor transparent transparent;
+    }
+
+    .codo_timeline .codo_tm_container:nth-child(odd)::after, 
+    .codo_timeline .codo_tm_container:nth-child(even)::after {
+        left: calc(15px - @circleSize / 2);
+        right: auto;
+    }
+
+    .codo_timeline .codo_tm_container:nth-child(even) {
+        left: 0%;
+    }
+
+    .codo_timeline .codo_tm_container:nth-child(even)::before {
+        left: 60px;
+    }
+
+    .codo_timeline .codo_tm_container:nth-child(odd)::before {
+        border-width: 10px 10px 10px 0px;
+        border-color: transparent @connectorColor transparent transparent;
+        left: 60px;
+    }
+
+    /* Mobile layout adjustments for left/right layouts */
+    .layout-left .codo_tm_container::after,
+    .layout-right .codo_tm_container::after {
+        left: calc(15px - @circleSize / 2);
+        right: auto;
+    }
+}
