@@ -149,6 +149,13 @@
             ]
           }
         ]
+      },
+      "tutorial":
+      {
+          "introduction": "Timeline Weebly App Demo",
+          "type": "video",
+          "content": "AW0iKoKwzDo",
+          "autopop": false
       }
     }
   ]
