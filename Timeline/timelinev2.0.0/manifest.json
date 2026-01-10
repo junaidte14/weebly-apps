@@ -122,7 +122,7 @@
                 "type": "int",
                 "default": 10,
                 "step": 1,
-                "min": 10,
+                "min": 0,
                 "max": 50,
                 "tooltip": "Internal top and bottom padding inside container"
               },
