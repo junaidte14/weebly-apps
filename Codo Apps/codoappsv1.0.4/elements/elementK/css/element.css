@@ -1,0 +1,58 @@
+.codo_accordion_container {
+    width: 100%;
+}
+
+.codo_accordion_item {
+    border: 1px solid @accordionBorderColor;
+    border-radius: @accordionBorderRadius * 1px;
+    margin-bottom: @accordionItemGap * 1px;
+    overflow: hidden;
+}
+
+.codo_accordion_header {
+    background-color: @accordionHeaderBgColor;
+    color: @accordionHeaderTextColor;
+    padding: 15px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    transition: background-color 0.3s ease;
+}
+
+.codo_title_wrapper {
+    flex-grow: 1; /* This is the secret sauce */
+    width: 100%;  /* Ensures it fills the space so internal alignment works */
+}
+
+.codo_title_wrapper .paragraph {
+    margin-bottom: 0;
+}
+
+.codo_accordion_icon {
+    flex-shrink: 0; /* Prevents icon from squishing if text is long */
+    margin-left: 15px;
+    font-style: normal;
+    font-size: 18px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+    width: 18px;
+    text-align: right;
+}
+
+.codo_accordion_header.active .codo_accordion_icon {
+    transform: rotate(180deg);
+}
+
+.codo_accordion_body {
+    display: none;
+    padding: 15px 20px;
+    background-color: @accordionBodyBgColor;
+    color: @accordionBodyTextColor;
+    border-top: 1px solid @accordionBorderColor;
+}
+
+.codo_accordion_body.open {
+    display: block;
+}

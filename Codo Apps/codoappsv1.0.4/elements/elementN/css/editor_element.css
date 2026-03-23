@@ -1,0 +1,69 @@
+/* ── Any Slider — Editor View ── */
+/* Slides stack vertically so all content areas are accessible for editing */
+
+.codo_slider_wrapper {
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px dashed rgba(74,144,217,0.4);
+    border-radius: 4px;
+    padding: 8px;
+    position: relative;
+}
+
+.codo_slider_wrapper::before {
+    content: "✦ Any Slider — edit each slide below";
+    display: block;
+    font-size: 11px;
+    font-weight: bold;
+    color: #4A90D9;
+    background: rgba(74,144,217,0.08);
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+/* No overflow clip in editor — show all slides stacked */
+.codo_slider_viewport {
+    overflow: visible;
+    width: 100%;
+}
+
+/* Stack slides vertically */
+.codo_slider_track {
+    display: block;
+    transform: none !important;
+    transition: none !important;
+}
+
+.codo_slider_slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    border: 1px solid rgba(74,144,217,0.25);
+    border-radius: 4px;
+    padding: 8px;
+    position: relative;
+}
+
+/* Slide number label */
+.codo_slider_slide::before {
+    content: "Slide " attr(data-slide-num);
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    background: #4A90D9;
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 1px 8px;
+    border-radius: 3px;
+}
+
+/* Hide live navigation controls in editor */
+.codo_slider_prev,
+.codo_slider_next,
+.codo_slider_dots,
+.codo_slider_progress {
+    display: none !important;
+}

@@ -1,0 +1,107 @@
+/* ── Flip-card style blocks ── */
+.codo_countdown_timer {
+    margin: 20px 0;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.codo_countdown_block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.codo_countdown_flip {
+    position: relative;
+    width: 50px; 
+    height: 60px;
+    padding: 0 12px;
+    background-color: @blockBgColor;
+    border-radius: 4px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* horizontal shine line */
+.codo_countdown_flip::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 2px;
+    background: rgba(0,0,0,0.12);
+    z-index: 2;
+}
+
+.codo_countdown_num {
+    font-size: 32px;
+    font-weight: bold;
+    color: @numberColor;
+    line-height: 1;
+    z-index: 1;
+    display: inline-block;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.codo_countdown_num.codo_flip_anim {
+    animation: codoFlipNum 0.35s ease forwards;
+}
+
+@keyframes codoFlipNum {
+    0%   { transform: translateY(0);    opacity: 1; }
+    40%  { transform: translateY(-30%); opacity: 0; }
+    41%  { transform: translateY(30%);  opacity: 0; }
+    100% { transform: translateY(0);    opacity: 1; }
+}
+
+.codo_countdown_label {
+    margin-top: 8px;
+    font-size: 18px;
+    color: @labelColor;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* ── Separator dots ── */
+.codo_countdown_sep {
+    font-size: 24px;
+    font-weight: bold;
+    align-self: center;
+    padding-top: 0;
+    line-height: 60px;
+}
+
+/* ── Expired message ── */
+.codo_countdown_expired {
+    display: none;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 20px 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+    .codo_countdown_flip {
+        width: 64px;
+        height: 72px;
+    }
+
+    .codo_countdown_num {
+        font-size: 36px;
+    }
+
+    .codo_countdown_sep {
+        font-size: 36px;
+        line-height: 72px;
+    }
+
+    .codo_countdown_label {
+        font-size: 10px;
+    }
+}

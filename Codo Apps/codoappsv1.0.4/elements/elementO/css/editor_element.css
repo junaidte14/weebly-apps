@@ -1,0 +1,110 @@
+/* ══════════════════════════════════════
+   CODO Exit Intent Popup — editor_element.css
+   ══════════════════════════════════════ */
+
+.codo_eip_editor_preview {
+    padding: 20px;
+    background: #f9f9f9;
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+}
+
+/* ── Image area ── */
+.codo_eip_editor_image_area {
+    position: relative;
+    background: #eef4fb;
+    border: 2px dashed #4A90D9;
+    border-radius: 6px;
+    min-height: 120px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Placeholder text shown when no image uploaded yet */
+.codo_eip_editor_image_area::before {
+    content: "📷  Upload your popup image here";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 13px;
+    font-weight: bold;
+    color: #4A90D9;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Hide placeholder once an image is uploaded */
+.codo_eip_editor_image_area:has(img)::before {
+    display: none;
+}
+
+/* Ensure uploaded image fills the area responsively */
+.codo_eip_editor_image_area img,
+.codo_eip_editor_image_area .wsite-image img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    object-fit: cover !important;
+    position: relative;
+    z-index: 1;
+}
+
+.codo_eip_editor_image_label {
+    display: block;
+    font-size: 10px;
+    font-weight: bold;
+    color: #4A90D9;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 6px;
+}
+
+.codo_eip_editor_image_hint {
+    display: block;
+    font-size: 11px;
+    color: #888;
+    margin-top: 4px;
+    margin-bottom: 16px;
+    font-style: italic;
+}
+
+/* ── Content modal area ── */
+.codo_eip_modal_editor {
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    position: relative;
+    min-height: 150px;
+    background-color: @modalBgColor;
+}
+
+.editor-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #4A90D9;
+    color: #fff;
+    font-size: 10px;
+    padding: 2px 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 0 0 4px 0;
+}
+
+/* ── Settings info badge ── */
+.codo_eip_editor_info {
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: #fff8e1;
+    border-left: 3px solid #F5A623;
+    border-radius: 0 4px 4px 0;
+    font-size: 11px;
+    color: #7a5c00;
+    line-height: 1.6;
+}

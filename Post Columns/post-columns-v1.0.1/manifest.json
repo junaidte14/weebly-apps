@@ -1,0 +1,111 @@
+{
+  "manifest": "1",
+  "version": "1.0.1",
+  "client_id": "428308807", 
+  "callback_url": "https://codoplex.com/wpwa_phase_one/?pr_id=8492",
+  "oauth_final_destination": "editor",
+  "scopes": ["read:site", "write:site"],
+  "locale": "",
+  "elements": [
+    {
+      "name": "Post Columns",
+      "path": "files",
+      "version": "1.0.1",
+      "settings": {
+        "config": {
+          "autopop": true
+        },
+        "properties": [
+          {
+            "name": "settings",
+            "label": "Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "blogcolumns",
+                "label": "Blog Post Columns",
+                "type": "select",
+                "values" : [
+                    "1",
+                    "2",
+                    "3"
+                  ],
+                "default": "3",
+                "tooltip": "Select the number of blog post columns"
+              },
+              {
+                "name" : "expand-posts-area",
+                "label": "Expand Posts Area",
+                "type" : "toggle",
+                "default" : true,
+                "tooltip": "Recommended for 3 columns layout"
+              },
+              {
+                "name": "postStyle",
+                "label": "Blog Post Style",
+                "type": "select",
+                "values" : [
+                    "simple",
+                    "card"
+                  ],
+                "default": "card",
+                "tooltip": "Select the blog post style"
+              },
+              {
+                "name": "cardGap",
+                "label": "Card Gap",
+                "type": "int",
+                "default": 10,
+                "step": 1,
+                "min": 0,
+                "tooltip": "Define gap/space between cards"
+              },
+              {
+                "name" : "custom-card-colors",
+                "label": "Use Custom Card Colors",
+                "type" : "toggle",
+                "default" : false,
+                "tooltip": "Select whether to use custom card colors defined below or to use default colors"
+              },
+              {
+                "name": "cardBgColor",
+                "label": "Post Card BG Color",
+                "type": "color",
+                "default": "#FEFEFE",
+                "tooltip": "Select the card bg color,if Custom Card Colors is true"
+              },
+              {
+                "name": "cardShadowColor",
+                "label": "Post Card Shadow Color",
+                "type": "color",
+                "default": "#221919",
+                "tooltip": "Select the card shadow color,if Custom Card Colors is true"
+              },
+              {
+                "name": "cardBorderColor",
+                "label": "Post Card Border Color",
+                "type": "color",
+                "default": "#FAFAFA",
+                "tooltip": "Select the card border color,if Custom Card Colors is true"
+              }
+              
+            ]
+          }
+          
+        ]
+
+      },
+      "tutorial": {
+        "introduction": "With Post Columns Blog app, you can convert your blog posts to multi column layout",
+        "type": "steps",
+        "content": [
+          "Select the number of columns for blog posts: For example if you select 3 then your blog posts will be shown in 3 columns.",
+          "Select whether to expand the posts area or not: True means that blog sidebar will appear under the blog posts.",
+          "Select the style of blog posts: If you select 'simple' then blog posts will look as your theme design but if you select 'card' then your blog posts will look like cards with background color and shadow.",
+          "Use Custom Card Colors: If true/enabled, it means that your defined card background color and card shadow color will be used. If false/disabled then default colors will be used."
+        ],
+        "autopop": true
+      }
+    }
+  ]
+}

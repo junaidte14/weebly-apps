@@ -1,0 +1,139 @@
+/* ── Any Slider ── */
+
+/* Outer wrapper — relative so arrows can be positioned */
+.codo_slider_wrapper {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Viewport clips the track */
+.codo_slider_viewport {
+    overflow: hidden;
+    width: 100%;
+}
+
+/* Track holds all slides in a row */
+.codo_slider_track {
+    display: flex;
+    flex-direction: row; /* Ensure horizontal orientation */
+    align-items: stretch; /* Make all slides same height as tallest slide */
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+    width: 100%;
+}
+
+/* Each slide fills the full viewport width */
+.codo_slider_slide {
+    min-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    /* This ensures content inside doesn't overflow or collapse */
+    position: relative; 
+    overflow: hidden; 
+    /* Helpful for the editor: */
+    min-height: 50px; 
+}
+
+/* Ensure Weebly content areas inside slides take up space */
+.codo_slider_slide .wsite-content-body {
+    width: 100%;
+    height: auto;
+    display: block !important;
+}
+
+/* Strip default Weebly margins from content inside slides */
+.codo_slider_slide .wsite-content-body,
+.codo_slider_slide .wsite-content-body > *:first-child {
+    margin-top: 0;
+}
+
+.codo_slider_slide .wsite-content-body > *:last-child {
+    margin-bottom: 0;
+}
+
+/* ── Arrows ── */
+.codo_slider_prev,
+.codo_slider_next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: @arrowBgColor;
+    color: @arrowColor;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: background-color 0.25s ease, color 0.25s ease;
+    padding: 0;
+}
+
+.codo_slider_prev { left: 8px; }
+.codo_slider_next { right: 8px; }
+
+.codo_slider_prev:hover,
+.codo_slider_next:hover {
+    background-color: @arrowHoverBgColor;
+    color: #ffffff;
+}
+
+/* ── Dots ── */
+.codo_slider_dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.codo_slider_dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: @dotColor;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.codo_slider_dot.active {
+    background-color: @dotActiveColor;
+    transform: scale(1.3);
+}
+
+/* ── Progress bar ── */
+.codo_slider_progress {
+    height: 3px;
+    background-color: @dotColor;
+    border-radius: 2px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.codo_slider_progress_bar {
+    height: 100%;
+    width: 0%;
+    background-color: @dotActiveColor;
+    transition: width linear;
+}
+
+@media (max-width: 600px) {
+    .codo_slider_prev { left: 2px; }
+    .codo_slider_next { right: 2px; }
+
+    .codo_slider_prev,
+    .codo_slider_next {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+}

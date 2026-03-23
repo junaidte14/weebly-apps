@@ -1,0 +1,89 @@
+/* ── Flip-card style blocks ── */
+.codo_countdown_timer {
+    margin: 20px 0;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.codo_countdown_block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.codo_countdown_flip {
+    position: relative;
+    width: 50px; 
+    height: 60px;
+    padding: 0 12px;
+    background-color: @blockBgColor;
+    border-radius: 4px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* horizontal shine line */
+.codo_countdown_flip::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 2px;
+    background: rgba(0,0,0,0.12);
+    z-index: 2;
+}
+
+.codo_countdown_num {
+    font-size: 32px;
+    font-weight: bold;
+    color: @numberColor;
+    line-height: 1;
+    z-index: 5; /* Ensure it stays above the shine line */
+    display: inline-block; 
+    /* Prevent blurry text during animation */
+    backface-visibility: hidden; 
+    transform: translateZ(0);
+}
+
+.codo_countdown_num.codo_flip_anim {
+    /* Slightly longer duration to make it easier to see */
+    animation: codoFlipNum 0.4s ease-in-out forwards !important;
+}
+
+@keyframes codoFlipNum {
+    0%   { transform: translateY(0); opacity: 1; }
+    40%  { transform: translateY(-100%); opacity: 0; } /* Slide completely out UP */
+    41%  { transform: translateY(100%); opacity: 0; }  /* Teleport to BOTTOM */
+    100% { transform: translateY(0); opacity: 1; }    /* Slide into center from BELOW */
+}
+
+.codo_countdown_label {
+    margin-top: 8px;
+    font-size: 18px;
+    color: @labelColor;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* ── Separator dots ── */
+.codo_countdown_sep {
+    font-size: 24px;
+    font-weight: bold;
+    align-self: center;
+    padding-top: 0;
+    line-height: 60px;
+}
+
+/* ── Expired message ── */
+.codo_countdown_expired {
+    display: block;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 20px 0;
+}

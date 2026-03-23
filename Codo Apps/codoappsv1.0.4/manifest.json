@@ -1,14 +1,521 @@
 {
   "manifest": "1",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "client_id": "364327965",
   "callback_url": "https://codoplex.com/wpwa_phase_one/?pr_id=1561",
   "locale": "en-us",
   "elements": [
     {
+      "name": "Exit Intent Popup",
+      "path": "elements/elementO",
+      "version": "1.0.4",
+      "settings": {
+        "config": { "autopop": true },
+        "properties": [
+          {
+            "name": "general-settings",
+            "label": "General Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "triggerMode",
+                "label": "Trigger Mode",
+                "type": "select",
+                "values": ["exitintent", "delay", "scroll"],
+                "default": "exitintent",
+                "tooltip": "exitintent: cursor leaves top. delay: after X sec. scroll: at X% page."
+              },
+              {
+                "name": "triggerDelay",
+                "label": "Delay Trigger (Seconds)",
+                "type": "int",
+                "default": 3,
+                "step": 1,
+                "min": 0,
+                "tooltip": "Seconds before popup appears. Used in delay mode only."
+              },
+              {
+                "name": "triggerScroll",
+                "label": "Scroll Trigger (%)",
+                "type": "int",
+                "default": 50,
+                "step": 5,
+                "min": 5,
+                "tooltip": "Page scroll percentage that fires the popup. Scroll mode only."
+              },
+              {
+                "name": "cookieDays",
+                "label": "Suppress After Seen (Days)",
+                "type": "int",
+                "default": 0,
+                "step": 1,
+                "min": 0,
+                "tooltip": "Days before popup shows again. Set 0 to always show."
+              },
+              {
+                "name": "modalBgColor",
+                "label": "Modal BG Color",
+                "type": "color",
+                "default": "#ffffff",
+                "tooltip": "Background color of the popup modal."
+              },
+              {
+                "name": "imageStyle",
+                "label": "Image Display Style",
+                "type": "select",
+                "values": ["none", "cover", "background"],
+                "default": "none",
+                "tooltip": "none: no image. cover: full-width image above content. background: image fills modal background."
+              }
+            ]
+          }
+        ]
+      },
+      "tutorial": {
+        "introduction": "Exit Intent Popup captures leaving visitors with a targeted offer.",
+        "type": "steps",
+        "content": [
+          "Choose Trigger Mode: exitintent, delay or scroll.",
+          "Set Suppress After Seen to how many days before popup reappears.",
+          "Set Image Display Style then upload an image in the editor image area.",
+          "Popup content area is fully drag-and-drop — add text, images, buttons, anything."
+        ],
+        "autopop": true
+      }
+    },
+    {
+      "name": "Any Slider",
+      "path": "elements/elementN",
+      "version": "1.0.4",
+      "settings": {
+        "config": { "autopop": true },
+        "properties": [
+          {
+            "name": "general-settings",
+            "label": "General Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "numberOfSlides",
+                "label": "Number of Slides",
+                "type": "int",
+                "default": 3,
+                "step": 1,
+                "min": 1,
+                "tooltip": "How many slides to create."
+              },
+              {
+                "name": "autoplay",
+                "label": "Autoplay",
+                "type": "toggle",
+                "default": true,
+                "tooltip": "Automatically advance slides."
+              },
+              {
+                "name": "autoplayInterval",
+                "label": "Autoplay Interval (s)",
+                "type": "int",
+                "default": 5,
+                "step": 1,
+                "min": 1,
+                "tooltip": "Time between slides in seconds."
+              },
+              {
+                "name": "showArrows",
+                "label": "Show Arrows",
+                "type": "toggle",
+                "default": true,
+                "tooltip": "Show previous and next navigation arrows."
+              },
+              {
+                "name": "showDots",
+                "label": "Show Dots",
+                "type": "toggle",
+                "default": true,
+                "tooltip": "Show clickable dot indicators below the slider."
+              }
+            ]
+          },
+          {
+            "name": "style-settings",
+            "label": "Style Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "arrowBgColor",
+                "label": "Arrow BG Color",
+                "type": "color",
+                "default": "#ffffff",
+                "tooltip": "Background color of the prev/next arrow buttons."
+              },
+              {
+                "name": "arrowColor",
+                "label": "Arrow Icon Color",
+                "type": "color",
+                "default": "#333333",
+                "tooltip": "Color of the arrow icons."
+              },
+              {
+                "name": "arrowHoverBgColor",
+                "label": "Arrow Hover BG Color",
+                "type": "color",
+                "default": "#4A90D9",
+                "tooltip": "Arrow button background color on hover."
+              },
+              {
+                "name": "dotColor",
+                "label": "Dot Color",
+                "type": "color",
+                "default": "#cccccc",
+                "tooltip": "Color of inactive dot indicators."
+              },
+              {
+                "name": "dotActiveColor",
+                "label": "Active Dot Color",
+                "type": "color",
+                "default": "#4A90D9",
+                "tooltip": "Color of the active dot indicator."
+              }
+            ]
+          }
+        ]
+      },
+      "tutorial": {
+        "introduction": "Any Slider turns any content into a smooth sliding carousel.",
+        "type": "steps",
+        "content": [
+          "Set Number of Slides then design each slide freely in the editor.",
+          "Each slide is a full content area — add text, images, buttons, anything.",
+          "Enable Autoplay and set the interval to control slide speed.",
+          "Toggle Show Arrows and Show Dots to control navigation style."
+        ],
+        "autopop": true
+      }
+    },
+    {
+      "name": "Countdown Timer",
+      "path": "elements/elementM",
+      "version": "1.0.4",
+      "settings": {
+        "config": { "autopop": true },
+        "properties": [
+          {
+            "name": "general-settings",
+            "label": "General Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "timerMode",
+                "label": "Timer Mode",
+                "type": "select",
+                "values": ["fixed", "evergreen"],
+                "default": "fixed",
+                "tooltip": "Fixed: counts to a set date. Evergreen: counts from visitor first visit."
+              },
+              {
+                "name": "targetDate",
+                "label": "Target Date (Fixed Mode)",
+                "type": "string",
+                "default": "\"2025-12-31T23:59:59\"", 
+                "tooltip": "Format: YYYY-MM-DDTHH:MM:SS. Used only in fixed mode."
+              },
+              {
+                "name": "evergreenMinutes",
+                "label": "Evergreen Duration (Minutes)",
+                "type": "int",
+                "default": 60,
+                "step": 1,
+                "min": 1,
+                "tooltip": "Minutes from visitor first view. Used only in evergreen mode."
+              },
+              {
+                "name": "showDays",
+                "label": "Show Days",
+                "type": "toggle",
+                "default": true,
+                "tooltip": "Toggle the Days block on or off."
+              },
+              {
+                "name": "timerAlignment",
+                "label": "Timer Alignment",
+                "type": "align",
+                "default": "center",
+                "tooltip": "Select timer alignment" 
+              }
+            ]
+          },
+          {
+            "name": "block-style",
+            "label": "Block Style",
+            "type": "group",
+            "properties": [
+              {
+                "name": "blockBgColor",
+                "label": "Block BG Color",
+                "type": "color",
+                "default": "#1a252f",
+                "tooltip": "Background color of each number block."
+              },
+              {
+                "name": "numberColor",
+                "label": "Number Color",
+                "type": "color",
+                "default": "#ffffff",
+                "tooltip": "Color of the countdown numbers."
+              },
+              {
+                "name": "labelColor",
+                "label": "Label Color",
+                "type": "color",
+                "default": "#aaaaaa",
+                "tooltip": "Color of the unit labels (DAYS, HOURS etc.)."
+              }
+            ]
+          }
+        ]
+      },
+      "tutorial": {
+        "introduction": "Countdown Timer creates urgency with a live ticking timer.",
+        "type": "steps",
+        "content": [
+          "Choose Timer Mode: fixed counts to a date, evergreen counts from first visit.",
+          "For fixed mode set Target Date in format YYYY-MM-DDTHH:MM:SS.",
+          "For evergreen mode set duration in minutes."
+        ],
+        "autopop": true
+      }
+    },
+    {
+      "name": "Pricing Table",
+      "path": "elements/elementL",
+      "version": "1.0.4",
+      "settings": {
+        "config": { "autopop": true },
+        "properties": [
+          {
+            "name": "general-settings",
+            "label": "General Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "numberOfCards",
+                "label": "Number of Cards",
+                "type": "int",
+                "default": 3,
+                "step": 1,
+                "min": 1,
+                "max": 4,
+                "tooltip": "Define how many pricing plans to display (Max 4)."
+              },
+              {
+                "name": "highlightedCard",
+                "label": "Highlighted Card",
+                "type": "select",
+                "values": ["none", "0", "1", "2", "3"],
+                "default": "1",
+                "tooltip": "Card to elevate as Most Popular. 0=first, 1=second, 2=third."
+              },
+              {
+                "name": "pricingCardGap",
+                "label": "Gap Between Cards (px)",
+                "type": "int",
+                "default": 20,
+                "step": 2,
+                "min": 0,
+                "tooltip": "Horizontal gap between pricing cards in pixels."
+              }
+            ]
+          },
+          {
+            "name": "card-style",
+            "label": "Card Style",
+            "type": "group",
+            "properties": [
+              {
+                "name": "cardBgColor",
+                "label": "Card BG Color",
+                "type": "color",
+                "default": "#ffffff",
+                "tooltip": "Background color of standard pricing cards."
+              },
+              {
+                "name": "cardBorderColor",
+                "label": "Card Border Color",
+                "type": "color",
+                "default": "#dddddd",
+                "tooltip": "Border color of pricing cards."
+              },
+              {
+                "name": "cardBorderRadius",
+                "label": "Border Radius (px)",
+                "type": "int",
+                "default": 6,
+                "step": 1,
+                "min": 0,
+                "tooltip": "Rounded corner radius for cards in pixels."
+              },
+              {
+                "name": "highlightedCardBorderColor",
+                "label": "Highlighted Border Color",
+                "type": "color",
+                "default": "#4A90D9",
+                "tooltip": "Border color of the highlighted card."
+              },
+              {
+                "name": "badgeBgColor",
+                "label": "Badge BG Color",
+                "type": "color",
+                "default": "#4A90D9",
+                "tooltip": "Background color of the Most Popular badge."
+              }
+            ]
+          }
+        ]
+      },
+      "tutorial": {
+        "introduction": "Pricing Table displays 1-4 side-by-side pricing plans with a highlighted Most Popular card.",
+        "type": "steps",
+        "content": [
+          "Set Number of Cards to how many plans you need (1-4).",
+          "Set Highlighted Card index: 0=first, 1=second, 2=third, 3=fourth.",
+          "Add plan name, price, features and button using drag and drop elements.",
+          "Customise card and highlighted colors in the style settings groups."
+        ],
+        "autopop": true
+      }
+    },
+    {
+      "name": "Accordion FAQ",
+      "path": "elements/elementK",
+      "version": "1.0.4",
+      "settings": {
+        "config": {
+          "autopop": true
+        },
+        "properties": [
+          {
+            "name": "general-settings",
+            "label": "General Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "numberOfItems",
+                "label": "Number of Items",
+                "type": "int",
+                "default": 3,
+                "step": 1,
+                "min": 1,
+                "tooltip": "Define number of accordion/FAQ items"
+              },
+              {
+                "name": "allowMultiple",
+                "label": "Allow Multiple Open",
+                "type": "toggle",
+                "default": false,
+                "tooltip": "If enabled, multiple items can be open at the same time"
+              },
+              {
+                "name": "openFirstItem",
+                "label": "Open First Item by Default",
+                "type": "toggle",
+                "default": true,
+                "tooltip": "If enabled, the first accordion item will be open on page load"
+              }
+            ]
+          },
+          {
+            "name": "header-settings",
+            "label": "Header Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "accordionHeaderBgColor",
+                "label": "Header BG Color",
+                "type": "color",
+                "default": "#f1f1f1",
+                "tooltip": "Background color of the accordion header"
+              },
+              {
+                "name": "accordionHeaderTextColor",
+                "label": "Header Icon Color",
+                "type": "color",
+                "default": "#333333",
+                "tooltip": "Text color of the accordion header icon"
+              }
+            ]
+          },
+          {
+            "name": "body-settings",
+            "label": "Body Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "accordionBodyBgColor",
+                "label": "Body BG Color",
+                "type": "color",
+                "default": "#ffffff",
+                "tooltip": "Background color of accordion content area"
+              },
+              {
+                "name": "accordionBodyTextColor",
+                "label": "Body Text Color",
+                "type": "color",
+                "default": "#555555",
+                "tooltip": "Text color of accordion content area"
+              }
+            ]
+          },
+          {
+            "name": "style-settings",
+            "label": "Style Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "accordionBorderColor",
+                "label": "Border Color",
+                "type": "color",
+                "default": "#cccccc",
+                "tooltip": "Border color for accordion items"
+              },
+              {
+                "name": "accordionBorderRadius",
+                "label": "Border Radius",
+                "type": "int",
+                "default": 4,
+                "step": 1,
+                "min": 0,
+                "tooltip": "Rounded corner radius for accordion items"
+              },
+              {
+                "name": "accordionItemGap",
+                "label": "Gap Between Items",
+                "type": "int",
+                "default": 8,
+                "step": 1,
+                "min": 0,
+                "tooltip": "Vertical space between each accordion item (px)"
+              }
+            ]
+          }
+        ]
+      },
+      "tutorial": {
+        "introduction": "Accordion FAQ lets you display collapsible question and answer sections to save space and improve UX.",
+        "type": "steps",
+        "content": [
+          "Set the number of items to match how many FAQ entries you need.",
+          "Increment the Unique ID if you place this element more than once on the same page.",
+          "Toggle 'Allow Multiple Open' to let visitors expand several items at once, or keep it off for classic single-open behaviour.",
+          "Toggle 'Open First Item by Default' to show the first answer expanded when the page loads.",
+          "Customise header, body, and border colors in the settings groups to match your site theme."
+        ],
+        "autopop": true
+      }
+    },
+    {
       "name": "Colored Lines",
       "path": "elements/elementA",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "settings": {
         "config": {
           "autopop": true
@@ -87,7 +594,7 @@
     {
       "name": "Multi Column Blog",
       "path": "elements/elementB",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "settings": {
         "config": {
           "autopop": true
@@ -187,7 +694,7 @@
     {
       "name": "Masonry Layout",
       "path": "elements/elementC",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "settings": {
         "config": {
           "autopop": true
@@ -268,7 +775,7 @@
     {
       "name": "SEO Headlines",
       "path": "elements/elementD",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "settings": {
         "config": {
           "autopop": true
@@ -422,7 +929,7 @@
     {
       "name": "Video Lightbox",
       "path": "elements/elementE",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "settings": {
         "config": {
           "autopop": true
@@ -497,11 +1004,10 @@
 
       }
     },
-
     {
       "name": "Codo Tabs",
       "path": "elements/elementF",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "settings": {
         "config": {
           "autopop": true
@@ -610,11 +1116,10 @@
 
       }
     },
-
     {
       "name": "Vertical Tabs",
       "path": "elements/elementG",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "settings": {
         "config": {
           "autopop": true
@@ -723,11 +1228,10 @@
 
       }
     },
-
     {
       "name": "Image Overlay",
       "path": "elements/elementH",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "settings": {
         "config": {
           "autopop": true
@@ -778,7 +1282,7 @@
     {
       "name": "Timeline",
       "path": "elements/elementI",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "settings": {
         "config": {
           "autopop": true
@@ -841,11 +1345,10 @@
 
       }
     },
-
     {
       "name": "Image Text",
       "path": "elements/elementJ",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "settings": {
         "config": {
           "autopop": true

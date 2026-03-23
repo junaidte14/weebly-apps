@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160px" height="510px" viewBox="0 0 1160 510" preserveAspectRatio="xMidYMid meet">
+  <rect x="0" y="0" width="1160" height="510" fill="#4B5155"/>
+  <!-- Item 1 - active/open -->
+  <rect x="60" y="40" width="1040" height="60" fill="#ffffff" rx="4"/>
+  <rect x="60" y="100" width="1040" height="80" fill="#e8e8e8" rx="0"/>
+  <rect x="80" y="115" width="600" height="12" fill="#aaaaaa" rx="3"/>
+  <rect x="80" y="137" width="450" height="12" fill="#aaaaaa" rx="3"/>
+  <!-- arrow down (open) -->
+  <polygon points="1070,62 1090,62 1080,78" fill="#4B5155"/>
+  <rect x="80" y="58" width="400" height="14" fill="#4B5155" rx="3"/>
+  <!-- Item 2 - closed -->
+  <rect x="60" y="200" width="1040" height="60" fill="#ffffff" rx="4"/>
+  <polygon points="1070,222 1090,222 1080,206" fill="#4B5155"/>
+  <rect x="80" y="218" width="350" height="14" fill="#4B5155" rx="3"/>
+  <!-- Item 3 - closed -->
+  <rect x="60" y="280" width="1040" height="60" fill="#ffffff" rx="4"/>
+  <polygon points="1070,302 1090,302 1080,286" fill="#4B5155"/>
+  <rect x="80" y="298" width="420" height="14" fill="#4B5155" rx="3"/>
+  <!-- Item 4 - closed -->
+  <rect x="60" y="360" width="1040" height="60" fill="#ffffff" rx="4"/>
+  <polygon points="1070,382 1090,382 1080,366" fill="#4B5155"/>
+  <rect x="80" y="378" width="370" height="14" fill="#4B5155" rx="3"/>
+</svg>

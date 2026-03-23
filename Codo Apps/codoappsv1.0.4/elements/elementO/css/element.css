@@ -1,0 +1,230 @@
+/* ══════════════════════════════════════
+   CODO Exit Intent Popup — element.css
+   ══════════════════════════════════════ */
+
+/* ── Overlay backdrop ── */
+.codo_eip_overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 99998;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transition: backdrop-filter 0.3s ease;
+}
+
+.codo_eip_overlay.active {
+    display: block;
+    animation: codoEipFadeIn 0.3s ease forwards;
+}
+
+/* ── Modal box ── */
+.codo_eip_modal {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 600px;
+    background-color: @modalBgColor;
+    border-radius: 12px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.codo_eip_modal.active {
+    display: block;
+    animation: codoEipPopIn 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* ── Mobile: Slide-Up ── */
+@media (max-width: 480px) {
+    .codo_eip_modal {
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-width: none;
+        transform: translateY(100%);
+        border-radius: 20px 20px 0 0;
+    }
+
+    .codo_eip_modal.active {
+        display: block;
+        animation: codoEipSlideUp 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    }
+}
+
+/* ── Close Button ── */
+.codo_eip_close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #999;
+    line-height: 1;
+    z-index: 10;
+    transition: color 0.2s ease;
+}
+
+.codo_eip_close:hover {
+    color: #333;
+}
+
+/* ── Closing states ── */
+.codo_eip_overlay.closing {
+    animation: codoEipFadeOut 0.3s ease forwards;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+}
+
+.codo_eip_modal.active.closing {
+    animation: codoEipPopOut 0.3s ease forwards;
+}
+
+@media (max-width: 480px) {
+    .codo_eip_modal.active.closing {
+        animation: codoEipSlideDown 0.4s cubic-bezier(0.4, 0, 1, 1) forwards;
+    }
+}
+
+/* ── Keyframes ── */
+@keyframes codoEipFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes codoEipFadeOut {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+@keyframes codoEipPopIn {
+    0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.7); }
+    100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes codoEipPopOut {
+    0%   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+}
+
+@keyframes codoEipSlideUp {
+    0%   { transform: translateY(100%); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes codoEipSlideDown {
+    0%   { transform: translateY(0); }
+    100% { transform: translateY(100%); }
+}
+
+/* ══════════════════════════════════════
+   IMAGE DISPLAY MODES
+   ══════════════════════════════════════ */
+
+/* ── Shared image wrapper ── */
+.codo_eip_image_wrap {
+    display: none;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.codo_eip_image_wrap .wsite-image{
+    padding: 0 !important;
+}
+
+/* Images inside must never exceed container & never stretch */
+.codo_eip_image_wrap img,
+.codo_eip_image_wrap .wsite-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+    max-width: 100% !important;
+}
+
+/* ── Mode: cover — full-width banner above content ── */
+.codo_eip_modal.codo_eip_img_cover .codo_eip_image_wrap {
+    display: block;
+    max-height: 220px;
+    border-radius: 12px 12px 0 0;
+}
+
+.codo_eip_modal.codo_eip_img_cover .codo_eip_image_wrap img,
+.codo_eip_modal.codo_eip_img_cover .codo_eip_image_wrap .wsite-image img {
+    height: 220px !important;
+}
+
+.codo_eip_modal.codo_eip_img_cover .codo_eip_content {
+    padding: 28px 40px 36px;
+}
+
+@media (max-width: 480px) {
+    .codo_eip_modal.codo_eip_img_cover .codo_eip_image_wrap {
+        max-height: 160px;
+    }
+    .codo_eip_modal.codo_eip_img_cover .codo_eip_image_wrap img,
+    .codo_eip_modal.codo_eip_img_cover .codo_eip_image_wrap .wsite-image img {
+        height: 160px !important;
+    }
+}
+
+/* ── Mode: background — image fills entire modal ── */
+
+.codo_eip_modal.codo_eip_img_background .codo_eip_image_wrap {
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+@media (max-width: 480px) {
+    .codo_eip_modal.codo_eip_img_background .codo_eip_image_wrap {
+        border-radius: 20px 20px 0 0;
+    }
+}
+
+/* Overlay scrim so content stays readable */
+.codo_eip_modal.codo_eip_img_background .codo_eip_image_wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.42);
+    border-radius: inherit;
+}
+
+.codo_eip_modal.codo_eip_img_background .codo_eip_content {
+    position: relative;
+    z-index: 1;
+}
+
+.codo_eip_modal.codo_eip_img_background .codo_eip_close {
+    z-index: 2;
+    color: #ffffff;
+}
+
+/* ── Content padding (default, no image) ── */
+.codo_eip_content {
+    padding: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 480px) {
+    .codo_eip_content {
+        padding: 30px 20px 40px;
+    }
+}
