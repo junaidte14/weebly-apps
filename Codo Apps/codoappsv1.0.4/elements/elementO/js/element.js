@@ -14,15 +14,14 @@
             this.overlay   = this.$('.codo_eip_overlay');
             this.modal     = this.$('.codo_eip_modal');
 
-            // Use Weebly's internal model ID — same pattern as CountdownTimer.
-            // Falls back to a random string if model.id is unavailable.
+            // Use Weebly's internal model ID for per-instance cookie key.
+            // Same pattern as CountdownTimer — no uniqueId setting needed.
             var instanceId = (this.model && this.model.id)
                 ? this.model.id
                 : Math.random().toString(36).substring(2, 9);
 
             this.cookieKey = 'codo_eip_' + instanceId;
 
-            // Config from data attributes — keeps manifest string-free.
             var delaySeconds = parseFloat(this.container.data('delay')) || 3;
             this.config = {
                 mode   : this.container.data('trigger-mode') || 'exitintent',
@@ -39,7 +38,6 @@
                 this.setupTriggers();
             }
 
-            // ESC key namespaced per instance
             $(document).on('keydown.' + this.cookieKey, _.bind(function(e) {
                 if (e.key === 'Escape') this.closePopup();
             }, this));
@@ -65,15 +63,33 @@
         openPopup: function() {
             if (this.triggered) return;
             this.triggered = true;
-            this.overlay.addClass('active');
-            this.modal.addClass('active');
-            $('body').css('overflow', 'hidden');
+
+            // Force reflow BEFORE adding .active so the browser registers
+            // the element's initial state and plays the animation from the start.
+            // This is the same technique used in CountdownTimer's animFlip().
+            var overlayEl = this.overlay[0];
+            var modalEl   = this.modal[0];
+
+            // 1. Make visible (opacity:0, visibility:visible via CSS base state)
+            //    — nothing to do here, CSS handles it
+
+            // 2. Force reflow so browser acknowledges current state
+            void overlayEl.offsetWidth;
+            void modalEl.offsetWidth;
+
+            // 3. Add active class in next animation frame so animation fires cleanly
+            window.requestAnimationFrame(_.bind(function() {
+                this.overlay.addClass('active');
+                this.modal.addClass('active');
+                $('body').css('overflow', 'hidden');
+            }, this));
         },
 
         closePopup: function() {
             var self = this;
             this.overlay.addClass('closing');
             this.modal.addClass('closing');
+
             setTimeout(function() {
                 self.overlay.removeClass('active closing');
                 self.modal.removeClass('active closing');
