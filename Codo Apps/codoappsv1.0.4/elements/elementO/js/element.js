@@ -14,30 +14,31 @@
             this.overlay   = this.$('.codo_eip_overlay');
             this.modal     = this.$('.codo_eip_modal');
 
-            // Use Weebly's internal model ID for per-instance cookie key.
-            // Same pattern as CountdownTimer — no uniqueId setting needed.
-            var instanceId = (this.model && this.model.id)
-                ? this.model.id
+            // 1. Generate unique key based on Weebly's internal ID
+            var instanceId = (this.$el.attr('id')) 
+                ? this.$el.attr('id') 
                 : Math.random().toString(36).substring(2, 9);
-
+            
             this.cookieKey = 'codo_eip_' + instanceId;
 
+            // 2. Configuration Setup
             var delaySeconds = parseFloat(this.container.data('delay')) || 3;
             this.config = {
                 mode   : this.container.data('trigger-mode') || 'exitintent',
-                delay  : Math.max(delaySeconds, 0) * 1000,
+                delay  : Math.max(delaySeconds, 0) * 1000, // Convert to ms
                 scroll : parseInt(this.container.data('scroll'), 10) || 50,
-                days   : parseInt(this.container.data('cookie-days'), 10) || 1
+                days   : parseInt(this.container.data('cookie-days'), 10) // Default 0 from manifest
             };
 
             this.triggered = false;
-
             this.applyImageStyle();
 
-            if (!this.hasSeenPopup()) {
+            // 3. Professional Guard: If days is 0, ignore cookies and always show.
+            if (this.config.days === 0 || !this.hasSeenPopup()) {
                 this.setupTriggers();
             }
 
+            // Global ESC key listener (namespaced to this instance)
             $(document).on('keydown.' + this.cookieKey, _.bind(function(e) {
                 if (e.key === 'Escape') this.closePopup();
             }, this));
@@ -50,11 +51,20 @@
         },
 
         hasSeenPopup: function() {
-            return !!document.cookie.match(new RegExp('(^| )' + this.cookieKey + '=([^;]+)'));
+            var match = document.cookie.match(new RegExp('(^| )' + this.cookieKey + '=([^;]+)'));
+            
+            // Cleanup: If a cookie exists but user set days to 0, delete it.
+            if (match && this.config.days === 0) {
+                document.cookie = this.cookieKey + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+                return false;
+            }
+            return !!match;
         },
 
         setCookie: function() {
+            // Guard: Do not set a cookie if user selected "Always Show" (0 days)
             if (this.config.days <= 0) return;
+
             var d = new Date();
             d.setTime(d.getTime() + this.config.days * 24 * 60 * 60 * 1000);
             document.cookie = this.cookieKey + '=1;expires=' + d.toUTCString() + ';path=/;SameSite=Lax';
@@ -64,20 +74,10 @@
             if (this.triggered) return;
             this.triggered = true;
 
-            // Force reflow BEFORE adding .active so the browser registers
-            // the element's initial state and plays the animation from the start.
-            // This is the same technique used in CountdownTimer's animFlip().
-            var overlayEl = this.overlay[0];
-            var modalEl   = this.modal[0];
+            // Force reflow for clean CSS Keyframe triggering
+            void this.overlay[0].offsetWidth;
+            void this.modal[0].offsetWidth;
 
-            // 1. Make visible (opacity:0, visibility:visible via CSS base state)
-            //    — nothing to do here, CSS handles it
-
-            // 2. Force reflow so browser acknowledges current state
-            void overlayEl.offsetWidth;
-            void modalEl.offsetWidth;
-
-            // 3. Add active class in next animation frame so animation fires cleanly
             window.requestAnimationFrame(_.bind(function() {
                 this.overlay.addClass('active');
                 this.modal.addClass('active');
@@ -90,6 +90,7 @@
             this.overlay.addClass('closing');
             this.modal.addClass('closing');
 
+            // Wait for CSS animations (400ms) before removing from view logic
             setTimeout(function() {
                 self.overlay.removeClass('active closing');
                 self.modal.removeClass('active closing');
@@ -113,8 +114,7 @@
                 this.delayTimer = setTimeout(function() { self.openPopup(); }, this.config.delay);
             } else if (this.config.mode === 'scroll') {
                 $(window).on('scroll' + ns, function() {
-                    var pct = ($(window).scrollTop() /
-                              ($(document).height() - $(window).height())) * 100;
+                    var pct = ($(window).scrollTop() / ($(document).height() - $(window).height())) * 100;
                     if (pct >= self.config.scroll) {
                         self.openPopup();
                         $(window).off('scroll' + ns);
