@@ -6,6 +6,90 @@
   "locale": "en-us",
   "elements": [
     {
+      "name": "Back to Top Button",
+      "path": "elements/elementQ",
+      "version": "1.0.4",
+      "settings": {
+        "config": { "autopop": true },
+        "properties": [
+          {
+            "name": "general-settings",
+            "label": "General Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "hPosition",
+                "label": "Position",
+                "type": "select",
+                "values": ["br", "bl", "bc"],
+                "default": "br",
+                "tooltip": "br = bottom-right, bl = bottom-left, bc = bottom-center."
+              },
+              {
+                "name": "showAfterPx",
+                "label": "Show After Scrolling (px)",
+                "type": "int",
+                "default": 300,
+                "step": 50,
+                "min": 50,
+                "tooltip": "Button appears after visitor scrolls this many pixels."
+              }
+            ]
+          },
+          {
+            "name": "style-settings",
+            "label": "Style Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "btnBgColor",
+                "label": "Button BG Color",
+                "type": "color",
+                "default": "#4A90D9",
+                "tooltip": "Background color of the button."
+              },
+              {
+                "name": "btnIconColor",
+                "label": "Icon Color",
+                "type": "color",
+                "default": "#ffffff",
+                "tooltip": "Color of the icon inside the button."
+              },
+              {
+                "name": "btnSize",
+                "label": "Button Size (px)",
+                "type": "int",
+                "default": 48,
+                "step": 2,
+                "min": 32,
+                "tooltip": "Width and height of the button in pixels."
+              },
+              {
+                "name": "borderRadius",
+                "label": "Border Radius (%)",
+                "type": "int",
+                "default": 50,
+                "step": 1,
+                "min": 0,
+                "max": 100,
+                "tooltip": "50 or more = circle. Lower values = rounded square."
+              }
+            ]
+          }
+        ]
+      },
+      "tutorial": {
+        "introduction": "Back to Top Button adds a floating scroll-to-top button. Place in footer to show on every page.",
+        "type": "steps",
+        "content": [
+          "Place this element in your site footer to show on every page.",
+          "Set Position: br = bottom-right, bl = bottom-left, bc = bottom-center.",
+          "Set Button Size and Border Radius — radius of 50+ gives a circle."
+        ],
+        "autopop": true
+      }
+    },
+    {
       "name": "Sticky Announcement",
       "path": "elements/elementP",
       "version": "1.0.4",

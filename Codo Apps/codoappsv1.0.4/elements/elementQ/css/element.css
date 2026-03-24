@@ -1,0 +1,37 @@
+.codo_btt_btn {
+    position: fixed;
+    z-index: 99995;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+    transform: translateY(20px);
+    padding: 0;
+    outline: none;
+}
+
+/* Positions */
+.codo_btt_br { bottom: 30px; right: 30px; }
+.codo_btt_bl { bottom: 30px; left: 30px; }
+.codo_btt_bc { bottom: 30px; left: 50%; transform: translateX(-50%) translateY(20px); }
+
+/* Show State */
+.codo_btt_visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.codo_btt_bc.codo_btt_visible { transform: translateX(-50%) translateY(0); }
+
+.codo_btt_icon {
+    font-size: @btnSize * 0.45px;
+    color: @btnIconColor;
+    line-height: 1;
+    z-index: 5;
+}

@@ -1,0 +1,35 @@
+/* ── Back to Top Button — Editor View ── */
+.codo_btt_editor_wrap {
+    display: inline-block;
+    padding: 10px;
+}
+
+.codo_btt_btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: default;
+    border: none;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.20);
+    box-sizing: border-box;
+    opacity: 1;
+    visibility: visible;
+    padding: 0;
+}
+
+.codo_btt_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: @btnIconColor;
+    line-height: 1;
+}
+
+.codo_btt_icon {
+    font-size: @btnSize * 0.45px;
+    color: @btnIconColor;
+    line-height: 1;
+    z-index: 5;
+}
