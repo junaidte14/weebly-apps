@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160px" height="510px" viewBox="0 0 1160 510" preserveAspectRatio="xMidYMid meet">
+  <!-- Background -->
+  <rect x="0" y="0" width="1160" height="510" fill="#4B5155"/>
+
+  <!-- ── Top progress bar (primary showcase) ── -->
+  <!-- Track -->
+  <rect x="0" y="0" width="1160" height="14" fill="#2c3e50"/>
+  <!-- Fill gradient ~72% -->
+  <defs>
+    <linearGradient id="rpb_grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#4A90D9"/>
+      <stop offset="100%" stop-color="#7B68EE"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="835" height="14" fill="url(#rpb_grad)" rx="0"/>
+  <!-- Rounded right cap on fill -->
+  <rect x="828" y="0" width="14" height="14" fill="url(#rpb_grad)" rx="0"/>
+  <!-- Milestone markers -->
+  <rect x="290" y="0" width="2" height="14" fill="#ffffff" opacity="0.3"/>
+  <rect x="580" y="0" width="2" height="14" fill="#ffffff" opacity="0.3"/>
+  <rect x="870" y="0" width="2" height="14" fill="#ffffff" opacity="0.3"/>
+  <!-- Percentage label pill -->
+  <rect x="796" y="1" width="36" height="12" fill="rgba(0,0,0,0.3)" rx="6"/>
+  <rect x="801" y="4" width="26" height="6" fill="#ffffff" rx="2" opacity="0.85"/>
+
+  <!-- ── Page mock ── -->
+  <rect x="60" y="38"  width="1040" height="440" fill="#ffffff" rx="8" opacity="0.06"/>
+
+  <!-- Content lines -->
+  <rect x="180" y="70"  width="800" height="15" fill="#888888" rx="3"/>
+  <rect x="180" y="96"  width="720" height="10" fill="#777777" rx="3"/>
+  <rect x="180" y="116" width="760" height="10" fill="#777777" rx="3"/>
+  <rect x="180" y="136" width="680" height="10" fill="#777777" rx="3"/>
+  <rect x="180" y="170" width="800" height="15" fill="#888888" rx="3"/>
+  <rect x="180" y="196" width="700" height="10" fill="#777777" rx="3"/>
+  <rect x="180" y="216" width="740" height="10" fill="#777777" rx="3"/>
+  <rect x="180" y="250" width="800" height="15" fill="#888888" rx="3"/>
+  <rect x="180" y="276" width="660" height="10" fill="#777777" rx="3"/>
+  <rect x="180" y="296" width="720" height="10" fill="#777777" rx="3"/>
+  <rect x="180" y="316" width="580" height="10" fill="#777777" rx="3"/>
+
+  <!-- ── Floating tooltip ── -->
+  <rect x="796" y="18" width="44" height="20" fill="#2c3e50" rx="10"/>
+  <rect x="802" y="24" width="32" height="8" fill="#ffffff" rx="2" opacity="0.85"/>
+  <!-- tooltip pointer -->
+  <polygon points="816,14 820,18 824,14" fill="#2c3e50"/>
+
+  <!-- ── Style variant demos ── -->
+  <!-- Solid thin bar (bottom) -->
+  <rect x="0"   y="496" width="1160" height="8"  fill="#1a252f"/>
+  <rect x="0"   y="496" width="520"  height="8"  fill="#E74C3C" rx="0"/>
+
+  <!-- Striped bar mid page -->
+  <rect x="60"  y="370" width="1040" height="10" fill="#1a252f" rx="5"/>
+  <rect x="60"  y="370" width="650"  height="10" fill="#27AE60" rx="5"/>
+  <!-- stripe overlay -->
+  <rect x="60"  y="370" width="650"  height="10" fill="url(#rpb_stripes)" rx="5" opacity="0.3"/>
+
+  <!-- Glow effect hint on solid bar -->
+  <rect x="60"  y="420" width="1040" height="6"  fill="#222" rx="3"/>
+  <rect x="60"  y="420" width="800"  height="6"  fill="#F39C12" rx="3"/>
+  <rect x="60"  y="418" width="800"  height="10" fill="#F39C12" rx="3" opacity="0.2" filter="url(#glow)"/>
+</svg>

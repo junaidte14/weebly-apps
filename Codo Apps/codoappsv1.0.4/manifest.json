@@ -6,6 +6,103 @@
   "locale": "en-us",
   "elements": [
     {
+      "name": "Reading Progress Bar",
+      "path": "elements/elementR",
+      "version": "1.0.4",
+      "settings": {
+        "config": { "autopop": true },
+        "properties": [
+          {
+            "name": "general-settings",
+            "label": "General Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "position",
+                "label": "Bar Position",
+                "type": "select",
+                "values": ["top", "bottom"],
+                "default": "top",
+                "tooltip": "Fix the bar to the top or bottom of the viewport."
+              },
+              {
+                "name": "fillStyle",
+                "label": "Fill Style",
+                "type": "select",
+                "values": ["solid", "gradient", "striped"],
+                "default": "solid",
+                "tooltip": "solid, gradient (two colors) or animated striped fill."
+              },
+              {
+                "name": "barHeight",
+                "label": "Bar Height (px)",
+                "type": "int",
+                "default": 4,
+                "step": 1,
+                "min": 1,
+                "tooltip": "Height of the progress bar in pixels."
+              },
+              {
+                "name": "navOffset",
+                "label": "Nav Offset (px)",
+                "type": "int",
+                "default": 0,
+                "step": 1,
+                "min": 0,
+                "tooltip": "Sticky-nav offset: if bar sits below a sticky header"
+              }
+            ]
+          },
+          {
+            "name": "color-settings",
+            "label": "Colors",
+            "type": "group",
+            "properties": [
+              {
+                "name": "fillColor",
+                "label": "Fill Color",
+                "type": "color",
+                "default": "#4A90D9",
+                "tooltip": "Color of the progress fill."
+              },
+              {
+                "name": "gradientFrom",
+                "label": "Gradient Start Color",
+                "type": "color",
+                "default": "#4A90D9",
+                "tooltip": "Left color of the gradient fill. Used in gradient mode only."
+              },
+              {
+                "name": "gradientTo",
+                "label": "Gradient End Color",
+                "type": "color",
+                "default": "#7B68EE",
+                "tooltip": "Right color of the gradient fill. Used in gradient mode only."
+              },
+              {
+                "name": "trackColor",
+                "label": "Track Color",
+                "type": "color",
+                "default": "#e0e0e0",
+                "tooltip": "Background color of the unfilled track."
+              }
+            ]
+          }
+        ]
+      },
+      "tutorial": {
+        "introduction": "Reading Progress Bar shows a fixed horizontal bar that fills as the visitor scrolls. Place in footer to show on every page.",
+        "type": "steps",
+        "content": [
+          "Place this element in your site footer to show on every page.",
+          "It auto detects the full page content.",
+          "Choose a Fill Style: solid, gradient or animated striped.",
+          "Set Fill Color and Track Color to match your site theme."
+        ],
+        "autopop": true
+      }
+    },
+    {
       "name": "Back to Top Button",
       "path": "elements/elementQ",
       "version": "1.0.4",
