@@ -25,23 +25,37 @@
                 days       : parseInt(this.$bar.data('cookie-days'), 10) || 0
             };
 
-            if (this.hasClosed()) {
-                this.hideBarInstant();
+            // Professional Guard: If days is 0, we bypass the cookie check entirely
+            if (this.config.days === 0 || !this.hasClosed()) {
+                this.showBar();
             } else {
-                // Use a debounced resize to handle multiple bars shifting at once
-                var lazyLayout = _.debounce(_.bind(this.syncLayout, this), 100);
-                
-                setTimeout(_.bind(this.syncLayout, this), 100);
-                $(window).on('resize.' + this.cookieKey, lazyLayout);
+                this.hideBarInstant();
             }
         },
 
         hasClosed: function() {
-            return !!document.cookie.match(new RegExp('(^| )' + this.cookieKey + '=([^;]+)'));
+            var match = document.cookie.match(new RegExp('(^| )' + this.cookieKey + '=([^;]+)'));
+            
+            // Cleanup: If a cookie exists but user changed settings to "Always Show" (0 days), 
+            // delete the cookie so the bar reappears.
+            if (match && this.config.days === 0) {
+                document.cookie = this.cookieKey + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+                return false;
+            }
+            return !!match;
+        },
+
+        showBar: function() {
+            // Setup layout sync for visible bars
+            var lazyLayout = _.debounce(_.bind(this.syncLayout, this), 100);
+            setTimeout(_.bind(this.syncLayout, this), 100);
+            $(window).on('resize.' + this.cookieKey, lazyLayout);
         },
 
         setCookie: function() {
+            // Guard: Do not set a cookie if user selected "Always Show" (0 days)
             if (this.config.days <= 0) return;
+
             var d = new Date();
             d.setTime(d.getTime() + this.config.days * 24 * 60 * 60 * 1000);
             document.cookie = this.cookieKey + '=1;expires=' + d.toUTCString() + ';path=/;SameSite=Lax';
@@ -50,39 +64,38 @@
         syncLayout: function() {
             if (!this.config.showSpacer) return;
 
-            // Calculate TOTAL height of all visible TOP bars
             var totalTopHeight = 0;
             $('.codo_abar_bar.codo_abar_top:not(.codo_abar_hidden)').each(function() {
                 totalTopHeight += $(this).outerHeight();
             });
 
-            // Calculate TOTAL height of all visible BOTTOM bars
             var totalBottomHeight = 0;
             $('.codo_abar_bar.codo_abar_bottom:not(.codo_abar_hidden)').each(function() {
                 totalBottomHeight += $(this).outerHeight();
             });
 
-            // Apply cumulative padding to body
             $('body').css({
                 'transition': 'padding 0.35s ease',
                 'padding-top': totalTopHeight > 0 ? totalTopHeight + 'px' : '0',
                 'padding-bottom': totalBottomHeight > 0 ? totalBottomHeight + 'px' : '0'
+            });
+
+            // Sync Header Shift
+            $('.wsite-header-section, .wsite-nav-cart, .banner-wrap, #header, .header, .wsite-nav-inner').css({
+                'transition': 'top 0.35s ease',
+                'top': totalTopHeight > 0 ? totalTopHeight + 'px' : '0'
             });
         },
 
         hideBar: function() {
             this.$bar.addClass('codo_abar_hidden');
             this.setCookie();
-            
-            // Recalculate layout for remaining bars
             this.syncLayout();
-            
             $(window).off('resize.' + this.cookieKey);
         },
 
         hideBarInstant: function() {
             this.$bar.addClass('codo_abar_hidden').css('transition', 'none');
-            // Logic handled by other active instances or initial load
         },
 
         fixStyles: function() {
@@ -92,7 +105,7 @@
         remove: function() {
             $(window).off('resize.' + this.cookieKey);
             this.$bar.addClass('codo_abar_hidden');
-            this.syncLayout(); // Clean up body padding
+            this.syncLayout();
             PlatformElement.prototype.remove.apply(this, arguments);
         }
     });
