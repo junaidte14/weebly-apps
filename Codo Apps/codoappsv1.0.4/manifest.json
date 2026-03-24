@@ -6,6 +6,104 @@
   "locale": "en-us",
   "elements": [
     {
+      "name": "Sticky Announcement",
+      "path": "elements/elementP",
+      "version": "1.0.4",
+      "settings": {
+        "config": { "autopop": true },
+        "properties": [
+          {
+            "name": "general-settings",
+            "label": "General Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "position",
+                "label": "Bar Position",
+                "type": "select",
+                "values": ["top", "bottom"],
+                "default": "top",
+                "tooltip": "Stick the bar to the top or bottom of the viewport."
+              },
+              {
+                "name": "showSpacer",
+                "label": "Offset Page Content",
+                "type": "toggle",
+                "default": true,
+                "tooltip": "Adjusts the page height so the bar does not overlap your header or footer."
+              },
+              {
+                "name": "showClose",
+                "label": "Show Close Button",
+                "type": "toggle",
+                "default": true,
+                "tooltip": "Allow visitors to dismiss the bar with an X button."
+              },
+              {
+                "name": "cookieDays",
+                "label": "Remember Close (Days)",
+                "type": "int",
+                "default": 0,
+                "step": 1,
+                "min": 0,
+                "tooltip": "Days before bar reappears after a visitor closes it. Set 0 to always show."
+              }
+            ]
+          },
+          {
+            "name": "style-settings",
+            "label": "Style Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "barBgColor",
+                "label": "Bar Background Color",
+                "type": "color",
+                "default": "#E74C3C",
+                "tooltip": "Background color of the announcement bar."
+              },
+              {
+                "name": "closeColor",
+                "label": "Close Button Color",
+                "type": "color",
+                "default": "#ffffff",
+                "tooltip": "Color of the X close button."
+              },
+              {
+                "name": "barPaddingY",
+                "label": "Padding Top / Bottom (px)",
+                "type": "int",
+                "default": 10,
+                "step": 2,
+                "min": 4,
+                "tooltip": "Vertical padding inside the bar."
+              },
+              {
+                "name": "barPaddingX",
+                "label": "Padding Left / Right (px)",
+                "type": "int",
+                "default": 48,
+                "step": 4,
+                "min": 8,
+                "tooltip": "Horizontal padding inside the bar."
+              }
+            ]
+          }
+        ]
+      },
+      "tutorial": {
+        "introduction": "Sticky Announcement Bar pins a full-width strip to the top or bottom of every page.",
+        "type": "steps",
+        "content": [
+          "Place this element in your site footer to show on every page.",
+          "Design the bar content freely — add text, buttons, icons, anything.",
+          "Set Bar Position to top or bottom of the viewport.",
+          "Enable Push Page Content Down so the bar does not overlap your header."
+        ],
+        "autopop": true
+      }
+    },
+    {
       "name": "Exit Intent Popup",
       "path": "elements/elementO",
       "version": "1.0.4",

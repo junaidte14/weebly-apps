@@ -1,0 +1,89 @@
+/* ── Sticky Announcement Bar ── */
+
+.codo_abar_bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 999999;
+    background-color: @barBgColor;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    box-sizing: border-box;
+    width: 100%;
+    opacity: 1;
+    transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.codo_abar_bar.codo_abar_top {
+    top: 0;
+}
+
+.codo_abar_bar.codo_abar_bottom {
+    bottom: 0;
+    top: auto;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.15);
+}
+
+.codo_abar_bar.codo_abar_top.codo_abar_hidden {
+    transform: translateY(-110%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.codo_abar_bar.codo_abar_bottom.codo_abar_hidden {
+    transform: translateY(110%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.codo_abar_inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: @barPaddingY * 1px @barPaddingX * 1px;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.codo_abar_content {
+    flex: 1;
+    text-align: center;
+}
+
+.codo_abar_content .wsite-content-body p,
+.codo_abar_content .paragraph {
+    margin: 0;
+    padding: 0;
+}
+
+.codo_abar_close {
+    position: absolute;
+    right: @barPaddingX * 1px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: @closeColor;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px 8px;
+    line-height: 1;
+    opacity: 0.8;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+.codo_abar_close:hover {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.15);
+}
+
+@media (max-width: 600px) {
+    .codo_abar_inner {
+        padding-right: 40px;
+    }
+    .codo_abar_close {
+        right: 10px;
+    }
+}

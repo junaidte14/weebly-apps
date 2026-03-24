@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
+
+  <!-- Transparent background -->
+
+  <!-- Top sticky bar strip -->
+  <rect x="4" y="8" width="72" height="16" fill="#ffffff" rx="3"/>
+
+  <!-- Content lines inside bar -->
+  <rect x="14" y="13" width="32" height="3" fill="rgba(0,0,0,0.25)" rx="1.5"/>
+  <rect x="50" y="13" width="14" height="3" fill="rgba(0,0,0,0.18)" rx="1.5"/>
+
+  <!-- Close X on right of bar -->
+  <line x1="68" y1="13" x2="72" y2="17" stroke="rgba(0,0,0,0.3)" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="72" y1="13" x2="68" y2="17" stroke="rgba(0,0,0,0.3)" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- Page content lines below bar (showing it floats above page) -->
+  <rect x="10" y="32" width="60" height="4" fill="rgba(255,255,255,0.35)" rx="2"/>
+  <rect x="10" y="42" width="50" height="4" fill="rgba(255,255,255,0.25)" rx="2"/>
+  <rect x="10" y="52" width="55" height="4" fill="rgba(255,255,255,0.25)" rx="2"/>
+  <rect x="10" y="62" width="38" height="4" fill="rgba(255,255,255,0.2)" rx="2"/>
+
+  <!-- Arrow indicating sticky / pinned position -->
+  <line x1="40" y1="26" x2="40" y2="34" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-dasharray="2 2"/>
+
+</svg>

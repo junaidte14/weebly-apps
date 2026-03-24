@@ -1,0 +1,62 @@
+/* ── Sticky Announcement Bar — Editor View ── */
+
+.codo_abar_editor_preview {
+    width: 100%;
+    background-color: @barBgColor;
+    border-radius: 4px;
+    box-sizing: border-box;
+    position: relative;
+    min-height: 48px;
+    outline: 2px dashed rgba(255,255,255,0.4);
+    outline-offset: -4px;
+}
+
+.codo_abar_editor_preview::before {
+    content: "✦ Sticky Bar — design content below";
+    display: block;
+    font-size: 10px;
+    font-weight: bold;
+    color: rgba(255,255,255,0.7);
+    background: rgba(0,0,0,0.15);
+    padding: 3px 10px;
+    letter-spacing: 0.5px;
+}
+
+.codo_abar_inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: @barPaddingY * 1px @barPaddingX * 1px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.codo_abar_content {
+    flex: 1;
+    text-align: center;
+}
+
+.codo_abar_content .wsite-content-body p,
+.codo_abar_content .paragraph {
+    margin: 0;
+    padding: 0;
+}
+
+/* Close button preview */
+.codo_abar_close {
+    position: absolute;
+    right: 20px ;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: @closeColor;
+    background: none;
+    border: none;
+    padding: 4px 8px;
+    line-height: 1;
+    opacity: 0.8;
+    cursor: default;
+}
+
+/* Spacer not relevant in editor */
+.codo_abar_spacer { display: none; }
