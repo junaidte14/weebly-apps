@@ -6,6 +6,124 @@
   "locale": "en-us",
   "elements": [
     {
+      "name": "CSS Animations",
+      "path": "elements/elementS",
+      "version": "1.0.4",
+      "settings": {
+        "config": { "autopop": true },
+        "properties": [
+          {
+            "name": "animation-settings",
+            "label": "Animation",
+            "type": "group",
+            "properties": [
+              {
+                "name": "animation",
+                "label": "Animation Style",
+                "type": "select",
+                "values": [
+                  "fadeInUp",
+                  "fadeInDown",
+                  "fadeInLeft",
+                  "fadeInRight",
+                  "slideInUp",
+                  "slideInLeft",
+                  "slideInRight",
+                  "zoomIn",
+                  "zoomOut",
+                  "bounceIn",
+                  "bounceInUp",
+                  "flipInX",
+                  "flipInY",
+                  "rotateIn",
+                  "pulse",
+                  "shake",
+                  "swing",
+                  "rubberBand",
+                  "jello"
+                ],
+                "default": "fadeInUp",
+                "tooltip": "Choose the entrance animation style."
+              },
+              {
+                "name": "trigger",
+                "label": "Trigger",
+                "type": "select",
+                "values": ["scroll", "hover"],
+                "default": "scroll",
+                "tooltip": "scroll = on viewport entry. hover = on mouse enter."
+              },
+              {
+                "name": "duration",
+                "label": "Duration (seconds)",
+                "type": "int",
+                "default": 1,
+                "step": 1,
+                "min": 0,
+                "tooltip": "How long the animation plays in seconds."
+              },
+              {
+                "name": "delay",
+                "label": "Delay (seconds)",
+                "type": "int",
+                "default": 0,
+                "step": 1,
+                "min": 0,
+                "tooltip": "Delay before animation starts. Use staggered values for cascade."
+              }
+            ]
+          },
+          {
+            "name": "color-settings",
+            "label": "Colors",
+            "type": "group",
+            "properties": [
+              {
+                "name": "colorStyle",
+                "label": "BG Color Style",
+                "type": "select",
+                "values": ["solid", "gradient"],
+                "default": "solid",
+                "tooltip": "solid, or gradient (two colors)."
+              },
+              {
+                "name": "fillColor",
+                "label": "Background Color",
+                "type": "color",
+                "default": "transparent",
+                "tooltip": "Background Color of the animations wrapper section."
+              },
+              {
+                "name": "gradientFrom",
+                "label": "Gradient Start Color",
+                "type": "color",
+                "default": "#4A90D9",
+                "tooltip": "Left color of the gradient fill. Used in gradient mode only."
+              },
+              {
+                "name": "gradientTo",
+                "label": "Gradient End Color",
+                "type": "color",
+                "default": "#7B68EE",
+                "tooltip": "Right color of the gradient fill. Used in gradient mode only."
+              }
+            ]
+          }
+        ]
+      },
+      "tutorial": {
+        "introduction": "CSS Animations Wrapper adds scroll-triggered entrance animations to any content placed inside it.",
+        "type": "steps",
+        "content": [
+          "Place any content inside the wrapper content area.",
+          "Choose Animation Style and Trigger (scroll is recommended).",
+          "Use staggered Delay values on multiple wrappers for a cascade effect.",
+          "Set Repeat to inf combined with pulse or shake for looping attention effects."
+        ],
+        "autopop": true
+      }
+    },
+    {
       "name": "Reading Progress Bar",
       "path": "elements/elementR",
       "version": "1.0.4",

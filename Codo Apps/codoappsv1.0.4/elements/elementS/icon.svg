@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160px" height="510px" viewBox="0 0 1160 510" preserveAspectRatio="xMidYMid meet">
+  <rect x="0" y="0" width="1160" height="510" fill="#4B5155"/>
+
+  <!-- ── Central animated card demo ── -->
+  <!-- Motion trail ghost 1 (far left, most faded) -->
+  <rect x="120" y="120" width="340" height="270" fill="#ffffff" rx="10" opacity="0.04"/>
+  <!-- Motion trail ghost 2 -->
+  <rect x="200" y="110" width="340" height="270" fill="#ffffff" rx="10" opacity="0.08"/>
+  <!-- Motion trail ghost 3 -->
+  <rect x="290" y="105" width="340" height="270" fill="#ffffff" rx="10" opacity="0.13"/>
+
+  <!-- Live card (final position) -->
+  <rect x="400" y="100" width="360" height="310" fill="#ffffff" rx="12"/>
+
+  <!-- Card content mock -->
+  <rect x="424" y="130" width="200" height="16" fill="#2c3e50" rx="4"/>
+  <rect x="424" y="158" width="290" height="10" fill="#cccccc" rx="3"/>
+  <rect x="424" y="176" width="260" height="10" fill="#cccccc" rx="3"/>
+  <rect x="424" y="194" width="270" height="10" fill="#cccccc" rx="3"/>
+  <!-- Image placeholder -->
+  <rect x="424" y="218" width="312" height="100" fill="#e8f0fe" rx="6"/>
+  <circle cx="580" cy="268" r="28" fill="#4A90D9" opacity="0.25"/>
+  <polygon points="570,255 570,281 596,268" fill="#4A90D9" opacity="0.5"/>
+  <!-- CTA button -->
+  <rect x="424" y="334" width="140" height="34" fill="#4A90D9" rx="6"/>
+  <rect x="444" y="345" width="100" height="12" fill="#ffffff" rx="3" opacity="0.9"/>
+
+  <!-- ── Dashed wrapper border ── -->
+  <rect x="392" y="92" width="376" height="326" fill="none" rx="14"
+        stroke="#4A90D9" stroke-width="2" stroke-dasharray="8 5" opacity="0.7"/>
+  <!-- Corner label -->
+  <rect x="392" y="70" width="168" height="22" fill="#4A90D9" rx="4" opacity="0.85"/>
+  <rect x="400" y="76" width="152" height="10" fill="#ffffff" rx="3" opacity="0.9"/>
+
+  <!-- ── Animation type labels on left ── -->
+  <!-- fadeInUp arrow -->
+  <line x1="108" y1="310" x2="108" y2="220" stroke="#4A90D9" stroke-width="2" stroke-dasharray="4 3" opacity="0.6"/>
+  <polygon points="100,222 108,200 116,222" fill="#4A90D9" opacity="0.6"/>
+  <rect x="20" y="316" width="90" height="16" fill="#333333" rx="3"/>
+  <rect x="26" y="321" width="78" height="6" fill="#aaaaaa" rx="2"/>
+
+  <!-- bounceIn spring icon -->
+  <path d="M1000,160 Q1010,140 1020,160 Q1030,180 1040,160 Q1050,140 1060,160" fill="none" stroke="#E74C3C" stroke-width="2.5" opacity="0.7"/>
+  <circle cx="1060" cy="160" r="5" fill="#E74C3C" opacity="0.7"/>
+  <rect x="980" y="176" width="100" height="16" fill="#333333" rx="3"/>
+  <rect x="986" y="181" width="88" height="6" fill="#aaaaaa" rx="2"/>
+
+  <!-- rotateIn spin icon -->
+  <path d="M1010,260 A24,24 0 1,1 1034,284" fill="none" stroke="#27AE60" stroke-width="2.5" opacity="0.7"/>
+  <polygon points="1030,278 1038,290 1042,280" fill="#27AE60" opacity="0.7"/>
+  <rect x="980" y="300" width="100" height="16" fill="#333333" rx="3"/>
+  <rect x="986" y="305" width="88" height="6" fill="#aaaaaa" rx="2"/>
+
+  <!-- flipInX flip icon -->
+  <ellipse cx="108" cy="400" rx="50" ry="16" fill="none" stroke="#F39C12" stroke-width="2.5" opacity="0.6"/>
+  <line x1="108" y1="384" x2="108" y2="416" stroke="#F39C12" stroke-width="1.5" stroke-dasharray="3 2" opacity="0.5"/>
+  <rect x="56" y="424" width="104" height="16" fill="#333333" rx="3"/>
+  <rect x="62" y="429" width="92" height="6" fill="#aaaaaa" rx="2"/>
+
+  <!-- ── Scroll trigger indicator ── -->
+  <rect x="530" y="440" width="100" height="28" fill="#2c3e50" rx="14"/>
+  <rect x="546" y="450" width="68" height="8" fill="#4A90D9" rx="3" opacity="0.8"/>
+  <!-- scroll arrows -->
+  <polyline points="566,478 580,492 594,478" fill="none" stroke="#4A90D9" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <polyline points="566,490 580,504 594,490" fill="none" stroke="#4A90D9" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+</svg>

@@ -1,0 +1,39 @@
+/* Editor: always visible, dashed outline to show wrapper bounds */
+.codo-anim-container {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 160px;
+    padding: 20px;
+    opacity: 1 !important;
+    outline: 2px dashed rgba(74,144,217,0.45);
+    outline-offset: 3px;
+    border-radius: 3px;
+    position: relative;
+}
+
+/* Small label badge top-left */
+.codo-anim-container::before {
+    content: "✦ Animation Wrapper";
+    position: absolute;
+    top: -20px;
+    left: 0;
+    font-size: 10px;
+    font-weight: bold;
+    color: #4A90D9;
+    background: rgba(74,144,217,0.1);
+    padding: 2px 6px;
+    border-radius: 3px;
+    white-space: nowrap;
+    pointer-events: none;
+    letter-spacing: 0.5px;
+}
+
+/* suppress all animation states in editor */
+.codo-anim-container.codo_anim_pending,
+.codo-anim-container.codo_anim_active,
+.codo-anim-container.codo_anim_done {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+}

@@ -1,0 +1,11 @@
+.codo-anim-container {
+    display: block;
+    width: 92%;
+    opacity: 0;
+    padding: 4%;
+    margin: 0 auto;
+}
+
+.codo-anim-active {
+    opacity: 1;
+}
