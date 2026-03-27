@@ -1,0 +1,70 @@
+{
+  "manifest": "1",
+  "version": "1.0.1",
+  "client_id": "1652381963",
+  "callback_url": "https://codoplex.com/wpwa_phase_one/?pr_id=4435",
+  "oauth_final_destination": "editor",
+  "scopes": ["read:site", "write:site"],
+  "locale": "",
+  "elements": [
+    {
+      "name": "Image Text",
+      "path": "files",
+      "version": "1.0.1",
+      "settings": {
+        "config": {
+          "autopop": true
+        },
+        "properties": [
+          {
+            "name": "general-settings",
+            "label": "General Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "overlayPosition",
+                "label": "Overlay Position",
+                "type": "select",
+                "values" : [
+                    "top",
+                    "bottom"
+                  ],
+                "default": "bottom",
+                "tooltip": "Select the position of overlay"
+              },
+              {
+                "name": "overlayBgColor",
+                "label": "Overlay BG Color",
+                "type": "color",
+                "default": "#000000",
+                "tooltip": "Define overlay background color"
+              },
+              {
+                "name": "overlayOpacity",
+                "label": "Opacity",
+                "type": "select",
+                "values": [
+                    "0.1",
+                    "0.2",
+                    "0.3",
+                    "0.4",
+                    "0.5",
+                    "0.6",
+                    "0.7",
+                    "0.8",
+                    "0.9",
+                    "1.0"
+                ],
+                "default": "0.5",
+                "tooltip": "Define the opacity to control the transparency"
+            }
+
+            ]
+          }
+          
+        ]
+
+      }
+    }
+  ]
+}

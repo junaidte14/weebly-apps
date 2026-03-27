@@ -1,0 +1,15 @@
+.verticallines{
+	max-width: @lineWidth*1px;
+	overflow: hidden;
+	height: @lineHeight*1px;
+}
+
+.codo_v_line{
+	position: relative;
+}
+
+@media(max-width: 767px){
+	.codo-vl-hidemb-1{
+		display: none;
+	}
+}

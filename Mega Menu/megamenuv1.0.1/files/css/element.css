@@ -1,0 +1,31 @@
+.codo-mega-menu {
+  width: 100%;
+}
+
+.codo-mega-menu-style {
+  border: 2px solid @menuBorder;
+  background-color: @menuBgColor;
+  padding: 2em;
+  position: absolute;
+  top: @topMargin*1px;
+  left: @leftMargin*1%;
+  width: @menuWidth*1%;
+  display: none;
+  z-index: 999;
+}
+
+.codo-slide {
+  display: block;
+}
+
+@media(max-width: 992px){
+  .codo-slide {
+    display: none;
+  }
+}
+
+@media(min-width: 992px) and (max-width: 1024px){
+  .codo-mega-menu-style {
+    top: 3%;
+  }
+}

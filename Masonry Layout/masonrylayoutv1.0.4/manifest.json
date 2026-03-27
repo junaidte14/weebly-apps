@@ -1,0 +1,105 @@
+{
+  "manifest": "1",
+  "version": "1.0.4",
+  "client_id": "361945059",
+  "callback_url": "https://codoplex.com/wpwa_phase_one/?pr_id=1555", 
+  "oauth_final_destination": "editor",
+  "scopes": ["read:site", "write:site"],
+  "locale": "",
+  "elements": [
+    {
+      "name": "Masonry Layout",
+      "path": "files",
+      "version": "1.0.4",
+      "settings": {
+        "config": {
+          "autopop": true
+        },
+        "properties": [
+          {
+            "name": "gsettings",
+            "label": "General Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "numberOfItems",
+                "label": "Number Of Cards",
+                "type": "int",
+                "default": 6,
+                "step": 1,
+                "min": 1,
+                "tooltip": "Select the number of cards"
+              },
+              {
+                "name": "numberOfColumns",
+                "label": "Number Of Columns",
+                "type": "select",
+                "values" : [
+                    "1",
+                    "2",
+                    "3"
+                  ],
+                "default": "3",
+                "tooltip": "Select the number of columns"
+              }
+              
+            ]
+          },
+          {
+            "name": "csettings",
+            "label": "Card Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "ddCards",
+                "label": "DD Enabled Cards?",
+                "type": "toggle",
+                "default": false,
+                "tooltip": "True means any Weebly element can be dragged and dropped in card"
+              },
+              {
+                "name": "columnBgColor",
+                "label": "Card BG Color",
+                "type": "color",
+                "default": "#FEFEFE",
+                "tooltip": "Select the card bg color"
+              },
+              {
+                "name": "columnShadowColor",
+                "label": "Card Shadow Color",
+                "type": "color",
+                "default": "#221919",
+                "tooltip": "Select card shadow color"
+              },
+              {
+                "name": "columnBorderColor",
+                "label": "Card Border Color",
+                "type": "color",
+                "default": "#FAFAFA",
+                "tooltip": "Select the card border color"
+              },
+              {
+                "name": "cardBorderRadius",
+                "label": "Border Radius",
+                "type": "int",
+                "default": 5,
+                "step": 1,
+                "min": 0,
+                "tooltip": "Define border radius for each card"
+              }
+              
+            ]
+          }
+          
+        ]
+
+      },
+      "tutorial":{
+        "introduction": "Masonry Layout Application Demo",
+        "type": "video",
+        "content": "lZ5BEqGVWU4",
+        "autopop": false
+      }
+    }
+  ]
+}

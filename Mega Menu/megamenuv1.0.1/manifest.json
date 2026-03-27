@@ -1,0 +1,93 @@
+{
+  "manifest": "1",
+  "version": "1.0.1",
+  "client_id": "107301896",
+  "callback_url": "https://codoplex.com/wpwa_phase_one/?pr_id=4599",
+  "oauth_final_destination": "editor",
+  "scopes": ["read:site", "write:site"],
+  "locale": "",
+  "elements": [
+    {
+      "name": "Mega Menu",
+      "path": "files",
+      "version": "1.0.1",
+      "settings": {
+        "config": {
+          "autopop": true
+        },
+        "properties": [
+          {
+            "name": "general-settings",
+            "label": "General Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "numberOfMenuItems",
+                "label": "Number Of Menu Items",
+                "type": "int",
+                "default": 1,
+                "step": 1,
+                "min": 1,
+                "tooltip": "Select the number of menu items. Each menu item will have separate drag drop mega menu."
+              },
+              {
+                "name": "menuWidth",
+                "label": "Width of Mega Menu (%)",
+                "type": "int",
+                "default": 60,
+                "step": 1,
+                "min": 0,
+                "max": 100,
+                "tooltip": "Select the width of mega menu."
+              },
+              {
+                "name": "topMargin",
+                "label": "Top Margin of Mega Menu (px)",
+                "type": "int",
+                "default": 160,
+                "step": 1,
+                "min": -1000,
+                "tooltip": "Select the top margin for mega menu so that it displays right below the navigation menu."
+              },
+              {
+                "name": "leftMargin",
+                "label": "Left Margin of Mega Menu (%)",
+                "type": "int",
+                "default": 20,
+                "step": 1,
+                "min": 0,
+                "max": 100,
+                "tooltip": "Select the left margin for mega menu."
+              },
+              {
+                "name": "menuBorder",
+                "label": "Mega Menu Border Color",
+                "type": "color",
+                "default": "#F7C233",
+                "tooltip": "Define Border color of Mega Menu"
+              },
+              {
+                "name": "menuBgColor",
+                "label": "Mega Menu Background Color",
+                "type": "color",
+                "default": "#ffffff",
+                "tooltip": "Define Background color of Mega Menu"
+              }
+
+            ]
+          }
+          
+        ]
+
+      },
+
+      "tutorial":
+        {
+            "introduction": "Mega Menu Application Tutorial",
+            "type": "video",
+            "content": "p41pQ7H8XWU",
+            "autopop": true
+        }
+    }
+  ]
+}

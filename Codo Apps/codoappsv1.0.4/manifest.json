@@ -2,9 +2,646 @@
   "manifest": "1",
   "version": "1.0.4",
   "client_id": "364327965",
-  "callback_url": "https://codoplex.com/wpwa_phase_one/?pr_id=1561",
+  "callback_url": "https://empulse.codoplex.com/wpwa_phase_one/?pr_id=1561",
   "locale": "en-us",
   "elements": [
+    {
+      "name": "Breadcrumb",
+      "path": "elements/elementZ",
+      "version": "1.0.4",
+      "settings": {
+        "config": {
+          "autopop": true
+        },
+        "properties": [
+          {
+            "name": "tm-general-settings",
+            "label": "General Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "blogURL",
+                "label": "Blog Page URL",
+                "type": "string",
+                "default": "",
+                "max": 200,
+                "min": 1,
+                "tooltip": "Add your blog page url here"
+              },
+              {
+                "name": "bcSeparator",
+                "label": "Separator",
+                "type": "string",
+                "default": "-",
+                "max": 200,
+                "min": 1,
+                "tooltip": "Define a symbol which will separate breadcrumb parts e.g '/', '-' etc"
+              },
+              {
+                "name": "fontColor",
+                "label": "Color",
+                "type": "color",
+                "default": "#000000",
+                "tooltip": "Define font color of Breadcrumbs"
+              },
+              {
+                "name": "bcAlignment",
+                "label": "Text Alignment",
+                "type": "align",
+                "default": "left",
+                "tooltip": "Select text alignment" 
+              }
+            ]
+          } 
+        ]
+      }
+    },
+    {
+      "name": "Post Columns",
+      "path": "elements/elementY",
+      "version": "1.0.4",
+      "settings": {
+        "config": {
+          "autopop": true
+        },
+        "properties": [
+          {
+            "name": "settings",
+            "label": "Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "blogcolumns",
+                "label": "Blog Post Columns",
+                "type": "select",
+                "values" : [
+                    "1",
+                    "2",
+                    "3"
+                  ],
+                "default": "3",
+                "tooltip": "Select the number of blog post columns"
+              },
+              {
+                "name" : "expand-posts-area",
+                "label": "Expand Posts Area",
+                "type" : "toggle",
+                "default" : true,
+                "tooltip": "Recommended for 3 columns layout"
+              },
+              {
+                "name": "postStyle",
+                "label": "Blog Post Style",
+                "type": "select",
+                "values" : [
+                    "simple",
+                    "card"
+                  ],
+                "default": "card",
+                "tooltip": "Select the blog post style"
+              },
+              {
+                "name": "cardGap",
+                "label": "Card Gap",
+                "type": "int",
+                "default": 10,
+                "step": 1,
+                "min": 0,
+                "tooltip": "Define gap/space between cards"
+              },
+              {
+                "name" : "custom-card-colors",
+                "label": "Use Custom Card Colors",
+                "type" : "toggle",
+                "default" : false,
+                "tooltip": "Select whether to use custom card colors defined below or to use default colors"
+              },
+              {
+                "name": "cardBgColor",
+                "label": "Post Card BG Color",
+                "type": "color",
+                "default": "#FEFEFE",
+                "tooltip": "Select the card bg color,if Custom Card Colors is true"
+              },
+              {
+                "name": "cardShadowColor",
+                "label": "Post Card Shadow Color",
+                "type": "color",
+                "default": "#221919",
+                "tooltip": "Select the card shadow color,if Custom Card Colors is true"
+              },
+              {
+                "name": "cardBorderColor",
+                "label": "Post Card Border Color",
+                "type": "color",
+                "default": "#FAFAFA",
+                "tooltip": "Select the card border color,if Custom Card Colors is true"
+              }
+              
+            ]
+          } 
+        ]
+      },
+      "tutorial": {
+        "introduction": "With Post Columns Blog app, you can convert your blog posts to multi column layout",
+        "type": "steps",
+        "content": [
+          "Select the number of columns for blog posts: For example if you select 3 then your blog posts will be shown in 3 columns.",
+          "Select whether to expand the posts area or not: True means that blog sidebar will appear under the blog posts.",
+          "Select the style of blog posts: If you select 'simple' then blog posts will look as your theme design but if you select 'card' then your blog posts will look like cards with background color and shadow.",
+          "Use Custom Card Colors: If true/enabled, it means that your defined card background color and card shadow color will be used. If false/disabled then default colors will be used."
+        ],
+        "autopop": false
+      }
+    },
+    {
+      "name": "Progress Bar",
+      "path": "elements/elementX",
+      "version": "1.0.4",
+      "settings": {
+        "config": {
+          "autopop": true
+        },
+        "properties": [
+          {
+            "name": "settings",
+            "label": "Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "progressId",
+                "label": "Unique ID",
+                "type": "int",
+                "default": 1,
+                "step": 1,
+                "min": 1,
+                "tooltip": "id should be unique for each progress bar on the same page"
+              },
+              {
+                "name": "progressPercentage",
+                "label": "Percentage (%)",
+                "type": "int",
+                "default": 50,
+                "step": 1,
+                "min": 1,
+                "max" : 100,
+                "tooltip": "Select the progress percentage"
+              },
+              {
+                "name": "progressHeight",
+                "label": "Height",
+                "type": "int",
+                "default": 50,
+                "step": 1,
+                "min": 1,
+                "tooltip": "Select the progress bar height"
+              },
+              {
+                "name": "textColor",
+                "label": "Text Color",
+                "type": "color",
+                "default": "#ffffff",
+                "tooltip": "Select the progress bar text (e.g 50%) color"
+              },
+              {
+                "name": "progressColor",
+                "label": "Progress Bar Color",
+                "type": "color",
+                "default": "#508d24",
+                "tooltip": "Select the progress bar color"
+              },
+              {
+                "name": "progressBgColor",
+                "label": "Background Color",
+                "type": "color",
+                "default": "#ddd",
+                "tooltip": "Select the progress bar background color"
+              },
+              {
+                "name": "borderRadius",
+                "label": "Border Radius",
+                "type": "int",
+                "default": 0,
+                "step": 1,
+                "min": 0,
+                "tooltip": "Select progress bar border radius, used for rounded corners"
+              }
+            ]
+          } 
+        ]
+      }
+    },
+    {
+      "name": "Tab Headers",
+      "path": "elements/elementW",
+      "version": "1.0.4",
+      "settings": {
+        "config": {
+          "autopop": true
+        },
+        "properties": [
+          {
+            "name": "general-settings",
+            "label": "General Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "uniqueId",
+                "label": "Unique ID",
+                "type": "int",
+                "default": 1,
+                "step": 1,
+                "min": 1,
+                "tooltip": "Increment the unique id if you want to add Tab Headers element multiple times at same page."
+              },
+              {
+                "name": "numberOfTabs",
+                "label": "No of Tabs",
+                "type": "int",
+                "default": 1,
+                "step": 1,
+                "min": 1,
+                "tooltip": "Define number of tabs"
+              },
+              {
+                "name": "textAlignment",
+                "label": "Text Alignment",
+                "type": "align",
+                "default": "center",
+                "tooltip": "Define text alignment" 
+              }
+            ]
+          },
+          {
+            "name": "tab-settings",
+            "label": "Tab Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "tabTextColor",
+                "label": "Text Color",
+                "type": "color",
+                "default": "#000",
+                "tooltip": "Define text color of tabs"
+              },
+              {
+                "name": "tabBgColor",
+                "label": "Tab BG Color",
+                "type": "color",
+                "default": "#f1f1f1",
+                "tooltip": "Define background color of tabs"
+              },
+              {
+                "name": "tabActiveBgColor",
+                "label": "Active Tab BG Color",
+                "type": "color",
+                "default": "#ccc",
+                "tooltip": "Define background color of active tab"
+              },
+              {
+                "name": "tabHoverBgColor",
+                "label": "Hovered Tab BG Color",
+                "type": "color",
+                "default": "#ddd",
+                "tooltip": "Define background color of hovered tab"
+              },
+              {
+                "name": "tabBorderColor",
+                "label": "Tab Border Color",
+                "type": "color",
+                "default": "#ccc",
+                "tooltip": "Define border color of tabs"
+              }
+
+            ]
+          },
+
+          {
+            "name": "tab-content-settings",
+            "label": "Tab Content Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "tabContentBorderColor",
+                "label": "Content Border Color",
+                "type": "color",
+                "default": "#ccc",
+                "tooltip": "Define border color of tab content section"
+              },
+              {
+                "name": "tabContentTextColor",
+                "label": "Content Text Color",
+                "type": "color",
+                "default": "#000",
+                "tooltip": "Define border color of tab content section"
+              }
+            ]
+          } 
+        ]
+      }
+    },
+    {
+      "name": "Vertical Lines",
+      "path": "elements/elementV",
+      "version": "1.0.4",
+      "settings": {
+        "config": {
+          "autopop": true
+        },
+        "properties": [
+          {
+            "name": "general-settings",
+            "label": "General Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "lineWidth",
+                "label": "Line Width (px)",
+                "type": "int",
+                "default": 3,
+                "step": 1,
+                "min": 1,
+                "tooltip": "Define line width (px)"
+              },
+              {
+                "name": "lineHeight",
+                "label": "Line Height (px)",
+                "type": "int",
+                "default": 200,
+                "step": 1,
+                "min": 1,
+                "tooltip": "Define line height (px)"
+              },
+              {
+                "name": "lineColor",
+                "label": "Line Color",
+                "type": "color",
+                "default": "#000",
+                "tooltip": "Select the line color"
+              }
+            ]
+          },
+          {
+            "name": "advanced-settings",
+            "label": "Advanced Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "hideMobile",
+                "label": "Hide in Mobile?",
+                "type": "toggle",
+                "default": false,
+                "tooltip": "When enabled, vertical line will be hidden in mobile devices"
+              }
+
+            ]
+          } 
+        ]
+      },
+      "tutorial":{
+        "introduction": "Vertical Lines Weebly app gives a user the ability to create a colorful vertical line in Weebly drag and drop editor.",
+        "type": "video",
+        "content": "sHlM57hH-6g",
+        "autopop": false
+      }
+    },
+    {
+      "name": "Auto Popup",
+      "path": "elements/elementU",
+      "version": "1.0.4",
+      "settings": {
+        "config": {
+          "autopop": true
+        },
+        "properties": [
+          {
+            "name": "general-settings",
+            "label": "General Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "waitDuration",
+                "label": "Wait Duration (seconds)",
+                "type": "int",
+                "default": 0,
+                "step": 1,
+                "min": 0,
+                "tooltip": "Define the wait duration (in seconds) after which the popup will be displayed automatically."
+              },
+              {
+                "name": "popUpTrigger",
+                "label": "Display popup at every page visit?",
+                "type": "toggle",
+                "default": true,
+                "tooltip": "If enabled, popup will be displayed automatically at every page visit."
+              },
+              {
+                "name": "durationInMinutes",
+                "label": "Repeat Duration (minutes)",
+                "type": "int",
+                "default": 1,
+                "step": 1,
+                "min": 1,
+                "tooltip": "Display popup only once in defined duration (minutes)."
+              },
+              {
+                "name": "popUpAutoClose",
+                "label": "Auto close popup?",
+                "type": "toggle",
+                "default": false,
+                "tooltip": "If enabled, popup will be closed automatically after the defined duration (in seconds)."
+              },
+              {
+                "name": "closeDuration",
+                "label": "Auto Close Duration (seconds)",
+                "type": "int",
+                "default": 15,
+                "step": 1,
+                "min": 0,
+                "tooltip": "Define the duration (in seconds) after which the popup will be closed automatically."
+              }
+
+            ]
+          },
+          {
+            "name": "design-settings",
+            "label": "Popup Design Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "popupBgOpacity",
+                "label": "Popup Background Opacity",
+                "type": "select",
+                "values": [
+                    "0.1",
+                    "0.2",
+                    "0.3",
+                    "0.4",
+                    "0.5",
+                    "0.6",
+                    "0.7",
+                    "0.8",
+                    "0.9",
+                    "1.0"
+                ],
+                "default": "0.4",
+                "tooltip": "Define the popup background opacity."
+              },
+              {
+                "name": "popupContentBgColor",
+                "label": "Content Background Color",
+                "type": "color",
+                "default": "#fefefe",
+                "tooltip": "Define the popup content background color."
+              },
+              {
+                "name": "popupContentBorderColor",
+                "label": "Content Border Color",
+                "type": "color",
+                "default": "#888",
+                "tooltip": "Define the popup content border color."
+              },
+              {
+                "name": "popupContentWidth",
+                "label": "Content Width (%)",
+                "type": "int",
+                "default": 80,
+                "step": 1,
+                "min": 0,
+                "max": 100,
+                "tooltip": "Define the width of popup content area in percentage."
+              },
+              {
+                "name": "popupContentMargin",
+                "label": "Content Top Margin (%)",
+                "type": "int",
+                "default": 15,
+                "step": 1,
+                "min": 0,
+                "tooltip": "Define the top margin of popup content area in percentage."
+              }
+
+            ]
+          },
+          {
+            "name": "btn-settings",
+            "label": "Cloase Button Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "btnBgColor",
+                "label": "Button Background Color",
+                "type": "color",
+                "default": "#333",
+                "tooltip": "Define the background color of close button."
+              },
+              {
+                "name": "btnPadding",
+                "label": "Button Padding (px)",
+                "type": "int",
+                "default": 5,
+                "step": 1,
+                "min": 0,
+                "tooltip": "Define the padding of close button."
+              },
+              {
+                "name": "btnBorderRadius",
+                "label": "Button Border Radius (px)",
+                "type": "int",
+                "default": 5,
+                "step": 1,
+                "min": 0,
+                "tooltip": "Define the border radius of close button."
+              }
+
+            ]
+          } 
+        ]
+      },
+      "tutorial": {
+        "introduction": "Auto Popup Weebly App Tutorial",
+        "type": "video",
+        "content": "jJIdi7TGFNE",
+        "autopop": false
+      }
+    },
+    {
+      "name": "Mega Menu",
+      "path": "elements/elementT",
+      "version": "1.0.4",
+      "settings": {
+        "config": {
+          "autopop": true
+        },
+        "properties": [
+          {
+            "name": "general-settings",
+            "label": "General Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "numberOfMenuItems",
+                "label": "Number Of Menu Items",
+                "type": "int",
+                "default": 1,
+                "step": 1,
+                "min": 1,
+                "tooltip": "Select the number of menu items. Each menu item will have separate drag drop mega menu."
+              },
+              {
+                "name": "menuWidth",
+                "label": "Width of Mega Menu (%)",
+                "type": "int",
+                "default": 60,
+                "step": 1,
+                "min": 0,
+                "max": 100,
+                "tooltip": "Select the width of mega menu."
+              },
+              {
+                "name": "topMargin",
+                "label": "Top Margin of Mega Menu (px)",
+                "type": "int",
+                "default": 160,
+                "step": 1,
+                "min": -1000,
+                "tooltip": "Select the top margin for mega menu so that it displays right below the navigation menu."
+              },
+              {
+                "name": "leftMargin",
+                "label": "Left Margin of Mega Menu (%)",
+                "type": "int",
+                "default": 20,
+                "step": 1,
+                "min": 0,
+                "max": 100,
+                "tooltip": "Select the left margin for mega menu."
+              },
+              {
+                "name": "menuBorder",
+                "label": "Mega Menu Border Color",
+                "type": "color",
+                "default": "#F7C233",
+                "tooltip": "Define Border color of Mega Menu"
+              },
+              {
+                "name": "menuBgColor",
+                "label": "Mega Menu Background Color",
+                "type": "color",
+                "default": "#ffffff",
+                "tooltip": "Define Background color of Mega Menu"
+              }
+            ]
+          } 
+        ]
+      },
+      "tutorial":{
+        "introduction": "Mega Menu Application Tutorial",
+        "type": "video",
+        "content": "p41pQ7H8XWU",
+        "autopop": false
+      }
+    },
     {
       "name": "CSS Animations",
       "path": "elements/elementS",
@@ -930,6 +1567,7 @@
                 "default": 100,
                 "step": 1,
                 "min": 1,
+                "max": 100,
                 "tooltip": "Define line divider width in percentage e.g 50%"
               },
               {
@@ -939,6 +1577,7 @@
                 "default": 1,
                 "step": 1,
                 "min": 1,
+                "max": 50,
                 "tooltip": "Define line divider height (px)"
               },
               {
@@ -947,6 +1586,127 @@
                 "type": "color",
                 "default": "#000",
                 "tooltip": "Select the line divider color"
+              },
+              {
+                "name": "borderRadius",
+                "label": "Border Radius (px)",
+                "type": "int",
+                "default": 0,
+                "step": 1,
+                "min": 0,
+                "max": 50,
+                "tooltip": "Round the line ends (0 = sharp corners)"
+              },
+              {
+                "name": "lineAlignment",
+                "label": "Line Alignment",
+                "type": "align",
+                "default": "left",
+                "tooltip": "Select line divider alignment" 
+              }
+            ]
+          },
+          {
+            "name": "gradient-settings",
+            "label": "Gradient Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "enableGradient",
+                "label": "Enable Gradient",
+                "type": "toggle",
+                "default": false,
+                "tooltip": "Create a gradient effect using two colors"
+              },
+              {
+                "name": "gradientColor",
+                "label": "Gradient End Color",
+                "type": "color",
+                "default": "#666",
+                "tooltip": "End color for gradient (requires Enable Gradient)"
+              },
+              {
+                "name": "gradientDirection",
+                "label": "Gradient Direction",
+                "type": "select",
+                "default": "to right",
+                "values": [
+                  {"name": "Left to Right", "value": "to right"},
+                  {"name": "Right to Left", "value": "to left"},
+                  {"name": "Top to Bottom", "value": "to bottom"}
+                ],
+                "tooltip": "Direction of gradient flow"
+              }
+            ]
+          },
+          {
+            "name": "glow-settings",
+            "label": "Glow Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "enableGlow",
+                "label": "Enable Glow Effect",
+                "type": "toggle",
+                "default": false,
+                "tooltip": "Add glowing aura around the line"
+              },
+              {
+                "name": "glowColor",
+                "label": "Glow Color",
+                "type": "color",
+                "default": "#fff",
+                "tooltip": "Color of the glow effect"
+              },
+              {
+                "name": "glowIntensity",
+                "label": "Glow Intensity (px)",
+                "type": "int",
+                "default": 10,
+                "step": 1,
+                "min": 0,
+                "max": 50,
+                "tooltip": "Intensity of glow effect"
+              }
+            ]
+          },
+          {
+            "name": "decoration-settings",
+            "label": "Decoration Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "decorativeStyle",
+                "label": "Decoration Style",
+                "type": "select",
+                "default": "none",
+                "values": [
+                  {"name": "None", "value": "none"},
+                  {"name": "Dots at Ends", "value": "dots"},
+                  {"name": "Arrows at Ends", "value": "arrows"},
+                  {"name": "Diamond at Center", "value": "diamond"},
+                  {"name": "Circle at Center", "value": "circle"},
+                  {"name": "Star at Center", "value": "star"},
+                  {"name": "Heart at Center", "value": "heart"}
+                ],
+                "tooltip": "Add decorative elements to the line"
+              },
+              {
+                "name": "decorationSize",
+                "label": "Decoration Size (px)",
+                "type": "int",
+                "default": 10,
+                "step": 1,
+                "min": 5,
+                "max": 30,
+                "tooltip": "Size of decorative elements"
+              },
+              {
+                "name": "decorationColor",
+                "label": "Decoration Color",
+                "type": "color",
+                "default": "#000",
+                "tooltip": "Color of decorative elements"
               }
             ]
           },
@@ -956,36 +1716,48 @@
             "type": "group",
             "properties": [
               {
-                "name": "lineAlignment",
-                "label": "Line Alignment",
-                "type": "align",
-                "default": "left",
-                "tooltip": "Select line divider alignment" 
-              },
-              {
                 "name": "topMargin",
-                "label": "Top Margin",
+                "label": "Top Margin (px)",
                 "type": "int",
                 "default": 5,
                 "step": 1,
                 "min": 0,
+                "max": 200,
                 "tooltip": "Define top margin (px)"
               },
               {
                 "name": "bottomMargin",
-                "label": "Bottom Margin",
+                "label": "Bottom Margin (px)",
                 "type": "int",
                 "default": 5,
                 "step": 1,
                 "min": 0,
+                "max": 200,
                 "tooltip": "Define bottom margin (px)"
+              },
+              {
+                "name": "leftPadding",
+                "label": "Left Padding (px)",
+                "type": "int",
+                "default": 0,
+                "step": 1,
+                "min": 0,
+                "max": 100,
+                "tooltip": "Add padding on the left side"
+              },
+              {
+                "name": "rightPadding",
+                "label": "Right Padding (px)",
+                "type": "int",
+                "default": 0,
+                "step": 1,
+                "min": 0,
+                "max": 100,
+                "tooltip": "Add padding on the right side"
               }
-
             ]
           }
-          
         ]
-
       }
     },
     {
@@ -1132,6 +1904,13 @@
             "type": "group",
             "properties": [
               {
+                "name": "ddCards",
+                "label": "DD Enabled Cards?",
+                "type": "toggle",
+                "default": false,
+                "tooltip": "True means any Weebly element can be dragged and dropped in card"
+              },
+              {
                 "name": "columnBgColor",
                 "label": "Card BG Color",
                 "type": "color",
@@ -1167,6 +1946,12 @@
           
         ]
 
+      },
+      "tutorial":{
+        "introduction": "Masonry Layout Application Demo",
+        "type": "video",
+        "content": "lZ5BEqGVWU4",
+        "autopop": false
       }
     },
     {
@@ -1368,7 +2153,7 @@
                 "name": "youtubeThumbnail",
                 "label": "Youtube Thumbnail Link",
                 "type": "string",
-                "default": "http://placehold.it/350",
+                "default": "https://marketplace.editmysite.com/uploads/b/marketplace-elements-575600160136759705-1.0.2/assets/350.png",
                 "tooltip": "Enter the link to image which you want to use as thumbnail for youtube video" 
               },
               {
@@ -1382,7 +2167,7 @@
                 "name": "vimeoThumbnail",
                 "label": "Vimeo Thumbnail Link",
                 "type": "string",
-                "default": "http://placehold.it/350",
+                "default": "https://marketplace.editmysite.com/uploads/b/marketplace-elements-575600160136759705-1.0.2/assets/350.png",
                 "tooltip": "Enter the link to image which you want to use as thumbnail for vimeo video" 
               },
               {
@@ -1392,13 +2177,9 @@
                 "default": "center",
                 "tooltip": "Select thumbnail image alignment" 
               }
-              
-
             ]
           }
-          
         ]
-
       }
     },
     {
@@ -1507,10 +2288,8 @@
               }
 
             ]
-          }
-          
+          } 
         ]
-
       }
     },
     {
@@ -1594,10 +2373,8 @@
                 "default": "#ccc",
                 "tooltip": "Define border color of tabs"
               }
-
             ]
           },
-
           {
             "name": "tab-content-settings",
             "label": "Tab Content Settings",
@@ -1617,12 +2394,9 @@
                 "default": "#000",
                 "tooltip": "Define border color of tab content section"
               }
-
             ]
           }
-          
         ]
-
       }
     },
     {
@@ -1667,13 +2441,36 @@
                 "step": 1,
                 "min": 50,
                 "tooltip": "Select the height of overlay area"
+              },
+              {
+                "name" : "img-full-width",
+                "label": "Full Width Image",
+                "type" : "toggle",
+                "default" : true,
+                "tooltip": "To make the image full width"
+              },
+              {
+                "name" : "img-over-img",
+                "label": "Image Over Image",
+                "type" : "toggle",
+                "default" : false,
+                "tooltip": "To display the image as an overlay (only for SlideInBottom, SlideInRight and SlideInLeft)"
               }
-
             ]
           }
-          
         ]
-
+      },
+      "tutorial": {
+        "introduction": "How to Use Image Overlay App",
+        "type": "steps",
+        "content": [
+            "Drag and drop Image Overlay app wherever you want to display it.",
+            "Click on the default image icon to upload a new underlying image.",
+            "Inside the overlay area any Weebly element can be dragged and dropped e.g Title or text element.",
+            "Configure other settings and publish the website to see the results.",
+            "If you only want to display image as an overlay image then drag and drop only image element in overlay area and in settings panel enable the option of Image Over Image."
+        ],
+        "autopop": false
       }
     },
     {
@@ -1692,54 +2489,138 @@
             "properties": [
               {
                 "name": "numberOfElements",
-                "label": "No of Elements",
+                "label": "Number of Timeline Items",
                 "type": "int",
-                "default": 1,
+                "default": 3,
                 "step": 1,
                 "min": 1,
-                "tooltip": "Define number of elements"
+                "max": 20,
+                "tooltip": "Define number of timeline items to display (1-20)"
+              },
+              {
+                "name": "animationStyle",
+                "label": "Scroll Animation",
+                "type": "select",
+                "default": "fade",
+                "values": [
+                  {"name": "None", "value": "none"},
+                  {"name": "Fade In", "value": "fade"},
+                  {"name": "Scale Up", "value": "scale"}
+                ],
+                "tooltip": "Animation effect when items scroll into view"
+              },
+              {
+                "name": "hoverEffect",
+                "label": "Enable Hover Effect",
+                "type": "toggle",
+                "default": true,
+                "tooltip": "Add subtle lift effect when hovering over timeline items"
               }
             ]
           },
           {
-            "name": "tm-settings",
-            "label": "Timeline Settings",
+            "name": "tm-style-settings",
+            "label": "Colors & Style",
             "type": "group",
             "properties": [
               {
                 "name": "tmBgColor",
-                "label": "Timeline BG Color",
+                "label": "Background Color",
                 "type": "color",
                 "default": "#8d2424",
-                "tooltip": "Define background color of Timeline"
+                "tooltip": "Background color of the entire timeline section"
               },
               {
                 "name": "tmCenterlineBgColor",
-                "label": "Center Line Color",
+                "label": "Timeline Line Color",
                 "type": "color",
                 "default": "#ffffff",
-                "tooltip": "Define centeral line color"
+                "tooltip": "Color of the vertical timeline line"
               },
               {
                 "name": "tmCircleBgColor",
-                "label": "Border Color of Circles",
+                "label": "Circle Border Color",
                 "type": "color",
                 "default": "#FF9F55",
-                "tooltip": "Define border color of circular dots"
+                "tooltip": "Border color of timeline marker circles"
+              },
+              {
+                "name": "tmCircleFillColor",
+                "label": "Circle Fill Color",
+                "type": "color",
+                "default": "#ffffff",
+                "tooltip": "Fill color inside the marker circles"
+              },
+              {
+                "name": "connectorColor",
+                "label": "Connector Arrow Color",
+                "type": "color",
+                "default": "#ffffff",
+                "tooltip": "Color of the arrow connector (usually matches content background)"
               },
               {
                 "name": "tmContentBGColor",
-                "label": "Content BG Color",
+                "label": "Content Box Background",
                 "type": "color",
                 "default": "#ffffff",
-                "tooltip": "Define background color of content sections"
+                "tooltip": "Background color of timeline content boxes"
+              },
+              {
+                "name": "contentBorderRadius",
+                "label": "Content Corner Radius (px)",
+                "type": "int",
+                "default": 6,
+                "step": 1,
+                "min": 0,
+                "max": 30,
+                "tooltip": "Roundness of content box corners (0 = square, 30 = very round)"
               }
-
+            ]
+          },
+          {
+            "name": "tm-spacing-settings",
+            "label": "Spacing & Layout",
+            "type": "group",
+            "properties": [
+              {
+                "name": "containerPadding",
+                "label": "Container Inner Padding (px)",
+                "type": "int",
+                "default": 10,
+                "step": 1,
+                "min": 0,
+                "max": 50,
+                "tooltip": "Internal top and bottom padding inside container"
+              },
+              {
+                "name": "itemSpacing",
+                "label": "Space Between Items (px)",
+                "type": "int",
+                "default": 10,
+                "step": 1,
+                "min": 0,
+                "max": 100,
+                "tooltip": "Vertical spacing between timeline items"
+              },
+              {
+                "name": "contentPadding",
+                "label": "Content Inner Padding (px)",
+                "type": "int",
+                "default": 20,
+                "step": 1,
+                "min": 10,
+                "max": 50,
+                "tooltip": "Internal padding inside content boxes"
+              }
             ]
           }
-          
         ]
-
+      },
+      "tutorial": {
+        "introduction": "Timeline Weebly App Demo",
+        "type": "video",
+        "content": "AW0iKoKwzDo",
+        "autopop": false
       }
     },
     {
@@ -1779,28 +2660,24 @@
                 "label": "Opacity",
                 "type": "select",
                 "values": [
-                    "0.1",
-                    "0.2",
-                    "0.3",
-                    "0.4",
-                    "0.5",
-                    "0.6",
-                    "0.7",
-                    "0.8",
-                    "0.9",
-                    "1.0"
+                  "0.1",
+                  "0.2",
+                  "0.3",
+                  "0.4",
+                  "0.5",
+                  "0.6",
+                  "0.7",
+                  "0.8",
+                  "0.9",
+                  "1.0"
                 ],
                 "default": "0.5",
                 "tooltip": "Define the opacity to control the transparency"
-            }
-
+              }
             ]
           }
-          
         ]
-
       }
     }
-
   ]
 }

@@ -1,0 +1,89 @@
+{
+  "manifest": "1",
+  "version": "1.0.3",
+  "client_id": "669754871",
+  "callback_url": "https://codoplex.com/wpwa_phase_one/?pr_id=1564",
+  "oauth_final_destination": "editor",
+  "scopes": ["read:site", "write:site"],
+  "locale": "",
+  "elements": [
+    {
+      "name": "Image Overlay",
+      "path": "files",
+      "version": "1.0.3",
+      "settings": {
+        "config": {
+          "autopop": true
+        },
+        "properties": [
+          {
+            "name": "general-settings",
+            "label": "General Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "overlayEffect",
+                "label": "Overlay Effect",
+                "type": "select",
+                "values": [
+                  "FadeInText",
+                  "SlideInTop",
+                  "SlideInBottom",
+                  "SlideInLeft",
+                  "SlideInRight"
+                ],
+                "default": "SlideInBottom"
+              },
+              {
+                "name": "overlayBgColor",
+                "label": "Overlay BG Color",
+                "type": "color",
+                "default": "#008CBA",
+                "tooltip": "Define overlay background color"
+              },
+              {
+                "name": "overlayHeight",
+                "label": "Overlay Height",
+                "type": "int",
+                "default": 200,
+                "step": 1,
+                "min": 50,
+                "tooltip": "Select the height of overlay area"
+              },
+              {
+                "name" : "img-full-width",
+                "label": "Full Width Image",
+                "type" : "toggle",
+                "default" : true,
+                "tooltip": "To make the image full width"
+              },
+              {
+                "name" : "img-over-img",
+                "label": "Image Over Image",
+                "type" : "toggle",
+                "default" : false,
+                "tooltip": "To display the image as an overlay (only for SlideInBottom, SlideInRight and SlideInLeft)"
+              }
+
+            ]
+          }
+          
+        ]
+
+      },
+      "tutorial": {
+        "introduction": "How to Use Image Overlay App",
+        "type": "steps",
+        "content": [
+            "Drag and drop Image Overlay app wherever you want to display it.",
+            "Click on the default image icon to upload a new underlying image.",
+            "Inside the overlay area any Weebly element can be dragged and dropped e.g Title or text element.",
+            "Configure other settings and publish the website to see the results.",
+            "If you only want to display image as an overlay image then drag and drop only image element in overlay area and in settings panel enable the option of Image Over Image.",
+            "Please note that Image over image option only works for 3 transitions i.e SlideInBottom, SlideInRight and SlideInLeft."
+        ],
+        "autopop": false
+      }
+    }
+  ]
+}

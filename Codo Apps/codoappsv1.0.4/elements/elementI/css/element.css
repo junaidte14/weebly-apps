@@ -1,6 +1,9 @@
+/* Timeline v2.0.0 - Enhanced CSS with full backward compatibility */
+
 .codotimeline_container{
     width: 100%;
     background-color: @tmBgColor;
+    transition: background-color 0.3s ease;
 }
 
 /* The actual timeline (the vertical ruler) */
@@ -20,6 +23,7 @@
   bottom: 0;
   left: 50%;
   margin-left: -3px;
+  transition: background-color 0.3s ease;
 }
 
 /* Container around content */
@@ -27,7 +31,44 @@
   padding: 10px 40px;
   position: relative;
   background-color: inherit;
-  width: 41.2%;
+  width: 50%;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  box-sizing: border-box;
+}
+
+/* Animation states based on data-animation attribute */
+[data-animation="fade"] .codo_tm_container {
+  opacity: 0;
+  transform: translateY(0);
+}
+
+[data-animation="fade"] .codo_tm_container.aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-animation="scale"] .codo_tm_container {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+[data-animation="scale"] .codo_tm_container.aos-animate {
+  opacity: 1;
+  transform: scale(1);
+}
+
+[data-animation="none"] .codo_tm_container {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+/* Animated state - visible */
+.codo_tm_container.aos-animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* The circles on the timeline */
@@ -36,16 +77,22 @@
   position: absolute;
   width: 25px;
   height: 25px;
-  right: -17px;
-  background-color: white;
+  right: -16.5px;
+  background-color: @tmCircleFillColor;
   border: 4px solid @tmCircleBgColor;
   top: 15px;
   border-radius: 50%;
   z-index: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Hover effect on circles when enabled */
+[data-hover="true"] .codo_tm_container:hover::after {
+  transform: scale(1.2);
+  box-shadow: 0 0 15px rgba(255, 159, 85, 0.5);
 }
 
 /* Place the container to the left */
-
 .codo_timeline .codo_tm_container:nth-child(odd){
     left: 0;
 }
@@ -60,13 +107,14 @@
   content: " ";
   height: 0;
   position: absolute;
-  top: 22px;
+  top: 20px;
   width: 0;
   z-index: 1;
   right: 30px;
-  border: medium solid white;
+  border: medium solid @connectorColor;
   border-width: 10px 0 10px 10px;
-  border-color: transparent transparent transparent white;
+  border-color: transparent transparent transparent @connectorColor;
+  transition: border-color 0.3s ease;
 }
 
 /* Add arrows to the right container (pointing left) */
@@ -74,18 +122,20 @@
   content: " ";
   height: 0;
   position: absolute;
-  top: 22px;
+  top: 20px;
   width: 0;
   z-index: 1;
   left: 30px;
-  border: medium solid white;
+  border: medium solid @connectorColor;
   border-width: 10px 10px 10px 0;
-  border-color: transparent white transparent transparent;
+  border-color: transparent @connectorColor transparent transparent;
+  transition: border-color 0.3s ease;
 }
 
 /* Fix the circle for containers on the right side */
 .codo_timeline .codo_tm_container:nth-child(even)::after {
-  left: -16px;
+  left: -16.5px;
+  right: auto;
 }
 
 /* The actual content */
@@ -93,53 +143,106 @@
   padding: 20px 30px;
   background-color: @tmContentBGColor;
   position: relative;
+  border-radius: @contentBorderRadius;
   border-radius: 6px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
+/* Hover effect on content boxes when enabled */
+[data-hover="true"] .codo_tm_container:hover .codo_tm_content {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Smooth transitions for all interactive elements */
+.codo_tm_container,
+.codo_tm_content,
+.codo_tm_container::after,
+.codo_tm_container::before {
+  will-change: transform, opacity;
+}
+
+/* Tablet breakpoint */
 @media all and (max-width: 767px){
     .codo_tm_container {
-        width: 36.5%;
+        width: 50%;
     }
 }
 
 /* Media queries - Responsive timeline on screens less than 600px wide */
 @media all and (max-width: 600px) {
-/* Place the timelime to the left */
+  /* Place the timeline to the left */
   .codo_timeline::after {
     left: 31px;
   }
 
-/* Full-width containers */
+  /* Full-width containers */
   .codo_tm_container {
-    width: 70%;
+    width: 100%;
     padding-left: 70px;
     padding-right: 25px;
   }
 
-/* Make sure that all arrows are pointing leftwards */
+  /* Make sure that all arrows are pointing leftwards */
   .codo_tm_container::before {
     left: 60px;
+    border: medium solid @connectorColor;
     border: medium solid white;
     border-width: 10px 10px 10px 0;
+    border-color: transparent @connectorColor transparent transparent;
     border-color: transparent white transparent transparent;
   }
 
-/* Make sure all circles are at the same spot */
-  .codo_timeline .codo_tm_container:nth-child(odd)::after, .codo_timeline .codo_tm_container:nth-child(even)::after {
+  /* Make sure all circles are at the same spot */
+  .codo_timeline .codo_tm_container:nth-child(odd)::after, 
+  .codo_timeline .codo_tm_container:nth-child(even)::after {
     left: 15px;
   }
 
-/* Make all right containers behave like the left ones */
+  /* Make all right containers behave like the left ones */
   .codo_timeline .codo_tm_container:nth-child(even) {
     left: 0%;
   }
 
-    .codo_timeline .codo_tm_container:nth-child(even)::before {
-        left: 60px;
-    }
+  .codo_timeline .codo_tm_container:nth-child(even)::before {
+    left: 60px;
+  }
 
-    .codo_timeline .codo_tm_container:nth-child(odd)::before {
-        border-width: 10px 10px 10px 0px;
-        border-color: transparent white transparent transparent;
-    }
+  .codo_timeline .codo_tm_container:nth-child(odd)::before {
+    border-width: 10px 10px 10px 0px;
+    border-color: transparent @connectorColor transparent transparent;
+    border-color: transparent white transparent transparent;
+  }
+  
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .codo_tm_container,
+  .codo_tm_content,
+  .codo_tm_container::after,
+  .codo_tm_container::before,
+  .codotimeline_container,
+  .codo_timeline::after {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .codo_tm_container {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .codo_tm_container {
+    opacity: 1 !important;
+    transform: none !important;
+    page-break-inside: avoid;
+  }
+  
+  .codo_tm_content {
+    box-shadow: none !important;
+  }
 }

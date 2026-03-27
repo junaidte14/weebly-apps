@@ -1,0 +1,68 @@
+.tab_headers_container{
+	min-height: 200px;
+	width: 100%;
+}
+
+/*https://www.w3schools.com/howto/howto_js_tab_header.asp*/
+
+/* Style the tab */
+.tab_headers {
+    overflow: hidden;
+    border: 1px solid @tabBorderColor;
+    background-color: @tabBgColor;
+}
+
+/* Style the buttons inside the tab */
+.tab_headers button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab_headers button:hover {
+    background-color: @tabHoverBgColor;
+}
+
+/* Create an active/current tablink class */
+.tab_headers button.active {
+    background-color: @tabActiveBgColor;
+}
+
+.tab_headers br {
+    display: none;
+}
+
+/* Style the tab content */
+.th_tabcontent {
+    padding: 6px 12px;
+    border: 1px solid @tabContentBorderColor;
+}
+
+.th_tabcontent .paragraph{
+    color: @tabContentTextColor !important;
+}
+
+.tab_headers .th_tablinks .paragraph{
+    color: @tabTextColor !important;
+    margin-bottom: 0;
+}
+
+.tab_headers_container.text-align-center .th_tabcontent .paragraph,
+.tab_headers_container.text-align-center .tab_headers .th_tablinks .paragraph{
+	text-align: center;
+}
+
+.tab_headers_container.text-align-left .th_tabcontent .paragraph,
+.tab_headers_container.text-align-left .tab_headers .th_tablinks .paragraph{
+	text-align: left;
+}
+
+.tab_headers_container.text-align-right .th_tabcontent .paragraph,
+.tab_headers_container.text-align-right .tab_headers .th_tablinks .paragraph{
+	text-align: right;
+}

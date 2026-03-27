@@ -1,0 +1,91 @@
+{
+  "manifest": "1",
+  "version": "1.0.2",
+  "client_id": "877244759",
+  "callback_url": "https://codoplex.com/wpwa_phase_one/?pr_id=1553", 
+  "oauth_final_destination": "editor",
+  "scopes": ["read:site", "write:site"],
+  "locale": "",
+  "elements": [
+    {
+      "name": "Progress Bar",
+      "path": "files",
+      "version": "1.0.2",
+      "settings": {
+        "config": {
+          "autopop": true
+        },
+        "properties": [
+          {
+            "name": "settings",
+            "label": "Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "progressId",
+                "label": "Unique ID",
+                "type": "int",
+                "default": 1,
+                "step": 1,
+                "min": 1,
+                "tooltip": "id should be unique for each progress bar on the same page"
+              },
+              {
+                "name": "progressPercentage",
+                "label": "Percentage (%)",
+                "type": "int",
+                "default": 50,
+                "step": 1,
+                "min": 1,
+                "max" : 100,
+                "tooltip": "Select the progress percentage"
+              },
+              {
+                "name": "progressHeight",
+                "label": "Height",
+                "type": "int",
+                "default": 50,
+                "step": 1,
+                "min": 1,
+                "tooltip": "Select the progress bar height"
+              },
+              {
+                "name": "textColor",
+                "label": "Text Color",
+                "type": "color",
+                "default": "#ffffff",
+                "tooltip": "Select the progress bar text (e.g 50%) color"
+              },
+              {
+                "name": "progressColor",
+                "label": "Progress Bar Color",
+                "type": "color",
+                "default": "#508d24",
+                "tooltip": "Select the progress bar color"
+              },
+              {
+                "name": "progressBgColor",
+                "label": "Background Color",
+                "type": "color",
+                "default": "#ddd",
+                "tooltip": "Select the progress bar background color"
+              },
+              {
+                "name": "borderRadius",
+                "label": "Border Radius",
+                "type": "int",
+                "default": 0,
+                "step": 1,
+                "min": 0,
+                "tooltip": "Select progress bar border radius, used for rounded corners"
+              }
+
+            ]
+          }
+          
+        ]
+
+      }
+    }
+  ]
+}

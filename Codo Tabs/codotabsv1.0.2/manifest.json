@@ -1,0 +1,123 @@
+{
+  "manifest": "1",
+  "version": "1.0.2",
+  "client_id": "553689296",
+  "callback_url": "https://codoplex.com/wpwa_phase_one/?pr_id=1559", 
+  "oauth_final_destination": "editor",
+  "scopes": ["read:site", "write:site"],
+  "locale": "",
+  "elements": [
+    {
+      "name": "Codo Tabs",
+      "path": "files",
+      "version": "1.0.2",
+      "settings": {
+        "config": {
+          "autopop": true
+        },
+        "properties": [
+          {
+            "name": "general-settings",
+            "label": "General Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "uniqueId",
+                "label": "Unique ID",
+                "type": "int",
+                "default": 1,
+                "step": 1,
+                "min": 1,
+                "tooltip": "Increment the unique id if you want to add Codo Tabs element multiple times at same page."
+              },
+              {
+                "name": "numberOfTabs",
+                "label": "No of Tabs",
+                "type": "int",
+                "default": 1,
+                "step": 1,
+                "min": 1,
+                "tooltip": "Define number of tabs"
+              },
+              {
+                "name": "textAlignment",
+                "label": "Text Alignment",
+                "type": "align",
+                "default": "center",
+                "tooltip": "Define text alignment" 
+              }
+            ]
+          },
+          {
+            "name": "tab-settings",
+            "label": "Tab Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "tabTextColor",
+                "label": "Text Color",
+                "type": "color",
+                "default": "#000",
+                "tooltip": "Define text color of tabs"
+              },
+              {
+                "name": "tabBgColor",
+                "label": "Tab BG Color",
+                "type": "color",
+                "default": "#f1f1f1",
+                "tooltip": "Define background color of tabs"
+              },
+              {
+                "name": "tabActiveBgColor",
+                "label": "Active Tab BG Color",
+                "type": "color",
+                "default": "#ccc",
+                "tooltip": "Define background color of active tab"
+              },
+              {
+                "name": "tabHoverBgColor",
+                "label": "Hovered Tab BG Color",
+                "type": "color",
+                "default": "#ddd",
+                "tooltip": "Define background color of hovered tab"
+              },
+              {
+                "name": "tabBorderColor",
+                "label": "Tab Border Color",
+                "type": "color",
+                "default": "#ccc",
+                "tooltip": "Define border color of tabs"
+              }
+
+            ]
+          },
+
+          {
+            "name": "tab-content-settings",
+            "label": "Tab Content Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "tabContentBorderColor",
+                "label": "Content Border Color",
+                "type": "color",
+                "default": "#ccc",
+                "tooltip": "Define border color of tab content section"
+              },
+              {
+                "name": "tabContentTextColor",
+                "label": "Content Text Color",
+                "type": "color",
+                "default": "#000",
+                "tooltip": "Define border color of tab content section"
+              }
+
+            ]
+          }
+          
+        ]
+
+      }
+    }
+  ]
+}

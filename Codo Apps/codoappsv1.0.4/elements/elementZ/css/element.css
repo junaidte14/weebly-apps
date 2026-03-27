@@ -1,0 +1,29 @@
+#codo-crumbs .codo-container {
+    padding: 0;
+}
+#codo-crumbs a {
+  color: @fontColor; /* Changes color of breadcrumbs */
+}
+#codo-crumbs p.codo-crumblink {
+    display: inline;
+    margin: 0 auto;
+}
+.codo-crumb a:before {
+    content: @bcSeparator;
+}
+
+.codo-blog{
+  display: inline;
+}
+
+.bcalign-left{
+	text-align: left;
+}
+
+.bcalign-center{
+	text-align: center;
+}
+
+.bcalign-right{
+	text-align: right;
+}

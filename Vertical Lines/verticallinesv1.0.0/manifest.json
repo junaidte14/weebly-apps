@@ -1,0 +1,81 @@
+{
+  "manifest": "1",
+  "version": "1.0.0",
+  "client_id": "824839921",
+  "callback_url": "https://codoplex.com/wpwa_phase_one/?pr_id=4459",
+  "oauth_final_destination": "editor",
+  "scopes": ["read:site", "write:site"],
+  "locale": "",
+  "elements": [
+    {
+      "name": "Vertical Lines",
+      "path": "files",
+      "version": "1.0.0",
+      "settings": {
+        "config": {
+          "autopop": true
+        },
+        "properties": [
+          {
+            "name": "general-settings",
+            "label": "General Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "lineWidth",
+                "label": "Line Width (px)",
+                "type": "int",
+                "default": 3,
+                "step": 1,
+                "min": 1,
+                "tooltip": "Define line width (px)"
+              },
+              {
+                "name": "lineHeight",
+                "label": "Line Height (px)",
+                "type": "int",
+                "default": 200,
+                "step": 1,
+                "min": 1,
+                "tooltip": "Define line height (px)"
+              },
+              {
+                "name": "lineColor",
+                "label": "Line Color",
+                "type": "color",
+                "default": "#000",
+                "tooltip": "Select the line color"
+              }
+            ]
+          },
+          {
+            "name": "advanced-settings",
+            "label": "Advanced Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "hideMobile",
+                "label": "Hide in Mobile?",
+                "type": "toggle",
+                "default": false,
+                "tooltip": "When enabled, vertical line will be hidden in mobile devices"
+              }
+
+            ]
+          }
+          
+        ]
+
+      },
+
+      "tutorial":
+        {
+            "introduction": "Vertical Lines Weebly app gives a user the ability to create a colorful vertical line in Weebly drag and drop editor.",
+            "type": "video",
+            "content": "sHlM57hH-6g",
+            "autopop": true
+        }
+
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "manifest": "1",
+  "version": "1.0.4",
+  "client_id": "1881024438",
+  "callback_url": "https://codoplex.com/wpwa_phase_one/?pr_id=1549", 
+  "oauth_final_destination": "editor",
+  "scopes": ["read:site", "write:site"],
+  "locale": "",
+  "elements": [
+    {
+      "name": "Video Lightbox",
+      "path": "files",
+      "version": "1.0.4",
+      "settings": {
+        "config": {
+          "autopop": true
+        },
+        "properties": [
+          {
+            "name": "settings",
+            "label": "Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "videoType",
+                "label": "Video Type",
+                "type": "select",
+                "values": [
+                  "youtube",
+                  "vimeo"
+                ],
+                "default": "youtube",
+                "tooltip": "Select the video type i.e youtube or vimeo"
+              },
+              {
+                "name": "uniqueId",
+                "label": "Unique ID",
+                "type": "int",
+                "default": 1,
+                "step": 1,
+                "min": 1,
+                "tooltip": "Increment the unique id if you add video lightbox element multiple times."
+              },
+              {
+                "name": "videoId",
+                "label": "Video ID",
+                "type": "string",
+                "default": "bACaoohOp6M",
+                "tooltip": "e.g https://www.youtube.com/watch?v=VIDEOID, https://vimeo.com/VIDEOID" 
+              },
+              {
+                "name": "youtubeThumbnail",
+                "label": "Youtube Thumbnail Link",
+                "type": "string",
+                "default": "https://marketplace.editmysite.com/uploads/b/marketplace-elements-575600160136759705-1.0.2/assets/350.png",
+                "tooltip": "Enter the link to image which you want to use as thumbnail for youtube video" 
+              },
+              {
+                "name": "autoThumb",
+                "label": "Youtube Auto Thumbnail",
+                "type": "toggle",
+                "default": true,
+                "tooltip": "If enabled thumbnail image will be automatically grabbed from youtbe video"
+              },
+              {
+                "name": "vimeoThumbnail",
+                "label": "Vimeo Thumbnail Link",
+                "type": "string",
+                "default": "https://marketplace.editmysite.com/uploads/b/marketplace-elements-575600160136759705-1.0.2/assets/350.png",
+                "tooltip": "Enter the link to image which you want to use as thumbnail for vimeo video" 
+              },
+              {
+                "name": "textAlignment",
+                "label": "Thumbnail Alignment",
+                "type": "align",
+                "default": "center",
+                "tooltip": "Select thumbnail image alignment" 
+              }
+              
+
+            ]
+          }
+          
+        ]
+
+      }
+    }
+
+  ]
+}
